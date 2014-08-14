@@ -1,0 +1,87 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     id="clock" width="250" height="250" viewBox="0 0 250 250"
+     onload="init()" >
+  <title>Snap.svg Analog Clock</title>
+
+  <script type="application/ecmascript" xlink:href="snap.svg-min.js"></script>
+  <script type="application/ecmascript"><![CDATA[
+
+  /* the Paper object where the clock is drawn */
+  var clock;
+  /* references to the Snap Elements for the clock hands */
+  var hourHand,
+      minuteHand,
+      secondHand;
+  /* time conversion constants */
+  var secPerMinute  = 60,
+      secPerHour    = 60*60,
+      secPer12Hours = 60*60*12;
+
+  function init() {
+    /* select the empty <svg> as a snap Paper object */
+    clock = Snap("#clock");
+
+    /* create the clock face */
+    var face = clock.circle(125, 125, 100);
+    face.attr({fill: "white", stroke: "black"});
+
+    /* create a group for the ticks */
+    var ticks = clock.g();
+    ticks.transform("t125,125");
+
+    var tickMark;
+    for (var i = 1; i <= 12; i++) {
+      tickMark = clock.path("M95,0 L100,-5 L100,5 Z");
+      tickMark.transform( "rotate("+ (30*i) + ")" );
+      ticks.add( tickMark );
+    }
+
+    /* create the hands */
+    hourHand = clock.path("M125,125 L125,75");
+    minuteHand = clock.path("M125,125 L125,45");
+    secondHand = clock.path("M125,125 L125,30");
+
+    var hands = clock.g(hourHand, minuteHand, secondHand);
+    hands.attr({stroke: "black",
+                "stroke-width": 5,
+                "stroke-linecap": "round"});
+    secondHand.attr({stroke: "red", strokeWidth: "2px"});
+
+    /* add the center knob */
+    clock.circle(125, 125, 6).attr({fill: "#333"});
+
+    updateClock();
+  }
+
+  function updateClock()
+  {
+      /* get the system time */
+      var date = new Date();
+      /* calculate the number of seconds since midnight */
+      var time = date.getMilliseconds()/1000 +
+                date.getSeconds() +
+                date.getMinutes()*60 +
+                date.getHours()*60*60;
+
+      /* calculate the rotation angles */
+      var s = 360*( time % secPerMinute)/secPerMinute,
+          m = 360*( time % secPerHour )/secPerHour,
+          h = 360*( time % secPer12Hours )/secPer12Hours;
+
+      secondHand.transform("r" + s +",125,125");
+      minuteHand.transform("r" + m +",125,125");
+      hourHand.transform("r" + h +",125,125");
+
+      secondHand.animate({transform: "r" + [s + 360, 125, 125]},
+                          60000, mina.linear);
+      minuteHand.animate({transform: "r" + [m + 6, 125, 125]},
+                          60000, mina.linear);
+      hourHand.animate({transform: "r" + [h + 0.5, 125, 125]},
+                          60000, mina.linear, updateClock);
+  }
+  ]]>
+  </script>
+</svg>

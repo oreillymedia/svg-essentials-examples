@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Using &lt;def&gt;</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="240px" height="240px" viewBox="0 0 240 240"&gt;
+&lt;title&gt;Grouped Drawing&lt;/title&gt;
+&lt;desc&gt;Stick-figure drawings of a house and people&lt;/desc&gt;
+
+&lt;defs&gt;
+&lt;g id="house" style="stroke: black;"&gt;
+    &lt;desc&gt;House with door&lt;/desc&gt;
+    &lt;rect x="0" y="41" width="60" height="60"/&gt;
+    &lt;polyline points="0 41, 30 0, 60 41"/&gt;
+    &lt;polyline points="30 101, 30 71, 44 71, 44 101"/&gt;
+&lt;/g&gt;
+
+&lt;g id="man" style="fill: none; stroke: black;"&gt;
+    &lt;desc&gt;Male stick figure&lt;/desc&gt;
+    &lt;circle cx="10" cy="10" r="10"/&gt;
+    &lt;line x1="10" y1="20" x2="10" y2="44"/&gt;
+    &lt;polyline points="1 58, 10 44, 19 58"/&gt;
+    &lt;polyline points="1 24, 10 30, 19 24"/&gt;
+&lt;/g&gt;
+
+&lt;g id="woman" style="fill: none; stroke: black;"&gt;
+    &lt;desc&gt;Female stick figure&lt;/desc&gt;
+    &lt;circle cx="10" cy="10" r="10"/&gt;
+    &lt;polyline points="10 20, 10 34, 0 44, 20 44, 10 34"/&gt;
+    &lt;line x1="4" y1="58" x2="8" y2="44"/&gt;
+    &lt;line x1="12" y1="44" x2="16" y2="58"/&gt;
+    &lt;polyline points="1 24, 10 30, 19 24" /&gt;
+&lt;/g&gt;
+
+&lt;g id="couple"&gt;
+    &lt;desc&gt;Male and female stick figures&lt;/desc&gt;
+    &lt;use xlink:href="#man" x="0" y="0"/&gt;
+    &lt;use xlink:href="#woman" x="25" y="0"/&gt;
+&lt;/g&gt;
+&lt;/defs&gt;
+
+&lt;!-- make use of the defined groups --&gt;
+&lt;use xlink:href="#house" x="0" y="0" style="fill: #cfc;"/&gt;
+&lt;use xlink:href="#couple" x="70" y="40"/&gt;
+
+&lt;use xlink:href="#house" x="120" y="0" style="fill: #99f;"/&gt;
+&lt;use xlink:href="#couple" x="190" y="40"/&gt;
+
+&lt;use xlink:href="#woman" x="0" y="145"/&gt;
+&lt;use xlink:href="#man" x="25" y="145"/&gt;
+&lt;use xlink:href="#house" x="65" y="105" style="fill: #c00;"/&gt;
+&lt;/svg&gt;
+</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="240" height="240" viewBox="0 0 240 240">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>

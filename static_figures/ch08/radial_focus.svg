@@ -1,0 +1,21 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="200px" viewBox="0 0 400 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  
+  <title>Setting focal point for a radial gradient</title>
+ 
+  <defs>
+    <radialGradient id="focal_set"
+      cx="0%" cy="0%" fx="50%" fy="50%" r="100%">
+        <stop offset="0%" style="stop-color: #f96;"/>
+        <stop offset="50%" style="stop-color: #9c9;"/>
+        <stop offset="100%" style="stop-color: #906;"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="20" y="20" width="100" height="100"
+      style="fill: url(#focal_set); stroke: black;"/>
+</svg>

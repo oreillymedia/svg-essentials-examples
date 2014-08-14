@@ -1,0 +1,31 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  
+  <title>Rounded Rectangles</title>
+  <desc>Displays several rect elements with varying
+   values of rx and ry.</desc>
+  <image xlink:href="default_ruler.svg" x="0" y="0" width="200"
+    height="200"/>
+  <g transform="translate(40,40)">
+    <!-- rx and ry equal, increasing -->
+    <rect x="10" y="10" width="20" height="40" rx="2" ry="2"
+      style="stroke: black; fill: none;"/>
+
+    <rect x="40" y="10" width="20" height="40" rx="5"
+      style="stroke: black; fill: none;"/>
+
+    <rect x="70" y="10" width="20" height="40" ry="10"
+      style="stroke: black; fill: none;"/>
+
+    <!-- rx and ry unequal -->
+    <rect x="10" y="60" width="20" height="40" rx="10" ry="5"
+      style="stroke: black; fill: none;"/>
+
+    <rect x="40" y="60" width="20" height="40" rx="5" ry="10"
+      style="stroke: black; fill: none;"/>
+  </g>
+</svg>

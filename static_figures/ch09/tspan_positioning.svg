@@ -1,0 +1,16 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="150px" viewBox="0 0 400 150"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Absolutely positioned poetry</title>
+
+<text x="10" y="30" style="font-size:12pt;">
+  They dined on mince, and slices of quince,
+  <tspan x="20" y="50">Which they ate with a
+    runcible spoon;</tspan>
+  <tspan x="10" y="70">And hand in hand, on the edge
+    of the sand,</tspan>
+  <tspan x="20" y="90">They danced by the light of the moon.</tspan>
+</text>
+</svg>

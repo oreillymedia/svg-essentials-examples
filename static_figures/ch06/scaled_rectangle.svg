@@ -1,0 +1,21 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>When Scaling Occurs</title>
+  <desc>Shows that the coordinate system is transformed
+  before the object is scaled.</desc>
+
+  <!-- grid guide lines in non-scaled coordinate system -->
+  <line x1="0" y1="0" x2="100" y2="0" style="stroke: black;"/>
+  <line x1="0" y1="0" x2="0" y2="100" style="stroke: black;"/>
+  <line x1="45" y1="0" x2="45" y2="100" style="stroke: gray;"/>
+  <line x1="0" y1="60" x2="100" y2="60" style="stroke: gray;"/>
+
+  <!-- rectangle to be transformed -->
+  <rect x="15" y="20" width="10" height="5" 
+      transform="scale(3)"
+      style="fill: none; stroke: black;"/>
+</svg>

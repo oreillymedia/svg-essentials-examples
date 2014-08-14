@@ -1,0 +1,69 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="170"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Structure vs. Presentation</title>
+<desc>Stick Figure of a Cat</desc>
+
+<g id="cat" transform="translate(20,0)">
+<circle cx="35" cy="67.5" r="25" style="stroke: black; fill: none;"/>
+<circle cx="27.5" cy="60" r="2.5" style="stroke: black; fill: #339933;"/>
+<circle cx="42.5" cy="60" r="2.5" style="stroke: black; fill: #339933;"/>
+<g id="whiskers">
+   <line x1="37.5" y1="67.5" x2="67.5" y2="62.5" style="stroke: black;"/>
+   <line x1="37.5" y1="67.5" x2="67.5" y2="72.5" style="stroke: black;"/>
+</g>
+<use xlink:href="#whiskers" transform="scale(-1 1) translate(-70 0)"/>
+<!-- ears -->
+<polyline points="53 51,  45 25,  35 42.5,  25, 25,  16, 51"
+   style="stroke: black; fill: none;" />
+<!-- mouth -->
+<polyline points="17 75, 22.5 80, 47.5 80, 52.5, 75"
+    style="stroke: black; fill: none;" />
+<!-- nose -->
+<path d="M 37.5 65 L 32.5 65 A 2.5 5 0  0 0 37.5 65"
+   style="stroke: black; fill: #ffcccc"/>
+</g>
+
+<g transform="translate(220,0)" 
+  style="stroke: #909; stroke-width: 2; fill: #ccc;">
+<!-- ears -->
+<polyline points="53 51,  45 25,  35 42.5,  25, 25,  16, 51"/>
+<circle cx="35" cy="67.5" r="25"/>
+<circle cx="27.5" cy="60" r="2.5" style="fill:black;"/>
+<circle cx="42.5" cy="60" r="2.5" style="fill:black;"/>
+<g id="whiskers2">
+   <line x1="37.5" y1="67.5" x2="67.5" y2="62.5"/>
+   <line x1="37.5" y1="67.5" x2="67.5" y2="72.5"/>
+</g>
+<use xlink:href="#whiskers2" transform="scale(-1 1) translate(-70 0)"/>
+<!-- mouth -->
+<polyline points="17 75, 22.5 80, 47.5 80, 52.5, 75"/>
+<!-- nose -->
+<path d="M 37.5 65 L 32.5 65 A 2.5 5 0  0 0 37.5 65"
+   style="fill: #ccffcc"/>
+</g>
+
+<g transform="translate(120,0)">
+<circle cx="35" cy="67.5" r="25" style="stroke: black; fill: none;"/>
+<circle cx="27.5" cy="60" r="2.5" style="stroke: black; fill: #339933;"/>
+<circle cx="42.5" cy="60" r="2.5" style="stroke: black; fill: #339933;"/>
+<g id="whiskers3">
+   <line x1="37.5" y1="67.5" x2="55" y2="65.5" style="stroke: black;"/>
+   <line x1="37.5" y1="67.5" x2="55" y2="69.5" style="stroke: black;"/>
+</g>
+<use xlink:href="#whiskers3" transform="scale(-1 1) translate(-70 0)"/>
+<!-- ears -->
+<path d="M53 51  A 3 15 15 0 0 39 42.5
+  M31 42.5 A 3 14.5 -15 1 0 16 51"
+   style="stroke: black; fill: none;" />
+<!-- mouth -->
+<polyline points="17 75, 22.5 80, 47.5 80, 52.5, 75"
+    style="stroke: black; fill: none;" />
+<!-- nose -->
+<circle cx="35" cy="67.5" r="3" style="stroke: black; fill: #ffcccc"/>
+</g>
+
+</svg>

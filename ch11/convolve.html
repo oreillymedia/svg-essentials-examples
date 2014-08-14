@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>feConvolveMatrix</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+function update() {
+  setAttr("matrix", "kernelMatrix", document.getElementById("convolveInput").value);
+  setAttr("matrix", "bias", document.getElementById("biasInput").value);
+  setAttr("matrix", "preserveAlpha", document.getElementById("alpha").value);
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="update();">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="150" height="150" viewBox="0 0 150 150"&gt;
+  &lt;defs&gt;
+    &lt;filter id="convolve"&gt;
+      &lt;feConvolveMatrix
+        preserveAlpha="<select id="alpha" onchange="update()">
+        <option value="true">true</option>
+        <option value="false">false</option></select>"
+        kernelMatrix="<input size="25" type="text" id="convolveInput"
+        onchange="update()" value="1 0 0 0 0 0 0 0 -1"/>
+        bias="<input id="biasInput" size="4" type="text"
+          value="0.5" onchange="update()"/>"/&gt;
+    &lt;/filter&gt;
+
+    &lt;g id="flower"&gt;
+      &lt;!-- SVG goes here --&gt;
+    &lt;/g&gt;
+  &lt;/defs&gt;
+
+  &lt;use xlink:href="#flower" style="filter: url(#convolve);"/&gt;
+&lt;/svg&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="150" height="150" viewBox="0 0 150 150"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>Using feConvolveMatrix for embossing</title>
+<defs>
+<filter id="convolve">
+  <feConvolveMatrix id="matrix"
+    preserveAlpha="true"
+    bias="0.5"
+    kernelMatrix="1 0 0 0 0 0 0 0 -1"/>
+</filter>
+
+<g id="petal">
+  <path d="M 10 0 Q 27 -15 40 0 27 15 10 0" />
+</g>
+
+<g id="flower">
+  <path d="M 50 50 Q 40 70 70 100 T 70 150"
+    style="stroke: green; fill: none; stroke-width: 3;"/>
+  <path d="M 70 100 Q 80 70, 120 80, 90 75 75 105"
+    style="stroke: none; fill: green;"/>
+  <circle cx="40" cy="50" r="10" style="fill: gray;"/>
+  <g style="stroke: black; fill: yellow;">
+    <use xlink:href="#petal" transform="translate(40,50)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(40)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(80)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(120)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(160)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(200)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(240)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(280)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(320)"/>
+  </g>
+</g>
+</defs>
+
+<use xlink:href="#flower" style="filter: url(#convolve);"/>
+
+</svg></div>
+
+</body>
+</html>

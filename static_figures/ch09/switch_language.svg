@@ -1,0 +1,29 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="375px" height="200px" viewBox="0 0 375 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Use of switch element</title>
+
+<circle cx="40" cy="60" r="20" style="fill: none; stroke: black;"/>
+<g font-size="12pt">
+  <switch>
+    <g systemLanguage="en-UK">
+      <text x="10" y="30">A circle</text>
+      <text x="10" y="100">without colour.</text>
+    </g>
+    <g systemLanguage="en">
+      <text x="10" y="30">A circle</text>
+      <text x="10" y="100">without color.</text>
+    </g>
+    <g systemLanguage="es">
+      <text x="10" y="30">Un círculo</text>
+      <text x="10" y="100">sin color.</text>
+    </g>
+    <g systemLanguage="ru">
+      <text x="10" y="30">Круг</text>
+      <text x="10" y="100">без света.</text>
+    </g>
+  </switch>
+</g>
+</svg>

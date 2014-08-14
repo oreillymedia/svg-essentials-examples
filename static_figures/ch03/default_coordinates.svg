@@ -1,0 +1,18 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Default User Coordinates</title>
+  <desc>Shows a rectangle on a grid in default user coordinates</desc>
+
+  <image xlink:href="default_ruler.svg" x="0" y="0" width="200"
+    height="200"/>
+
+  <g transform="translate(40,40)">
+    <rect x="10" y="10" width="50" height="30"
+    style="stroke: black; fill: none;"/>
+  </g>
+
+</svg>

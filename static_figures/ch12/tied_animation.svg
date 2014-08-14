@@ -1,0 +1,17 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="250" height="200" viewBox="0 0 250 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Synchronization of Animations</title>
+  <desc>Tie the beginning of second animation to end of first</desc>
+  <circle cx="60" cy="60" r="30" style="fill: #f9f; stroke: gray;">
+      <animate id="c1" attributeName="r" attributeType="XML"
+          begin="0s" dur="4s" from="30" to="10" fill="freeze"/>
+  </circle>
+
+  <circle cx="120" cy="60" r="10" style="fill: #9f9; stroke: gray;">
+      <animate attributeName="r" attributeType="XML"
+          begin="c1.end" dur="4s" from="10" to="30" fill="freeze"/>
+  </circle>
+</svg>

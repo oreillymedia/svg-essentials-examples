@@ -1,0 +1,170 @@
+template:: ch12/ch12_svg_template.html
+output:: ch12/simple_animation.html
+title:: Simple animation
+dimensions:width="250" y="50"
+viewBox:viewBox="0 0 250 50"
+markup::
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="250" height="50">
+<title>Shrinking Rectangle</title>
+<desc>Animating the width attribute of a rectangle</desc>
+
+<rect x="10" y="10" width="200" height="20" stroke="black" fill="none">
+  <animate id="animation"
+    attributeName="width"
+    attributeType="XML"
+    from="200" to="20"
+    begin="0s" dur="5s"
+    fill="freeze" />
+</rect>
+
+</svg>
+!fill
+#=====================================
+output:: ch12/path_poly_animation.html
+title:: Path and polygon animation
+dimensions:width="250" y="250"
+viewBox:viewBox="0 0 250 250"
+markup::
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="250" height="250"
+  xmlns="http://www.w3.org/2000/svg">
+  <polygon points="30 30 70 30 90 70 10 70"
+    style="fill:#fcc; stroke:black">
+    <animate id="animation"
+      attributeName="points"
+      attributeType="XML"
+      to="50 30 70 50 50 90 30 50"
+      begin="0s" dur="5s" fill="freeze" />
+  </polygon>
+
+  <path d="M15 50 Q 40 15, 50 50, 65 32, 100 40"
+    style="fill:none; stroke: black" transform="translate(0,50)">
+    <animate attributeName="d"
+      attributeType="XML"
+      to="M50 15 Q 15 40, 50 50, 32 65, 40 100"
+      begin="0s" dur="5s" fill="freeze"/>
+  </path>
+</svg>
+!fill
+#=====================================
+output:: ch12/animating_values.html
+title:: Animation with specific values
+dimensions:width="100" y="100"
+viewBox:viewBox="0 0 100 100"
+markup::
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="100" height="100"
+  xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="30"
+    style="fill: #ff9; stroke:black;">
+    <animate attributeName="fill"
+      begin="2s" dur="4s" values="#ff9;#99f;#f99;#9f9"
+      fill="freeze"/>
+  </circle>
+</svg>
+!fill
+#=====================================
+output:: ch12/linear_animateMotion.html
+title:: Linear Motion Animation
+dimensions::width="120" height="100"
+viewBox::viewBox="0 0 120 100"
+markup::
+<svg width="120" height="100" viewBox="0 0 120 100">
+<g>
+  <rect x="0" y="0" width="30" height="30" style="fill: #ccc;"/>
+  <circle cx="30" cy="30" r="15" style="fill: #cfc; stroke: green;"/>
+  <animateMotion from="0,0" to="60,30" dur="4s" fill="freeze"/>
+</g>
+!fill
+#==============================
+output::ch12/complex_animate_motion.html
+title::animateMotion along a complex path
+dimensions::width="250" height="250"
+viewBox::"0 0 250 250"
+markup::
+<svg width="250" height="250">
+<!-- show the path along which the triangle will move -->
+<path d="M50,125 C 100,25 150,225, 200, 125"
+  style="fill: none; stroke: blue;"/>
+
+<!-- Triangle to be moved along the motion path.
+   It is defined with an upright orientation with the base of
+   the triangle centered horizontally just above the origin. -->
+<path d="M-10,-3 L10,-3 L0,-25z" style="fill: yellow; stroke: red;">
+  <animateMotion
+    {{span class="highlight"}}path="M50,125 C 100,25 150,225, 200, 125"{{/span}}
+    dur="6s" fill="freeze"/>
+</path>
+</svg>
+!fill
+#================
+output::ch12/animate_motion_rotate.html
+title::Automatic rotation of animateMotion along a complex path
+dimensions::width="250" height="250"
+viewBox::"0 0 250 250"
+markup::
+<svg width="250" height="250">
+<!-- show the path along which the triangle will move -->
+<path d="M50,125 C 100,25 150,225, 200, 125"
+  style="fill: none; stroke: blue;"/>
+
+<!-- Triangle to be moved along the motion path.
+   It is defined with an upright orientation with the base of
+   the triangle centered horizontally just above the origin. -->
+<path d="M-10,-3 L10,-3 L0,-25z" style="fill: yellow; stroke: red;" >
+  <animateMotion
+    {{span class="highlight"}}path="M50,125 C 100,25 150,225, 200, 125"
+    rotate="auto"{{/span}}
+    dur="6s" fill="freeze"/>
+</path>
+</svg>
+!fill
+#======================
+output::ch12/key_points.html
+title::Use of keyPoints and keyTimes
+dimensions::width="250" height="250"
+viewBox::"0 0 250 250"
+markup::
+<svg width="250" height="250">
+<!-- show the path along which the triangle will move -->
+<path d="M50,125 C 100,25 150,225, 200, 125"
+  style="fill: none; stroke: blue;"/>
+
+<!-- Triangle to be moved along the motion path.
+   It is defined with an upright orientation with the base of
+   the triangle centered horizontally just above the origin. -->
+<path d="M-10,-3 L10,-3 L0,-25z" style="fill: yellow; stroke: red;" >
+  <animateMotion
+    path="M50,125 C 100,25 150,225, 200, 125"
+    rotate="auto"
+    keyPoints="0;0.2;0.8;1"
+    keyTimes="0;0.33;0.66;1"
+    calcMode="linear"
+    dur="6s" fill="freeze"/>
+</path>
+</svg>
+!fill
+#======================
+
+<path d="M50,125 C 100,25 150,225, 200, 125"
+  style="fill: none; stroke: blue;"/>
+
+<path d="M-10,-3 L10,-3 L0,-25z" style="fill: yellow; stroke: red;" >
+  <animateMotion
+    path="M50,125 C 100,25 150,225, 200, 125"
+    rotate="auto"
+    keyPoints="0;0.2;0.8;1"
+    keyTimes="0;0.33;0.66;1"
+    calcMode="linear"
+    dur="6s" fill="freeze"/>
+</path>

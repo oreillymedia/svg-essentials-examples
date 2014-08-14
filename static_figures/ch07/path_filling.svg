@@ -1,0 +1,73 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="310px" height="310px" viewBox="0 0 310 310"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<defs>
+<path id="arrow" d="M -3 3, 0 0, -3 -3 Z"
+  style="fill: #333; stroke: none;"/>
+
+<g id="cwcw" style="stroke: black; fill: #ddd;">
+  <path d="M 0 0, 60 0, 60 60, 0 60 Z
+    M 15 15, 45 15, 45 45, 15 45Z"/>
+</g>
+
+<g id="cwcwarrows">
+<use xlink:href="#arrow" x="60" y="0"/>
+<use xlink:href="#arrow" transform="translate(60,60) rotate(90)"/>
+<use xlink:href="#arrow" transform="translate(0,60) rotate(180)"/>
+<use xlink:href="#arrow" transform="translate(0,0) rotate(270)"/>
+<use xlink:href="#arrow" x="45" y="15"/>
+<use xlink:href="#arrow" transform="translate(45, 45) rotate(90)"/>
+<use xlink:href="#arrow" transform="translate(15, 45) rotate(180)"/>
+<use xlink:href="#arrow" transform="translate(15, 15) rotate(270)"/>
+</g>
+
+<g id="cwccw" style="stroke: black; fill: #ddd;">
+  <path d="M 0 0, 60 0, 60 60, 0 60 Z
+    M 15 15, 15 45, 45 45, 45 15Z"/>
+</g>
+
+<g id="cwccwarrows">
+<use xlink:href="#arrow" x="60" y="0"/>
+<use xlink:href="#arrow" transform="translate(60,60) rotate(90)"/>
+<use xlink:href="#arrow" transform="translate(0,60) rotate(180)"/>
+<use xlink:href="#arrow" transform="translate(0,0) rotate(270)"/>
+
+<use xlink:href="#arrow" transform="translate(15, 45) rotate(90)"/>
+<use xlink:href="#arrow" transform="translate(45, 45)"/>
+<use xlink:href="#arrow" transform="translate(45, 15) rotate(270)"/>
+<use xlink:href="#arrow" transform="translate(15, 15) rotate(180)"/>
+</g>
+</defs>
+
+<g transform="translate(40,10)">
+  <use xlink:href="#cwcw" style="fill-rule: nonzero;"/>
+  <use xlink:href="#cwcwarrows"/>
+  <text x="30" y="75" style="text-anchor: middle;">Same direction</text>
+  <text x="30" y="90" style="text-anchor: middle;">fill-rule="nonzero"</text>
+</g>
+<g transform="translate(200,10)">
+  <use xlink:href="#cwccw" style="fill-rule: nonzero;"/>
+  <use xlink:href="#cwccwarrows"/>
+  <text x="30" y="75" style="text-anchor: middle;">Opposite directions</text>
+  <text x="30" y="90" style="text-anchor: middle;">fill-rule="nonzero"</text>
+</g>
+
+
+<g transform="translate(40,110)">
+  <use xlink:href="#cwcw" style="fill-rule: evenodd;"/>
+  <use xlink:href="#cwcwarrows"/>
+  <text x="30" y="75" style="text-anchor: middle;">Same direction</text>
+  <text x="30" y="90" style="text-anchor: middle;">fill-rule="evenodd"</text>
+</g>
+<g transform="translate(200,110)">
+  <use xlink:href="#cwccw" style="fill-rule: evenodd;"/>
+  <use xlink:href="#cwccwarrows"/>
+  <text x="30" y="75" style="text-anchor: middle;">Opposite directions</text>
+  <text x="30" y="90" style="text-anchor: middle;">fill-rule="evenodd"</text>
+</g>
+
+</svg>

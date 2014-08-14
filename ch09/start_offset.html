@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>The startOffset property</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+var textPath;
+
+function update() {
+  var startOffset = getValue("startOffset");
+  var textAnchor = getValue("textAnchor");
+  var text = getValue("textInput");
+  var node = document.createTextNode(text);
+  setAttr("textPath", "startOffset", startOffset + "%");
+  textPath.replaceChild(node, textPath.firstChild);
+  document.getElementById("theText").style.textAnchor = textAnchor;
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); textPath = document.getElementById('textPath'); update();">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="300" height="100" viewBox="0 0 300 100"
+  xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+&lt;defs&gt;
+
+&lt;path id="corner" transform="translate(140,40)"
+    d="M0 0 L 50 0 A 30 30 0 0 1 80 30 L 80 80"
+    style="stroke: gray; fill: none;"/&gt;
+&lt;/defs&gt;
+
+&lt;use xlink:href="#corner"/&gt;
+&lt;text style="font-size: 10pt;
+  font-family: 'Liberation Sans'; text-anchor: <select id="textAnchor" onchange="update()"><option value="start">start</option><option value="middle" selected="selected">middle</option><option value="end">end</option></select>"&gt;
+    &lt;textPath xlink:href="#corner" startOffset="<input type="text"
+    id="startOffset" value="50" size="3" onchange="update()"/>%"&gt;
+    <input type="text" size="35" value="This text is too long to fit on the path" id="textInput"
+    onchange="update()"/>
+    &lt;/textPath&gt;
+&lt;/text&gt;
+&lt;/svg&gt;
+</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="100" viewBox="0 0 300 100"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+
+<path id="corner" transform="translate(140,40)"
+    d="M0 0 L 50 0 A 30 30 0 0 1 80 30 L 80 80"
+    style="stroke: gray; fill: none;"/>
+</defs>
+
+<use xlink:href="#corner"/>
+<text id="theText" style="font-size: 10pt;
+  font-family: 'Liberation Sans'; text-anchor: middle;">
+    <textPath xlink:href="#corner" startOffset="50%" id="textPath">This text is too long to fit on the path</textPath>
+</text>
+</svg>
+</div>
+
+</body>
+</html>

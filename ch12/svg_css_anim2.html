@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>CSS/SVG animation with movement</title>
+  <style type="text/css">
+.starStyle {
+  -webkit-animation-name: webStarAnim;
+  -webkit-animation-iteration-count: 4;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-transform: translate(100px, 100px);
+  animation-name: starAnim;
+  animation-iteration-count: 4;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  transform: translate(100px, 100px)
+}
+
+@keyframes starAnim  {
+  0% {
+    fill-opacity: 1.0;
+    stroke-width: 0;
+  }
+  
+  20% {
+    transform: translate(100px, 50px)
+  }
+  
+  50% {
+    transform: translate(100px, 50px) rotate(180deg)
+  }
+  
+  80% {
+    transform: translate(100px, 50px) rotate(360deg)
+  }
+
+  100% {
+    fill-opacity: 0.0;
+    stroke-width: 6;
+  }
+}
+
+@-webkit-keyframes webStarAnim {
+  0% {
+    fill-opacity: 1.0;
+    stroke-width: 0;
+  }
+  
+  20% {
+    transform: translate(100px, 50px)
+  }
+  
+  50% {
+    transform: translate(100px, 50px) rotate(180deg)
+  }
+  
+  80% {
+    transform: translate(100px, 50px) rotate(360deg)
+  }
+
+  100% {
+    fill-opacity: 0.0;
+    stroke-width: 6;
+  }
+}
+</style>
+<script type="text/javascript">
+  var rules = document.styleSheets[0].cssRules;
+  
+  function ucFirst(str)
+  {
+    return(str.substr(0,1).toUpperCase() + str.substr(1));
+  }
+
+  function setStyle(styleName, newValue) {
+    var el = document.getElementById("svgBlock");
+    var parentDiv = el.parentNode;
+    var removed = parentDiv.removeChild(el);
+    rules[0].style[styleName] = newValue;
+    rules[0].style["Webkit" + ucFirst(styleName)] = newValue;
+    parentDiv.appendChild(removed);
+  }
+  
+  function setKeyFrame(n, newValue) {
+    var el = document.getElementById("svgBlock");
+    var parentDiv = el.parentNode;
+    var removed = parentDiv.removeChild(el);
+    for (var i = 1; i <= 2; i++)
+    {
+      var rr = document.styleSheets[0].cssRules[i];
+      if (rr) {
+        rr.cssRules[n].style.cssText = newValue;
+      }
+    }
+    parentDiv.appendChild(removed);
+  }
+  
+  function setKeySelect(n, newValue) {
+    var el = document.getElementById("svgBlock");
+    var parentDiv = el.parentNode;
+    var removed = parentDiv.removeChild(el);
+    for (var i = 1; i <= 2; i++)
+    {
+      var rr = document.styleSheets[0].cssRules[i];
+      if (rr) {
+        rr.cssRules[n].keyText = newValue;
+      }
+    }
+    parentDiv.appendChild(removed);
+  }
+
+</script>
+
+</head>
+
+<body>
+
+
+<div style="float:left; width:220px;">
+<svg id="svgBlock" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <g id="starDef">
+      <path d="M 38.042 -12.361 9.405 -12.944 -0.000 -40.000
+        -9.405 -12.944 -38.042 -12.361 -15.217 4.944
+        -23.511 32.361 0.000 16.000 23.511 32.361 15.217 4.944 Z"/>
+    </g>
+  </defs>
+  
+  <use id="star" class="starStyle" xlink:href="#starDef"
+    style="fill: #008000; stroke: #008000"/>
+</svg>
+</div>
+
+<div id="code" style="float:left; width:50%;">
+<pre>.starStyle {
+  animation-name: starAnim;
+  animation-duration: <input type="text" id="duration" size="3" onchange="setStyle('animationDuration', this.value + 's')" value="2"/>s;
+  animation-timing-function: <select id="timing" onchange="setStyle('animationTiming',this.value"><option
+  value="ease">ease</option><option
+  value="linear" selected="selected">linear</option><option
+  value="ease-in">ease-in</option><option
+  value="ease-out">ease-out</option><option
+  value="ease-in-out">ease-in-out</option></select>;
+  animation-iteration-count: <input type="text" id="iteration" size="8" value="4" onchange="setStyle('animationIterationCount', this.value)"/>;
+  animation-direction: <select id="direction" onchange="setStyle('animationDirection', this.value)"><option
+    value="normal">normal</option><option
+    value="reverse">reverse</option><option
+    value="alternate" selected="selected">alternate</option><option
+    value="alternate-reverse">alternate-reverse</option></select>;
+  animation-play-state: <select id="playState" onchange="setStyle('animationPlayState', this.value)"><option
+    value="running">running</option><option
+    value="paused">paused</option></select>;
+}
+
+@keyframes starAnim  {
+  <input type="text" size="3" onchange="setKeySelect(0, this.value)" value="0"/>% {
+    <textarea rows="2" cols="25" onchange="setKeyFrame(0, this.value)">fill-opacity: 1.0;
+stroke-width: 0;</textarea>
+  }
+  
+  <input type="text" size="3" onchange="setKeySelect(0, this.value)" value="20"/>% {
+    <textarea rows="2" cols="25" onchange="setKeyFrame(1, this.value)">transform: translate(100px, 50px)</textarea>
+  }
+  
+  <input type="text" size="3" onchange="setKeySelect(0, this.value)" value="50"/>% {
+    <textarea rows="2" cols="25" onchange="setKeyFrame(2, this.value)">transform: translate(100px, 50px) rotate(180deg)</textarea>
+  }
+  
+  <input type="text" size="3" onchange="setKeySelect(0, this.value)" value="80"/>% {
+    <textarea rows="2" cols="25" onchange="setKeyFrame(3, this)">transform: translate(100px, 50px) rotate(360deg)</textarea>
+  }
+    
+
+  <input type="text" size="4" onchange="setKeySelect(0, this.value)" value="100"/>% {
+    <textarea rows="2" cols="25" onchange="setKeyFrame(4, this.value)">fill-opacity: 0.0;
+stroke-width: 6;</textarea>
+  }
+}
+</pre>
+</div>
+
+</body>
+</html>
+

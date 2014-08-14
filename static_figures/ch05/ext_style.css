@@ -1,0 +1,9 @@
+* { fill:none; stroke: black; } /* default for all elements */
+
+rect { stroke-dasharray: 7 3; }
+
+circle.yellow { fill: yellow; }
+
+.thick { stroke-width: 5; }
+
+.semiblue { fill:blue; fill-opacity: 0.5; }

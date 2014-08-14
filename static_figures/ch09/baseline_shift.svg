@@ -1,0 +1,19 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="350px" height="100px" viewBox="0 0 350 100"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Subscripts and superscripts</title>
+
+  <text x="20" y="25" style="font-size: 12pt;">
+    C<tspan style="baseline-shift: sub;">12</tspan>
+    H<tspan style="baseline-shift: sub;">22</tspan>
+    O<tspan style="baseline-shift: sub;">11</tspan> (sugar)
+  </text>
+
+  <text x="20" y="70" style="font-size: 12pt;">
+    6.02 x 10<tspan baseline-shift="super">23</tspan>
+    (Avogadro's number)
+  </text>
+
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="150" viewBox="0 0 300 150"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>Result of luminanceToAlpha</title>
+
+ <defs>
+    <g id="squares">
+      <rect id="red" x="0" y="0" width="30" height="30" style="fill: #f00;"/>
+      <rect id="green" x="40" y="0" width="30" height="30" style="fill: #0f0;"/>
+      <rect id="blue" x="80" y="0" width="30" height="30" style="fill: #00f;"/>
+      <rect id="dkgreen" x="120" y="0" width="30" height="30" style="fill: #696;"/>
+      <rect id="yellow" x="160" y="0" width="30" height="30" style="fill: #ffc;"/>
+    </g>
+  </defs>
+
+  <filter id="luminance" filterUnits="userSpaceOnUse"
+      x="0" y="0" width="100%" height="100%">
+      <feColorMatrix type="luminanceToAlpha"/>
+  </filter>
+
+  <g style="font-size: 10pt; text-anchor: end;">
+    <text x="65" y="35">Original</text>
+    <text x="65" y="75">Alpha</text>
+  </g>
+
+  <g transform="translate(70, 10)">
+    <use xlink:href="#squares"/>
+  </g>
+
+  <g transform="translate(70, 50)">
+    <use xlink:href="#squares" style="filter:url(#luminance)"/>
+  </g>
+</svg>

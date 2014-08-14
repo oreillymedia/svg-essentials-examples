@@ -1,0 +1,122 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="250" viewBox="0 0 400 250"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+   <title>Result of rotate on primary colors</title>
+<defs>
+
+<filter id="r45" filterUnits="objectBoundingBox">
+<feColorMatrix type="hueRotate" values="45"/>
+</filter>
+
+<filter id="r90" filterUnits="objectBoundingBox">
+<feColorMatrix type="hueRotate" values="90"/>
+</filter>
+
+<filter id="r135" filterUnits="objectBoundingBox">
+<feColorMatrix type="hueRotate" values="135"/>
+</filter>
+
+<filter id="r180" filterUnits="objectBoundingBox">
+<feColorMatrix type="hueRotate" values="180"/>
+</filter>
+
+<filter id="r225" filterUnits="objectBoundingBox">
+<feColorMatrix type="hueRotate" values="225"/>
+</filter>
+
+<filter id="r270" filterUnits="objectBoundingBox">
+<feColorMatrix type="hueRotate" values="270"/>
+</filter>
+
+<filter id="r315" filterUnits="objectBoundingBox">
+<feColorMatrix type="hueRotate" values="315"/>
+</filter>
+
+<rect id="red" x="0" y="0" width="30" height="30" style="fill: #f00;"/>
+<rect id="green" x="0" y="0" width="30" height="30" style="fill: #0f0;"/>
+<rect id="blue" x="0" y="0" width="30" height="30" style="fill: #00f;"/>
+<rect id="yellow" x="0" y="0" width="30" height="30" style="fill: #ff0;"/>
+<rect id="magenta" x="0" y="0" width="30" height="30" style="fill: #f0f;"/>
+<rect id="cyan" x="0" y="0" width="30" height="30" style="fill: #0ff;"/>
+</defs>
+
+<g style="font-size: 10pt; text-anchor: end;">
+	<text x="45" y="15">Rotate</text>
+	<text x="45" y="35">0&#176;</text>
+	<text x="45" y="75">45&#176;</text>
+	<text x="45" y="115">90&#176;</text>
+	<text x="45" y="155">180&#176;</text>
+	<text x="45" y="195">270&#176;</text>
+</g>
+
+<g transform="translate( 50, 10 )">
+<use xlink:href="#red"  />
+<use xlink:href="#green" transform="translate(40, 0)"/>
+<use xlink:href="#blue" transform="translate(80, 0)"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"/>
+</g>
+
+<g transform="translate( 50, 50 )">
+<use xlink:href="#red"  style="filter: url(#r45);"/>
+<use xlink:href="#green" transform="translate(40, 0)" 
+	style="filter: url(#r45);"/>
+<use xlink:href="#blue" transform="translate(80, 0)"
+	style="filter: url(#r45);"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"
+	style="filter: url(#r45);"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"
+	style="filter: url(#r45);"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"
+	style="filter: url(#r45);"/>
+</g>
+
+<g transform="translate( 50, 90 )">
+<use xlink:href="#red"  style="filter: url(#r90);"/>
+<use xlink:href="#green" transform="translate(40, 0)"
+	style="filter: url(#r90);"/>
+<use xlink:href="#blue" transform="translate(80, 0)"
+	style="filter: url(#r90);"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"
+	style="filter: url(#r90);"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"
+	style="filter: url(#r90);"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"
+	style="filter: url(#r90);"/>
+</g>	
+
+<g transform="translate( 50, 130 )">
+<use xlink:href="#red"  style="filter: url(#r180);"/>
+<use xlink:href="#green" transform="translate(40, 0)"
+	style="filter: url(#r180);"/>
+<use xlink:href="#blue" transform="translate(80, 0)"
+	style="filter: url(#r180);"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"
+	style="filter: url(#r180);"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"
+	style="filter: url(#r180);"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"
+	style="filter: url(#r180);"/>
+</g>	
+
+<g transform="translate( 50, 170 )">
+<use xlink:href="#red"  style="filter: url(#r270);"/>
+<use xlink:href="#green" transform="translate(40, 0)"
+	style="filter: url(#r270);"/>
+<use xlink:href="#blue" transform="translate(80, 0)"
+	style="filter: url(#r270);"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"
+	style="filter: url(#r270);"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"
+	style="filter: url(#r270);"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"
+	style="filter: url(#r270);"/>
+</g>	
+
+</svg>

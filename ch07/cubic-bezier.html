@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Cubic Bézier Curve</title>
+  <style type="text/css">
+  .cp1 { background-color: #ccf }
+  .cp2 { background-color: #cfc }
+  </style>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[
+
+var cubicPath = [
+[10, 10, 140, 10],
+[60, 10, 90, 10],
+[110, 10, 40, 10],
+[10, 10, 140, 90],
+[60, 10, 90, 90],
+[110, 10, 40, 90]
+];
+
+var cp1X = 10;
+var cp1Y = 10;
+var cp2X = 140;
+var cp2Y = 10;
+var x0 = 40;
+var y0 = 50;
+var x1 = 110;
+var y1 = 50;
+
+var activeItem = null;
+var svgBounds;
+
+function changePath()
+{
+  var chosen = document.getElementById("preset").value;
+  cp1X = cubicPath[chosen][0];
+  cp1Y = cubicPath[chosen][1];
+  cp2X = cubicPath[chosen][2];
+  cp2Y = cubicPath[chosen][3];
+  updatePaths();
+}
+
+function attach()
+{
+  var obj = document.getElementById("cp1");
+  obj.addEventListener("mousedown", startDrag, false);
+  obj = document.getElementById("cp2");
+  obj.addEventListener("mousedown", startDrag, false);
+  obj = document.getElementById("svgOutput");
+  svgBounds = obj.getBoundingClientRect(); 
+}
+
+function startDrag(evt) {
+  evt.preventDefault();
+  var obj = document.getElementById("svgOutput");
+  activeItem = evt.target;
+  obj.addEventListener("mousemove", dragCP, false);
+  obj.addEventListener("mouseup", endDrag, false);
+  obj.style = "fill:red; stroke:none";
+}
+
+function endDrag(evt) {
+  evt.preventDefault();
+  var obj = document.getElementById("cp1");
+  obj.style = "fill:blue; stroke:none";
+  obj = document.getElementById("cp2");
+  obj.style = "fill:#080; stroke:none";
+  obj = document.getElementById("svgOutput");
+  obj.removeEventListener("mousemove", dragCP);
+  obj.removeEventListener("mouseup", endDrag);
+  activeItem = null;
+}
+
+function updatePaths()
+{
+  var text;
+  var obj;
+  var path = "M 40 50 C" + cp1X + " " + cp1Y + ", " +
+    cp2X + " " + cp2Y + ", 110 50";
+  obj = document.getElementById("bezier");
+  obj.setAttribute("d", path);
+  obj = document.getElementById("cp1");
+  obj.setAttribute("cx", cp1X);
+  obj.setAttribute("cy", cp1Y);
+  obj = document.getElementById("cp2");
+  obj.setAttribute("cx", cp2X);
+  obj.setAttribute("cy", cp2Y);
+  
+  path = '&lt;path d="M 40 50 C <span class="cp1">' + cp1X + " " + cp1Y +
+    '</span> <span class="cp2">'  + cp2X + " " + cp2Y + "</span> 110 50/&gt;";
+  document.getElementById("bezierSource").innerHTML = path;
+  
+  // Finally, the guide lines
+  path = "M" + cp1X + " " + cp1Y + "L" + x0 + " " + y0 +
+    "M" + cp2X + " " + cp2Y + "L" + x1 + " " + y1;
+  document.getElementById("guidepath").setAttribute("d", path);
+}
+
+function dragCP(evt)
+{
+  var path;
+  var text;
+  var obj;
+  
+  var x = evt.clientX - svgBounds.left;
+  var y = evt.clientY - svgBounds.top;
+ 
+  if (x < 0) { x = 0; }
+  if (x > 300) { x = 300; }
+  if (y < 0) { y = 0; }
+  if (y > 300) {y = 300;}
+  evt.preventDefault();
+  if (activeItem)
+  {
+    if (activeItem == cp1)
+    {
+      cp1X = x;
+      cp1Y = y;
+    }
+    else if (activeItem == cp2)
+    {
+      cp2X = x;
+      cp2Y = y;
+    }
+    updatePaths();
+  }
+}
+
+function guide(obj)
+{
+  var guides = document.getElementById("guidelines");
+  if (obj.checked)
+  {
+    guidelines.setAttribute("style", "display: block");
+  }
+  else
+  {
+    guidelines.setAttribute("style", "display: none");
+  }
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); attach();">
+
+<select id="preset" onchange="changePath()">
+  <option value="0">M 40 50 C 10 10, 140 10, 110 50</option>
+  <option value="1">M 40 50 C 60 10, 90, 10, 110 50</option>
+  <option value="2">M 40 50 C 110 10, 40 10, 110 50</option>
+  <option value="3">M 40 50 C 10 10, 140 90, 110 50</option>
+  <option value="4">M 40 50 C 60 10, 90 90, 110 50</option>
+  <option value="5">M 40 50 C 110 10, 40 90, 110 50 </option>
+  </select>
+  <input type="checkbox" id="svgGuide" onclick="guide(this)"/> Show guidelines
+</div>
+
+<div id="svgInput">
+<pre id="bezierSource">&lt;path d="M 40 50 C <span class="cp1">10 10</span>, <span class="cp2">140 10</span>, 110 50"/&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="300" viewBox="0 0 300 300"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g style="fill:none; stroke:black">
+    <g id="guidelines" style="display:none">
+      <path id="guidepath" style="stroke: #aaa; fill:none"
+        d="M 80 30 L 80 30 "/>
+    </g>
+    <circle id="cp1" cx="10" cy="10" r="4" style="fill:blue; stroke:none"/>
+    <circle id="cp2" cx="140" cy="10" r="4" style="fill:#080; stroke: none"/>
+    <path id="bezier" d="M 40 50 C 10 10, 140 10, 110 50"/>
+  </g>
+</svg>
+</div>
+
+</body>
+</html>

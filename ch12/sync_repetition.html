@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- (c) 2013 J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Synchronized repetition with offset</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body>
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="350" height="120"&gt;
+  &lt;circle cx="60" cy="60" r="15"
+    style="fill: none; stroke: red;"&gt;
+    &lt;animate <span class="highlight">id="circleAnim"</span> attributeName="cx" attributeType="XML"
+      begin="0s" dur="5s" <span class="highlight">repeatCount="3"</span>
+      from="60" to="260" fill="freeze"/&gt;
+  &lt;/circle&gt;
+
+  &lt;rect x="230" y="80" width="60" height="30"
+    style="fill: #ccf; stroke: black;"&gt;
+    &lt;animate attributeName="x" attributeType="XML"
+      <span class="highlight">begin="circleAnim.repeat(1)+2.5s"</span> dur="5s"
+      from="230" to="30" fill="freeze"/&gt;
+  &lt;/rect&gt;
+&lt;/svg&gt;</pre></div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Reset" onclick="reset(); reanimate();"/>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="350" height="120" viewBox="0 0 350 120" id="svgSvg">
+    <g id="svgMarkup">
+  <circle cx="60" cy="60" r="15"
+    style="fill: none; stroke: red;">
+    <animate id="circleAnim" attributeName="cx" attributeType="XML"
+      begin="0s" dur="5s" repeatCount="3"
+      from="60" to="260" fill="freeze"/>
+  </circle>
+
+  <rect x="230" y="80" width="30" height="30"
+    style="fill: #ccf; stroke: black;">
+    <animate attributeName="x" attributeType="XML"
+      begin="circleAnim.repeat(1)+2.5s" dur="5s"
+      from="230" to="30" fill="freeze"/>
+  </rect>
+  </g>
+  </svg>
+</div>
+
+</body>
+</html>
+

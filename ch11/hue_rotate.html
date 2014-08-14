@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>hueRotate</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+var textPath;
+
+function update() {
+  var rotateInput = getValue("rotateInput");
+  var node = document.createTextNode(rotateInput);
+  var el = document.getElementById("rotateText");
+  
+  el.replaceChild(node, el.firstChild);
+  
+  node = document.createTextNode(rotateInput);
+  el = document.getElementById("rotateLabel");
+  el.replaceChild(node, el.firstChild);
+  
+  setAttr("hueRotate", "values", rotateInput);
+}
+
+// ]]>
+  </script>
+</head>
+
+<body>
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="300" height="100" viewBox="0 0 400 250"&gt;
+   &lt;title&gt;Result of saturate on primary colors&lt;/title&gt;
+&lt;defs&gt;
+
+&lt;filter id="rotate" filterUnits="objectBoundingBox"&gt;
+&lt;feColorMatrix type="hueRotate" values="<input type="text" size="4"
+  onchange="update();" id="rotateInput" value="45"/>"/&gt;
+&lt;/filter&gt;
+
+&lt;g id="squares"&gt;
+  &lt;rect id="red" x="0" y="0" width="30" height="30" style="fill: #f00;"/&gt;
+  &lt;rect id="green" x="40" y="0" width="30" height="30" style="fill: #0f0;"/&gt;
+  &lt;rect id="blue" x="80" y="0" width="30" height="30" style="fill: #00f;"/&gt;
+  &lt;rect id="yellow" x="120" y="0" width="30" height="30" style="fill: #ff0;"/&gt;
+  &lt;rect id="magenta" x="160" y="0" width="30" height="30" style="fill: #f0f;"/&gt;
+  &lt;rect id="cyan" x="200" y="0" width="30" height="30" style="fill: #0ff;"/&gt;
+&lt;/g&gt;
+&lt;/defs&gt;
+
+&lt;g style="font-size: 10pt; text-anchor: end;"&gt;
+  &lt;text x="5" y="15"&gt;Rotate&lt;/text&gt;
+  &lt;text x="5" y="35"&gt;0&#176;&lt;/text&gt;
+  &lt;text x="5" y="75"&gt;<span id="rotateText">45</span>&#176;&lt;/text&gt;
+&lt;/g&gt;
+
+&lt;g transform="translate( 50, 10 )"&gt;
+&lt;use xlink:href="#squares"  /&gt;
+&lt;/g&gt;
+
+&lt;g transform="translate( 50, 50 )"&gt;
+&lt;use xlink:href="#squares"  style="filter: url(#rotate);"/&gt;
+&lt;/svg&gt;
+
+</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="150" viewBox="0 0 300 150"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>Result of saturate on primary colors</title>
+<defs>
+
+<filter id="rotate" filterUnits="objectBoundingBox">
+<feColorMatrix id="hueRotate" type="hueRotate" values="45"/>
+</filter>
+
+<g id="squares">
+<rect id="red" x="0" y="0" width="30" height="30" style="fill: #f00;"/>
+<rect id="green" x="40" y="0" width="30" height="30" style="fill: #0f0;"/>
+<rect id="blue" x="80" y="0" width="30" height="30" style="fill: #00f;"/>
+<rect id="yellow" x="120" y="0" width="30" height="30" style="fill: #ff0;"/>
+<rect id="magenta" x="160" y="0" width="30" height="30" style="fill: #f0f;"/>
+<rect id="cyan" x="200" y="0" width="30" height="30" style="fill: #0ff;"/>
+</g>
+</defs>
+
+<g style="font-size: 10pt; text-anchor: end;">
+  <text x="45" y="15">Rotate</text>
+  <text x="45" y="35">0&#176;</text>
+  <text x="45" y="75"><tspan id="rotateLabel">45</tspan>&#176;</text>
+</g>
+
+<g transform="translate( 50, 10 )">
+<use xlink:href="#squares"  />
+</g>
+
+<g transform="translate( 50, 50 )">
+<use xlink:href="#squares"  style="filter: url(#rotate);"/>
+</g>
+</svg>
+</div>
+
+</body>
+</html>

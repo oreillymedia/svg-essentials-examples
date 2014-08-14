@@ -1,0 +1,62 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="450px" height="240px" viewBox="0 0 450 240"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Sequence of Transformations</title>
+  <desc>Detail of how a sequence of translate followed by
+  scale works.</desc>
+
+<g transform="translate(40,40)">
+  <use xlink:href="default_ruler.svg#hruler" style="stroke: gray;"/>
+  <use xlink:href="default_ruler.svg#vruler" style="stroke: gray;"/>
+
+  <use xlink:href="default_ruler.svg#htext" style="fill: gray;"/>
+  <use xlink:href="default_ruler.svg#vtext" style="fill: gray;"/>
+  
+  
+  <line x1="0" y1="0" x2="28" y2="18"
+    style="stroke: gray; stroke-dasharray: 5 3;"/>
+  <polyline points="22 18 28 18 28 12" style="stroke: gray; fill: gray;"/> 
+  <g transform="translate(30, 20)">
+    <use xlink:href="default_ruler.svg#hruler" style="stroke: black;"/>
+    <use xlink:href="default_ruler.svg#vruler" style="stroke: black;"/>
+
+    <use xlink:href="default_ruler.svg#htext" style="fill: black;"/>
+    <use xlink:href="default_ruler.svg#vtext" style="fill: black;"/>
+    <use xlink:href="default_ruler.svg#hgrid" style="stroke: #ccc;"/>
+    <use xlink:href="default_ruler.svg#vgrid" style="stroke: #ccc;"/>
+    <rect x="10" y="10" width="20" height="15" style="fill: gray;"/>
+  </g>
+  <text x="10" y="160" style="font-size: 8pt;">translate(30, 20)</text>
+</g>
+
+<g transform="translate(230,40)">
+  <use xlink:href="default_ruler.svg#hruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vruler" style="stroke: #ccc;"/>
+
+  <use xlink:href="default_ruler.svg#htext" style="fill: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vtext" style="fill: #ccc;"/>
+  
+  <g transform="translate(30, 20)">
+    <use xlink:href="default_ruler.svg#hruler2-partial"
+      style="stroke: #ccc;"/>
+    <use xlink:href="default_ruler.svg#vruler2-partial"
+      style="stroke: #ccc;"/>
+
+    <use xlink:href="default_ruler.svg#htext2-partial"
+      style="fill: black;"/>
+    <use xlink:href="default_ruler.svg#vtext2-partial"
+      style="fill: black;"/>
+    <use xlink:href="default_ruler.svg#hgrid2-partial"
+      style="stroke: #ccc;"/>
+    <use xlink:href="default_ruler.svg#vgrid2-partial"
+      style="stroke: #ccc;"/>
+    <rect x="20" y="20" width="40" height="30" style="fill: gray;"/>
+    
+  </g>
+  <text x="30" y="160" style="font-size: 8pt;">scale(2)</text>
+</g>
+
+</svg>

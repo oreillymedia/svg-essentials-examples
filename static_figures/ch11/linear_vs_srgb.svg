@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="540" height="150" viewBox="0 0 540 150"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+
+    <linearGradient id="rgb-grad" color-interpolation="linearRGB">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#339933"/>
+    </linearGradient>
+
+    <linearGradient id="rgb-grad2" color-interpolation="linearRGB">
+      <stop offset="0%" stop-color="#c03"/>
+      <stop offset="50%" stop-color="#6c3"/>
+      <stop offset="100%" stop-color="#09c"/>
+    </linearGradient>
+
+    <linearGradient id="rgb-grad3" color-interpolation="linearRGB">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="rgb(100%,100%,100%)"/>
+    </linearGradient>
+
+    <linearGradient id="srgb-grad" color-interpolation="sRGB">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#339933"/>
+    </linearGradient>
+
+    <linearGradient id="srgb-grad2" color-interpolation="sRGB">
+      <stop offset="0%" stop-color="#c03"/>
+      <stop offset="50%" stop-color="#6c3"/>
+      <stop offset="100%" stop-color="#09c"/>
+    </linearGradient>
+
+    <linearGradient id="srgb-grad3" color-interpolation="sRGB">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="rgb(100%, 100%, 100%)"/>
+    </linearGradient>
+
+    <g id="bar">
+      <rect x="0" y="0" width="200" height="30"/>
+    </g>
+
+  </defs>
+
+  <g transform="translate(10, 10)">
+
+  <text x="10" y="15">linearRGB</text>
+
+  <use xlink:href="#bar" transform="translate(0,25)"
+    fill="url(#rgb-grad)"/>
+  <use xlink:href="#bar" transform="translate(0,60)"
+    fill="url(#rgb-grad2)"/>
+  <use xlink:href="#bar" transform="translate(0,95)"
+    fill="url(#rgb-grad3)"/>
+
+
+  </g>
+  <g transform="translate(220, 10)">
+  <text x="10" y="15">sRGB</text>
+
+  <use xlink:href="#bar" transform="translate(0,25)"
+    fill="url(#srgb-grad)"/>
+
+  <use xlink:href="#bar" transform="translate(0,60)"
+    fill="url(#srgb-grad2)"/>
+
+  <use xlink:href="#bar" transform="translate(0,95)"
+    fill="url(#srgb-grad3)"/>
+  </g>
+</svg>

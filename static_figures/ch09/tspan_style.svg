@@ -1,0 +1,12 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="100px" viewBox="0 0 400 100"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Styles changed with tspan</title>
+  <text x="10" y="30" style="font-size:12pt;">
+    Switch among
+    <tspan style="font-style:italic">italic</tspan>, normal,
+    and <tspan style="font-weight:bold">bold</tspan> text.
+  </text>
+</svg>

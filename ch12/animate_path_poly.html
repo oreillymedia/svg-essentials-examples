@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- (c) 2013 J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Path and polygon animation
+dimensions:width="250" y="250"
+viewBox:viewBox="0 0 250 250"</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"&gt;
+
+&lt;svg width="250" height="250"
+  xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;polygon points="30 30 70 30 90 70 10 70"
+    style="fill:#fcc; stroke:black"&gt;
+    &lt;animate id="animation"
+      attributeName="points"
+      attributeType="XML"
+      to="50 30 70 50 50 90 30 50"
+      begin="0s" dur="5s" fill="freeze" /&gt;
+  &lt;/polygon&gt;
+
+  &lt;path d="M15 50 Q 40 15, 50 50, 65 32, 100 40"
+    style="fill:none; stroke: black" transform="translate(0,50)"&gt;
+    &lt;animate attributeName="d"
+      attributeType="XML"
+      to="M50 15 Q 15 40, 50 50, 32 65, 40 100"
+      begin="0s" dur="5s" fill="freeze"/&gt;
+  &lt;/path&gt;
+&lt;/svg&gt;</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh(); reanimate();"/>
+  <input type="button" value="Reset" onclick="reset(); reanimate();"/>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg   id="svgSvg">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>
+

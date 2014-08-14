@@ -1,0 +1,15 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="120" viewBox="0 0 300 120"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Animating Values</title>
+  <desc>Animate through a specific set of values</desc>
+
+  <circle cx="50" cy="50" r="30"
+    style="fill: #ff9; stroke:black;">
+    <animate attributeName="fill"
+      begin="2s" dur="4s" values="#ff9;#99f;#f99;#9f9"
+      fill="freeze"/>
+  </circle>
+</svg>

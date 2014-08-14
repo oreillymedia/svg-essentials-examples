@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Rotate transformation</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[  
+function redisplay()
+{
+  var rotate = document.getElementById("rotate").value;
+  var attr = "translate(105, 105) rotate(" + rotate + ")";
+  var large = (Math.abs(rotate) > 180) ? 1 : 0;
+  var sweep = (rotate > 0) ? 1 : 0;
+  var arcPath = "M 100 0 A 100 100, 0, " + large + " " +  sweep + ", " +
+    (100 * Math.cos(rotate * Math.PI/180.0)) +
+    " " + (100 * Math.sin(rotate * Math.PI/180.0));
+
+  document.getElementById("transformed").setAttribute("transform",
+    attr);
+  document.getElementById("arc").setAttribute("d", arcPath);
+}
+
+function showAllGrids()
+{
+  var show = (document.getElementById("showGrid").checked) ? "inline-block" : "none";
+  document.getElementById("svgGrid").style.display = show;
+  document.getElementById("transformedGrid").style.display = show;
+  document.getElementById("arc").style.display = show;
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); showAllGrids(); redisplay();">
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="200px" height="200px" viewBox="0 0 200 200"&gt;
+  &lt;!-- axes --&gt;
+  &lt;polyline points="100 0, 0 0, 0 100" style="stroke: black; fill: none;"/&gt;
+
+  &lt;!-- normal and rotated square --&gt;
+  &lt;rect x="70" y="30" width="20" height="20" style="fill: gray;"/&gt;
+  &lt;rect x="70" y="30" width="20" height="20"
+    transform="rotate(<input type="text" size="3" id="rotate" value="45"
+    onchange="redisplay()"/>)" style="fill: black;"/&gt;
+&lt;/svg&gt;</pre></div>
+<div>
+  <input type="checkbox" id="showGrid" onclick="showAllGrids()"/> Show grid
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="300" viewBox="0 0 300 300"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <marker id="arrowhead" markerWidth="5" markerHeight="10"
+      refX="5" refY="5" orient="auto">
+      <path d="M 0 0 5 5 0 10 Z" style="fill:#c00;"/>
+    </marker>
+        
+    <line id="arrow" x1="0" y1="0" x2="0" y2="0"
+        style="stroke-dasharray:4 2; marker-end: url(#arrowhead)"/>
+   
+  </defs>
+  
+  <g id="svgGrid" style="display:none">
+    <use xlink:href="grid_parts.svg#tickmarks" x="105" y="105" style="stroke:#999"/>
+    <use xlink:href="grid_parts.svg#numbers" x="105" y="105" style="fill:#999"/>
+    <use xlink:href="grid_parts.svg#axes" x="105" y="105" style="stroke:#999"/>
+  </g>
+
+  <g transform="translate(105, 105)">
+  <polyline points="100 0, 0 0, 0 100" style="stroke: black; fill: none;"/>
+  <rect x="70" y="30" width="20" height="20"
+      style="fill:#999"/>
+  <path id="arc" d="M 100 0 A 100 100, 0, 0 1, 70.7 70.7"
+    style="stroke-dasharray: 3 3; marker-end: url(#arrowhead); stroke: #800; fill:none"/>
+  </g>
+
+  <g id="transformed">
+    <g id="transformedGrid" style="display:none">
+      <use  xlink:href="grid_parts.svg#tickmarks" x="0" y="0" style="stroke:#666"/>
+      <use xlink:href="grid_parts.svg#numbers" x="0" y="0" style="fill:#666"/>
+      <use xlink:href="grid_parts.svg#grid" x="0" y="0" style="stroke:#ccc"/>
+      <use xlink:href="grid_parts.svg#axes" x="0" y="0" style="stroke:#666"/>
+    </g>
+    <rect x="70" y="30" width="20" height="20" style="fill:black"/>
+  </g>
+  
+</svg>
+</div>
+
+</body>
+</html>

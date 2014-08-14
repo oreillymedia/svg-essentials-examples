@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                      "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="102" viewBox="0 0 368 102" width="368">
+    <g font-family="sans-serif" font-size="14" transform="translate(10, 15.0)">
+        <path d="M3 0h-3v72h3" fill="none" stroke="black"/>
+        <text font-size="14" text-anchor="middle" x="11.5" y="14"> 1 </text>
+        <text font-size="14" text-anchor="middle" x="11.5" y="38"> 3 </text>
+        <text font-size="14" text-anchor="middle" x="11.5" y="62"> 5 </text>
+        <text font-size="14" text-anchor="middle" x="32.5" y="14"> 2 </text>
+        <text font-size="14" text-anchor="middle" x="32.5" y="38"> 4 </text>
+        <text font-size="14" text-anchor="middle" x="32.5" y="62"> 6 </text>
+        <path d="M43 0h3v72h-3" fill="none" stroke="black"/>
+    </g>
+    <text font-size="14" transform="translate(62, 58.0)">+</text>
+    <g font-family="sans-serif" font-size="14" transform="translate(76, 15.0)">
+        <path d="M3 0h-3v72h3" fill="none" stroke="black"/>
+        <text font-size="14" text-anchor="middle" x="16.0" y="14"> 7 </text>
+        <text font-size="14" text-anchor="middle" x="16.0" y="38"> 9 </text>
+        <text font-size="14" text-anchor="middle" x="16.0" y="62"> 11 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="14"> 8 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="38"> 10 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="62"> 12 </text>
+        <path d="M61 0h3v72h-3" fill="none" stroke="black"/>
+    </g>
+    <text font-size="14" transform="translate(146, 58.0)">=</text>
+    <g font-family="sans-serif" font-size="14" transform="translate(160, 15.0)">
+        <path d="M3 0h-3v72h3" fill="none" stroke="black"/>
+        <text font-size="14" text-anchor="middle" x="26.5" y="14"> 1+7 </text>
+        <text font-size="14" text-anchor="middle" x="26.5" y="38"> 3+9 </text>
+        <text font-size="14" text-anchor="middle" x="26.5" y="62"> 5+11 </text>
+        <text font-size="14" text-anchor="middle" x="77.5" y="14"> 2+8  </text>
+        <text font-size="14" text-anchor="middle" x="77.5" y="38"> 4+10 </text>
+        <text font-size="14" text-anchor="middle" x="77.5" y="62"> 6+12 </text>
+        <path d="M103 0h3v72h-3" fill="none" stroke="black"/>
+    </g>
+    <text font-size="14" transform="translate(272, 58.0)">=</text>
+    <g font-family="sans-serif" font-size="14" transform="translate(286, 15.0)">
+        <path d="M3 0h-3v72h3" fill="none" stroke="black"/>
+        <text font-size="14" text-anchor="middle" x="16.0" y="14"> 8 </text>
+        <text font-size="14" text-anchor="middle" x="16.0" y="38"> 12 </text>
+        <text font-size="14" text-anchor="middle" x="16.0" y="62"> 16 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="14"> 10 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="38"> 14 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="62"> 18 </text>
+        <path d="M61 0h3v72h-3" fill="none" stroke="black"/>
+    </g>
+</svg>

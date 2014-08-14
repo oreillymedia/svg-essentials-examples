@@ -1,0 +1,17 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Direct use of Cartesian Coordinates</title>
+  <desc>Shows a trapezoid displayed in SVG, with unconverted
+  Cartesian coordinates. Trapezoid appears upside-down.</desc>
+
+    <!-- axes -->
+    <line x1="0" y1="0" x2="100" y2="0" style="stroke: black;"/>
+    <line x1="0" y1="0" x2="0" y2="100" style="stroke: black;"/>
+    
+    <!-- trapezoid -->
+    <polygon points="40 40, 100 40, 70 70, 40 70"
+        style="fill: gray; stroke: black;"/>
+</svg>

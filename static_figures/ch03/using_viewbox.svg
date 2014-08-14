@@ -1,0 +1,19 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body" width="7cm" height="7cm"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <title>Units in SVG element and in shape</title>
+  
+  <desc>SVG element has width/height set in centimeters;
+    the scaling is in 16 units per centimeter.</desc>
+  
+  <image xlink:href="cm_ruler.svg" x="0" y="0" width="7cm"
+    height="7cm"/>
+  <image xlink:href="scaled_grid.svg" x="60" y="60" width="5cm"
+    height="5cm"/>
+  <image xlink:href="using_viewbox_nogrid.svg" x="60" y="60" width="4cm"
+    height="5cm"/>
+</svg>

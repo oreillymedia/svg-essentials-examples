@@ -1,0 +1,24 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Result of scaling around a center point</title>
+  <desc>Shows a series of concentric squares.</desc>
+
+  <!-- center of scaling -->
+  <circle cx="50" cy="50" r="2" style="fill: black;"/>
+
+  <!-- non-scaled rectangle -->
+  <g id="box" style="stroke: black; fill: none;">
+      <rect x="35" y="40" width="30" height="20"/>
+  </g>
+
+  <use xlink:href="#box" transform="translate(-50,-50) scale(2)"
+    style="stroke-width: 0.5;"/>
+  <use xlink:href="#box" transform="translate(-75,-75) scale(2.5)"
+    style="stroke-width: 0.4;"/>
+  <use xlink:href="#box" transform="translate(-100,-100) scale(3)"
+    style="stroke-width: 0.33;"/>
+</svg>

@@ -1,0 +1,35 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+	width="250" height="250" viewBox="0 0 250 250">
+  <g transform="skewX(15)">
+    <rect  x="1em" y="15%" width="10em" height="70%"
+          style="stroke:black; fill:none;" />
+    <!-- The rectangle shows the outline of the foreignObject -->
+
+    <switch>
+    <!-- only draw the first child element of <switch>
+        for which the requiredFeatures, requiredExtensions
+        and systemLanguage test attributes either 
+        evaluate true or are absent -->
+
+      <foreignObject x="1em" y="15%" width="10em" height="70%"
+        requiredFeatures=
+        "http://www.w3.org/TR/SVG11/feature#Extensibility">
+        <body xmlns="http://www.w3.org/1999/xhtml"
+              style="height:100%; overflow:auto; margin:0">
+            <p style="margin: 0.4em">This is an XHTML paragraph embedded
+              within an SVG! This text will wrap across multiple lines,
+              but it will still be skewed from the SVG transform.</p>
+        </body>
+      </foreignObject>
+
+      <text x="1em" y="15%" dy="1em">
+        <!-- Because the text element doesn't have any test
+            attributes, it is the default for the switch -->
+        This fallback SVG text won't wrap, so it will get cut off...
+      </text>
+
+    </switch>
+  </g>
+</svg>

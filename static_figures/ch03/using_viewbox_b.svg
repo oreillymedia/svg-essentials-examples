@@ -1,0 +1,19 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body" width="200" height="200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <title>Explicit units in shape element</title>
+  <desc>Shows the coordinate grid in pixels and a rectangle
+    with units in millimeters.</desc>
+
+  <image xlink:href="default_ruler.svg" x="0" y="0" width="200"
+    height="200"/>
+
+  <g transform="translate(40,40)">
+     <rect x="30" y="30" width="40" height="40"
+            style="stroke:black; fill:none;"/>
+  </g>
+</svg>

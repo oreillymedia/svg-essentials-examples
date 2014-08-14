@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Radial Gradient Focal Point</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <style type="text/css">
+  pre {font-size: 10pt;}
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  function update()
+  {
+    setAttr("radial", "cx", getValue("cx") + "%");
+    setAttr("radial", "cy", getValue("cy") + "%");
+    setAttr("radial", "fx", getValue("fx") + "%");
+    setAttr("radial", "fy", getValue("fy") + "%");
+    setAttr("radial", "r", getValue("r") + "%");  
+  }
+ 
+  // ]]>
+  </script>
+</head>
+
+<body onload="initElements(); update();">
+
+<div id="svgInput">
+<pre>&lt;svg width="170" height="170" viewBox="0 0 170 170"&gt;
+  &lt;defs&gt;
+    &lt;radialGradient id="radial"
+      cx="<input type="text"
+      size="2" id="cx" value="0" onchange="update()"/>%" cy="<input type="text"
+      size="2" id="cy" value="0" onchange="update()"/>%" fx="<input type="text"
+      size="2" id="fx" value="50" onchange="update()"/>%" fy="<input type="text"
+      size="2" id="fy" value="50" onchange="update()"/>%" r="<input type="text"
+      size="2" id="r" value="100" onchange="update()"/>%"&gt;
+      &lt;stop offset="0%" style="stop-color: #f96;"/&gt;
+      &lt;stop offset="50%" style="stop-color: #9c9;"/&gt;
+      &lt;stop offset="100%" style="stop-color: #906;"/&gt;
+    &lt;/radialGradient&gt;
+   
+    &lt;/defs&gt;
+    &lt;rect x="10" y="10" width="150" height="150"
+      style="fill: url(#radial); stroke: black;"/&gt;
+  &lt;/svg&gt;</pre>
+<div id="svgError"></div>
+<div>
+  Press ENTER or TAB after changing a field.
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="170" height="170" viewBox="0 0 170 170" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+    <radialGradient id="radial"
+      cx="0%" cy="0%" fx="0%" fy="0%" r="100%">
+      <stop offset="0%" style="stop-color: #f96;"/>
+      <stop offset="50%" style="stop-color: #9c9;"/>
+      <stop offset="100%" style="stop-color: #906;"/>
+    </radialGradient>
+  </defs>
+  
+  <rect x="10" y="10" width="150" height="150"
+    style="fill: url(#radial); stroke: black;"/>
+  </svg>
+</div>
+
+</body>
+</html>

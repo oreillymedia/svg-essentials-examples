@@ -1,0 +1,126 @@
+template:: ch05/ch05_svg_template.html
+output:: ch05/internal-stylesheets.html
+title:: Internal Stylesheets
+dimensions:: width="200" height="200" viewBox="0 0 200 200"
+markup::
+<svg width="200px" height="200px" viewBox="0 0 200 200">
+<defs>
+<style type="text/css"><![CDATA[
+    circle {
+        fill: #ffc;
+        stroke: blue;
+        stroke-width: 2;
+        stroke-dasharray: 5 3
+    }
+]]></style>
+</defs>
+
+<circle cx="20" cy="20" r="10"/>
+<circle cx="60" cy="20" r="15"/>
+<circle cx="20" cy="60" r="10" style="fill: #cfc"/>
+<circle cx="60" cy="60" r="15"
+  style="stroke-width: 1; stroke-dasharray: none;"/>
+</svg>
+
+!fill
+#=====================================
+template:: ch05/ch05_svg_nozoom_template.html
+output:: ch05/defs-example.html
+title:: Using <def>
+dimensions:: width="240" height="240" viewBox="0 0 240 240"
+markup::
+<svg width="240px" height="240px" viewBox="0 0 240 240">
+<title>Grouped Drawing</title>
+<desc>Stick-figure drawings of a house and people</desc>
+
+<defs>
+<g id="house" style="stroke: black;">
+    <desc>House with door</desc>
+    <rect x="0" y="41" width="60" height="60"/>
+    <polyline points="0 41, 30 0, 60 41"/>
+    <polyline points="30 101, 30 71, 44 71, 44 101"/>
+</g>
+
+<g id="man" style="fill: none; stroke: black;">
+    <desc>Male stick figure</desc>
+    <circle cx="10" cy="10" r="10"/>
+    <line x1="10" y1="20" x2="10" y2="44"/>
+    <polyline points="1 58, 10 44, 19 58"/>
+    <polyline points="1 24, 10 30, 19 24"/>
+</g>
+
+<g id="woman" style="fill: none; stroke: black;">
+    <desc>Female stick figure</desc>
+    <circle cx="10" cy="10" r="10"/>
+    <polyline points="10 20, 10 34, 0 44, 20 44, 10 34"/>
+    <line x1="4" y1="58" x2="8" y2="44"/>
+    <line x1="12" y1="44" x2="16" y2="58"/>
+    <polyline points="1 24, 10 30, 19 24" />
+</g>
+
+<g id="couple">
+    <desc>Male and female stick figures</desc>
+    <use xlink:href="#man" x="0" y="0"/>
+    <use xlink:href="#woman" x="25" y="0"/>
+</g>
+</defs>
+
+<!-- make use of the defined groups -->
+<use xlink:href="#house" x="0" y="0" style="fill: #cfc;"/>
+<use xlink:href="#couple" x="70" y="40"/>
+
+<use xlink:href="#house" x="120" y="0" style="fill: #99f;"/>
+<use xlink:href="#couple" x="190" y="40"/>
+
+<use xlink:href="#woman" x="0" y="145"/>
+<use xlink:href="#man" x="25" y="145"/>
+<use xlink:href="#house" x="65" y="105" style="fill: #c00;"/>
+</svg>
+
+!fill
+#============================
+output:: ch05/symbol.html
+title:: Using <symbol>
+dimensions:: width="200" height="200" viewBox="0 0 200 200"
+markup::
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Symbols vs. groups</title>
+<desc>Use of symbols (which can have aspect ratio) versus
+groups (which don't)</desc>
+
+<defs>
+<g id="octagon" style="stroke: black;">
+    <desc>Octagon as group</desc>
+    <polygon points="
+        36 25, 25 36, 11 36, 0 25,
+        0 11, 11 0, 25 0, 36 11"/>
+</g>
+
+<symbol id="sym-octagon" style="stroke: black;"
+   preserveAspectRatio="xMidYMid slice" viewBox="0 0 40 40">
+    <desc>Octagon as symbol</desc>
+    <polygon points="
+        36 25, 25 36, 11 36, 0 25,
+        0 11, 11 0, 25 0, 36 11"/>
+</symbol>
+</defs>
+
+<g style="fill:none; stroke:gray">
+  <rect x="40" y="40" width="30" height="30"/>
+  <rect x="80" y="40" width="40" height="60"/>
+  <rect x="40" y="110" width="30" height="30"/>
+  <rect x="80" y="110" width="40" height="60"/>
+</g>
+<use xlink:href="#octagon" x="40" y="40" width="30" height="30"
+  style="fill: #c00;"/>
+<use xlink:href="#octagon" x="80" y="40" width="40" height="60"
+  style="fill: #cc0;"/>
+<use xlink:href="#sym-octagon" x="40" y="110" width="30" height="30"
+    style="fill: #cfc;"/>
+<use xlink:href="#sym-octagon" x="80" y="110" width="40" height="60"
+    style="fill: #699;"/>
+</svg>
+!fill
+#======================================

@@ -1,0 +1,13 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+<title>Lines and arc</title>
+<desc>Lines and an arc with no markers</desc>
+
+<g transform="translate(20,20)">
+  <path d="M 10 20 100 20 A 20 30 0 0 1 120 50 L 120 110"
+    style="fill: none; stroke: black;"/>
+</g>
+</svg>

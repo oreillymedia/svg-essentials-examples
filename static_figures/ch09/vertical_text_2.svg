@@ -1,0 +1,15 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="350px" height="250px" viewBox="0 0 350 250"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Vertical text</title>
+
+  <text x="10" y="20" transform="rotate(90,10,20)">Rotated 90</text>
+  <text x="50" y="20" style="writing-mode: tb;">Writing Mode tb</text>
+  <text x="90" y="20" style="writing-mode: tb;
+    glyph-orientation-vertical: 0;">Vertical zero</text>
+  <text x="130" y="20" style="writing-mode: tb; letter-spacing: -2pt;
+    glyph-orientation-vertical: 0;">Vertical zero</text>
+
+</svg>

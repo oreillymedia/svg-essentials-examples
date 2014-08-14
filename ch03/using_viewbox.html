@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Viewport with units</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="4cm" height="5cm" viewBox="0 0 64 80"&gt;
+  &lt;title&gt;House&lt;/title&gt;
+  &lt;rect x="10" y="35" width="40" height="40"
+    style="stroke: black; fill: none"/&gt;
+  &lt;!-- roof --&gt;
+  &lt;polyline points="10 35, 30 7.68, 50 35"
+    style="stroke: black; fill: none"/&gt;
+  &lt;!-- door --&gt;
+  &lt;polyline points="30 75, 30 55, 40 55, 40 75"
+    style="stroke: black; fill: none"/&gt;
+&lt;/svg&gt;</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="showGrid" onclick="showGrid()"
+    checked="checked"/> Show grid
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="70mm" height="70mm">
+    <g id="svgGrid">
+    <image xlink:href="cm_ruler.svg" x="0" y="0" width="10cm" height="10cm"/>
+ <image xlink:href="scaled_grid.svg" x="60" y="60" width="5cm" height="5cm"/>
+    </g>
+    <g id="svgMarkup" transform="translate(60,60)">></g>
+  </svg>
+</div>
+
+</body>
+</html>
+

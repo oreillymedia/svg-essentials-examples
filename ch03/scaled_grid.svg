@@ -1,0 +1,23 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN"
+   "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd">
+
+<svg width="5cm" height="5cm" viewBox="0 0 80 80"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns="http://www.w3.org/2000/svg">
+<title>Scaled Grid</title>
+
+<g id="hruler" shape-rendering="crispEdges">
+
+	<path style="fill:none; stroke: #ccc;" d="
+		M10 0 v80 M20 0 v80 M30 0 v80 M40 0 v80 M50 0 v80
+		M60 0 v80
+		"/>
+</g>
+<g id="vruler" shape-rendering="crispEdges">
+	<path style="fill:none; stroke: #ccc; stroke-width: 0.5" d="
+		M0 10 h64 M0 20 h64 M0 30 h64 M0 40 h64 M0 50 h64
+		M0 60 h64 M0 70 h64 M0 80 h64
+		"/>
+</g>
+	
+</svg>

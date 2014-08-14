@@ -1,0 +1,23 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="300px" viewBox="0 0 400 300"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Using elliptical arc</title>
+  <desc>Drawing the Korean national symbol (yin-yang) with
+  a series of ellipses and elliptical arcs</desc>
+  <!-- gray drop shadow -->
+  <ellipse cx="154" cy="154" rx="150" ry="120" style="fill: #999999;"/>
+
+  <!-- light blue ellipse -->
+  <ellipse cx="152" cy="152" rx="150" ry="120" style="fill: #cceeff;"/>
+
+  <!-- large light red semicircle fills upper half,
+       followed by small light red semicircle that dips into
+       lower left half of symbol -->
+  <path d="M 302 152 A 150 120, 0, 1, 0, 2 152
+      A 75 60, 0, 1, 0, 152 152" style="fill: #ffcccc;"/>
+
+  <!-- light blue semicircle rises into upper right half of symbol -->
+  <path d="M 152 152 A 75 60, 0, 1, 1, 302 152" style="fill: #cceeff;"/>
+</svg>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--J David Eisenberg, 7 July 2013 -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Convert XML to entities</title>
+    <script tpe="text/javascript">
+      // <![CDATA[
+      function convert()
+      {
+        var original = document.getElementById("original").value;
+        var result = original.replace(/&/g, "&amp;");
+        result = result.replace(/</g, "&lt;");
+        result = result.replace(/>/g, "&gt;");
+        document.getElementById("converted").value = result;
+      }
+      // ]]>
+    </script>
+</head>
+
+<body>
+  <p>Enter XML here</p>
+  <textarea rows="10" cols="70" id="original"></textarea>
+  
+  <input type="button" onclick="convert();" value="Convert"/>
+  
+  <p>Here is your XML in entity form</p>
+  <textarea rows="10" cols="70" id="converted"></textarea>
+</body>
+</html>
+

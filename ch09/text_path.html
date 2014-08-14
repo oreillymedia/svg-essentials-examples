@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>text on a path</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+function drawPaths(isChecked)
+{
+  setAttr("drawPaths", "style", "display:" +
+    ((isChecked) ? "block" : "none"));
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements();">
+
+<div id="svgInput">
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="400" height="200" viewBox="0 0 400 200"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="curvepath"
+        d="M30 40 C 50 10, 70 10, 120 40 S 150 0, 200 40"
+        style="stroke: gray; fill: none;"/>
+
+    <path id="round-corner"
+        d="M250 30 L 300 30 A 30 30 0 0 1 330 60 L 330 110"
+        style="stroke: gray; fill: none;"/>
+
+    <path id="sharp-corner"
+        d="M 30 110 100 110 100 160"
+        style="stroke: gray; fill: none;"/>
+
+    <path id="discontinuous"
+        d="M 150 110 A 40 30 0 1 0 230 110 M 250 110 290 160"
+        style="stroke: gray; fill: none;"/>
+  </defs>
+
+
+  <g id="drawPaths" style="display:block">
+    <use xlink:href="#curvepath"/>
+    <use xlink:href="#round-corner"/>
+    <use xlink:href="#sharp-corner"/>
+    <use xlink:href="#discontinuous"/>
+  </g>
+
+  <text style="font-family: 'Liberation Sans'; font-size: 10pt;">
+      <textPath xlink:href="#curvepath">
+      Following a cubic Bézier curve.
+      </textPath>
+  </text>
+
+  <text style="font-family: 'Liberation Sans'; font-size: 10pt;">
+      <textPath xlink:href="#round-corner">
+      Going 'round the bend
+      </textPath>
+  </text>
+
+  <text style="font-family: 'Liberation Sans'; font-size: 10pt;">
+      <textPath xlink:href="#sharp-corner">
+      Making a quick turn
+      </textPath>
+  </text>
+
+  <text style="font-family: 'Liberation Sans'; font-size: 10pt;">
+      <textPath xlink:href="#discontinuous">
+      Text along a broken path
+      </textPath>
+  </text>
+  
+</svg>
+</div>
+<div><input type="checkbox" id="drawPaths"
+  checked="checked" onclick="drawPaths(this.checked)" /> Show Paths
+
+
+</body>
+</html>

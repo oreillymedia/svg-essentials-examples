@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="200" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+   <title>Drop shadow applied to text</title>
+
+<defs>
+
+<filter id="drop-shadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+    <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+    <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+</filter>
+</defs>
+
+<text x="120" y="50" style="
+	filter: url(#drop-shadow); fill: #006666; stroke: none; font-size: 18;">
+Spring<tspan x="120" y="70">Flower</tspan>
+</text>
+
+</svg>

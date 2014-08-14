@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>fill-rule</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  function changeRule(n)
+  {
+    var obj = document.getElementById("path" + n);
+    obj.setAttribute("fill-rule", document.getElementById("rule" + n).value);
+  }
+  
+  function showArrows(group, turnOn)
+  {
+    if (turnOn)
+    {
+      group.setAttribute("style", "display: inline-block");
+    }
+    else
+    {
+      group.setAttribute("style", "display: none");
+    }
+  }
+  
+  function markers(obj)
+  {
+    showArrows(document.getElementById("arrows1"), obj.checked);
+    showArrows(document.getElementById("arrows2"), obj.checked);
+  }
+      
+  // ]]>
+  </script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div><pre id="svgSource"></pre></div>
+<div id="svgOriginal">&lt;svg width="150px" height="150px" viewBox="0 0 150 150"&gt;
+&lt;g style="stroke: black; fill: none;"&gt;
+&lt;!-- both paths clockwise --&gt;
+&lt;path d="M 0 0, 60 0, 60 60, 0 60 Z
+    M 15 15, 45 15, 45 45, 15 45Z" transform="translate(10, 10)"
+    fill-rule="<select id="rule1" onclick="changeRule(1)"><option value="nonzero">nonzero</option><option value="evenodd">evenodd</option></select>"/&gt;
+
+&lt;!-- outer path clockwise; inner path counterclockwise -->
+&lt;path d="M 0 0, 60 0, 60 60, 0 60 Z
+    M 15 15, 15 45, 45 45, 45 15Z" transform="translate(80, 10)"
+    fill-rule="<select id="rule2" onclick="changeRule(2)">
+    <option value="nonzero">nonzero</option>
+    <option value="evenodd">evenodd</option></select>"/&gt;
+&lt;/svg&gt;
+</div>
+<div id="svgError"></div>
+<div>
+  <input type="checkbox" id="svgMarker" onclick="markers(this)"/> Show Direction
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="150" height="150" viewBox="0 0 150 150" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <path id="arrow" d="M-4 2 0 -2 4 2" style="fill:black; stroke:none"/>
+      <g id="dir1">
+        <use xlink:href="#arrow" transform="translate(20, 0) rotate(90)"/>
+        <use xlink:href="#arrow" transform="translate(60, 20) rotate(180)" />
+        <use xlink:href="#arrow" transform="translate(40, 60) rotate(270)" />
+        <use xlink:href="#arrow" transform="translate(0, 40)"/>
+        <use xlink:href="#arrow" transform="translate(25, 15) rotate(90)"/>
+        <use xlink:href="#arrow" transform="translate(45, 25) rotate(180)" />
+        <use xlink:href="#arrow" transform="translate(35, 45) rotate(270)" />
+        <use xlink:href="#arrow" transform="translate(15, 35)"/>
+      </g>
+      <g id="dir2">
+        <use xlink:href="#arrow" transform="translate(20, 0) rotate(90)"/>
+        <use xlink:href="#arrow" transform="translate(60, 20) rotate(180)" />
+        <use xlink:href="#arrow" transform="translate(40, 60) rotate(270)" />
+        <use xlink:href="#arrow" transform="translate(0, 40)"/>
+        <use xlink:href="#arrow" transform="translate(25, 15) rotate(-90)"/>
+        <use xlink:href="#arrow" transform="translate(45, 25)" />
+        <use xlink:href="#arrow" transform="translate(35, 45) rotate(90)" />
+        <use xlink:href="#arrow" transform="translate(15, 35) rotate(180)"/>
+      </g>
+   </defs>
+    <g id="svgMarkup">
+      <g style="stroke: black; fill: #ffc;">
+      <!-- both paths clockwise -->
+      <path  id="path1" d="M 0 0, 60 0, 60 60, 0 60 Z
+          M 15 15, 45 15, 45 45, 15 45Z"  transform="translate(10, 10)"
+          fill-rule="nonzero"/>
+      <g transform="translate(10, 10)" id="arrows1" style="display:none">
+        <use xlink:href="#dir1"/>
+      </g>
+
+      <!-- outer path clockwise; inner path counterclockwise -->
+      <path id="path2" d="M 0 0, 60 0, 60 60, 0 60 Z
+          M 15 15, 15 45, 45 45, 45 15Z" transform="translate(80, 10)"
+          fill-rule="nonzero"/>
+      <g transform="translate(80, 10)" id="arrows2" style="display:none">
+        <use xlink:href="#dir2"/>
+      </g>
+      </svg>
+    </g>
+  </svg>
+</div>
+
+</body>
+</html>

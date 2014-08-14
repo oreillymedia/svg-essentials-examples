@@ -1,0 +1,36 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="150" viewBox="0 0 400 150" >
+
+<defs>
+<g id="mailbox">
+	<rect x="0" y="0" width="80" height="20"
+		style="stroke: gray; fill: none;"/>
+	<rect x="0" y="20" width="200" height="30"
+		style="fill: none; stroke: black;"/>
+	<path d="M 50 20 50 50  M100 20 100 50  M150 20 150 50"
+		style="stroke: black; fill: none;"/>
+</g>
+</defs>
+
+<g transform="translate(20,20)">
+	<use xlink:href="#mailbox"/>
+	<text x="5" y="15" style="font-size: 8pt;">radiusSizes</text>
+	<text x="25" y="40"
+		style="font-family: monospace; text-anchor: middle;">8.5</text>
+	<text x="25" y="65" style="text-anchor: middle;">[0]</text>
+	
+	<text x="75" y="40"
+		style="font-family: monospace; text-anchor: middle;">6.4</text>
+	<text x="75" y="65" style="text-anchor: middle;">[1]</text>
+	
+	<text  x="125" y="40"
+		style="font-family: monospace; text-anchor: middle;">12.2</text>
+	<text x="125" y="65" style="text-anchor: middle;">[2]</text>
+	
+	<text  x="175" y="40"
+		style="font-family: monospace; text-anchor: middle;">9</text>
+	<text  x="175" y="65" style="text-anchor: middle;">[3]</text>
+</g>
+</svg>

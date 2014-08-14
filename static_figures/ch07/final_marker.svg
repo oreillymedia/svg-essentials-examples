@@ -1,0 +1,33 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="310px" height="310px" viewBox="0 0 310 310"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<title>Lines and arc with markers</title>
+<desc>Lines and arc with markers in their final, correct positions.</desc>
+
+<defs>
+  <marker id="mCircle" markerWidth="10" markerHeight="10"
+      refX="5" refY="5">
+      <circle cx="5" cy="5" r="4" style="fill: none; stroke: black;"/>
+  </marker>
+
+  <marker id="mArrow" markerWidth="6" markerHeight="10"
+      refX="0" refY="4" orient="auto">
+      <path d="M 0 0 4 4 0 8" style="fill: none; stroke: black;"/>
+  </marker>
+
+  <marker id="mTriangle" markerWidth="5" markerHeight="10"
+      refX="5" refY="5" orient="auto">
+      <path d="M 0 0 5 5 0 10 Z" style="fill: black;"/>
+  </marker>
+</defs>
+
+<path d="M 10 20 100 20 A 20 30 0 0 1 120 50 L 120 110"
+    style="marker-start: url(#mCircle);
+    marker-mid: url(#mArrow);
+    marker-end: url(#mTriangle);
+    fill: none; stroke: black;"/>
+</svg>

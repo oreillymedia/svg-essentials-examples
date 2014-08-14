@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Bar Chart with Color Changing</title>
+  <script type="text/javascript" src="snap.svg-min.js"></script>
+  <script type="text/javascript">
+  // <![CDATA[
+  
+  var selectedColour = 0;
+  var colourSquares = [];
+  var colourListRef;
+  var barHeights = [20, 35, 15, 30]; // sample data
+  var barLabels = ["A", "B", "C", "D"];
+  var bars = [];
+  var barOrder = [0, 1, 2, 3];
+  var maxBarHeight;
+
+  function start() {
+    colourListRef = Snap("#colourList");
+    colourSquares = Snap.selectAll("#colourList rect");
+   
+    for (var i = 0; i < colourSquares.length; i++) {
+      colourSquares[i].click(selectColour);
+    }
+    
+    maxBarHeight = barHeights.reduce(function(prev, current) {
+      return Math.max(prev,current)}, barHeights[0]);
+  }
+  
+  function selectColour() {
+    for (var i = 0; i < colourSquares.length; i++) {
+      if (colourSquares[i] == this) {
+        this.attr("stroke-width", 5);
+        selectedColour = this.attr("fill");
+      } else {
+        colourSquares[i].attr("stroke-width", 0);
+      }
+    }
+  }
+  
+  // ]]>
+  </script>
+</head>
+
+<body onload="start()">
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <g id="colourList" fill-opacity="0.5" stroke-opacity="1.0">
+      <rect x="260" y="20" width="30" height="30" fill="#800080"
+        stroke="#800080" stroke-width="5"/>
+      <rect x="260" y="60" width="30" height="30" fill="#800000"
+        stroke="#800000" stroke-width="0"/>
+      <rect x="260" y="100" width="30" height="30" fill="#008000"
+        stroke="#008000" stroke-width="0"/>
+      <rect x="260" y="140" width="30" height="30" fill="#000080"
+        stroke="#000080" stroke-width="0"/>
+    </g>
+    <g id="axes" style="stroke: black">
+      <line x1="10" y1="10" x2="10" y2="210"/>
+      <line x1="10" y1="210" x2="210" y2="210"/>
+    </g>
+    <g id="barList" fill-opacity="0.5" fill="#800080">
+      <rect x="100" y="100" width="50" height="50"/>
+    </g>
+  </svg>
+</body>
+</html>
+

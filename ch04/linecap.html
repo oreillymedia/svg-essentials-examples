@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Line Cap</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  
+function redisplay()
+{
+  var linecap = document.getElementById("linecap").value;
+  var attr = "stroke-linecap:" + linecap + "; " +
+    "stroke: black; stroke-width: 15; fill: none;"
+    
+  document.getElementById("cap").setAttribute("style",
+    attr);
+} 
+  </script>
+</head>
+
+<body>
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="100px" height="100px" viewBox="0 0 100 100"&gt;
+
+&lt;line x1="10" y1="15" x2="50" y2="15"
+    style="stroke: black;  stroke-width: 15;
+    stroke-linecap: <select id="linecap" onchange="redisplay()"><option value="butt">butt</option><option value="round">round</option><option value="square">square</option></select>;"/&gt;
+&lt;!-- guide lines --&gt;
+&lt;line x1="10" y1="0" x2="10" y2="25" style="stroke: #999;"/&gt;
+&lt;line x1="50" y1="0" x2="50" y2="25" style="stroke: #999;"/&gt;
+&lt;/svg&gt;</pre></div>
+
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="100" height="100">
+<line id="cap" x1="10" y1="15" x2="50" y2="15"
+    style="stroke: black;  stroke-width: 15;
+    stroke-linecap: butt;"/>"
+
+<!-- guide lines -->
+<line x1="10" y1="0" x2="10" y2="25" style="stroke: #999;"/>
+<line x1="50" y1="0" x2="50" y2="25" style="stroke: #999;"/>
+</svg>
+</div>
+
+</body>
+</html>
+

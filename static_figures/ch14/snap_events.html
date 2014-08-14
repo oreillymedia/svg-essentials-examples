@@ -1,0 +1,59 @@
+<html xml:lang="en" lang="en"
+    xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Click and Drag Events in Snap</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="snap.svg-min.js"></script>
+  <script type="text/javascript">
+    var startX = 100;
+    var startY = 100;
+
+    function init() {
+      Snap("#button").click(resetFcn);
+      Snap("#buttonText").click(resetFcn);
+      Snap("#circle").drag(dragMove, dragStart, dragEnd);
+    }
+
+    function resetFcn(evt) {
+      Snap("#circle").attr({cx: 100, cy: 100});
+    }
+    
+    function dragStart(x, y, evt) {
+      // figure out where the circle currently is
+      startX = parseInt(Snap("#circle").attr("cx"), 10);
+      startY = parseInt(Snap("#circle").attr("cy"), 10);
+    }
+
+    function dragMove(dx, dy, x, y, evt) {
+      Snap("#circle").attr({cx: (startX + dx), cy: (startY + dy)});
+    }
+
+    function dragEnd(evt) {
+      // no action required
+    }
+
+  </script>
+</head>
+
+<body onload="init()">
+  <h1>Click and Drag Events in Snap</h1>
+
+<div style="text-align:center">
+  <svg width="200" height="200" viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <circle id="circle" cx="100" cy="100" r="30"
+      style="fill:#663399; stroke: black"/>
+
+    <rect id="button" x="60" y="170"
+        rx="5" ry="5" width="80" height="25"
+        style="stroke:black; fill:#ddd; cursor:pointer"/>
+    <text id="buttonText" x="100" y="187" class="buttonText"
+      style="fill:black; stroke:none;
+      font-family: sans-serif; font-size: 12pt;
+      text-anchor:middle; cursor:pointer">Reset</text>
+  </svg>
+  </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Translate</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[  
+function redisplay()
+{
+  var transX = document.getElementById("translateX").value;
+  var transY = document.getElementById("translateY").value;
+  var attr = "translate(" + transX + "," + transY + ")"
+    
+  document.getElementById("transformed").setAttribute("transform",
+    attr);
+  document.getElementById("arrow").setAttribute("x2", transX);
+  document.getElementById("arrow").setAttribute("y2", transY);
+}
+
+function showAllGrids()
+{
+  var show = (document.getElementById("showGrid").checked) ? "block" : "none";
+  document.getElementById("svgGrid").style.display = show;
+  document.getElementById("transformedGrid").style.display = show;
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); redisplay()">
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="200px" height="200px" viewBox="0 0 200 200"&gt;
+  &lt;g id="square"&gt;
+    &lt;rect x="0" y="0" width="20" height="20"
+      style="fill: none; stroke:black; stroke-width: 2;"/&gt;
+  &lt;/g&gt;
+  &lt;use xlink:href="#square" transform="translate(<input type="text" size="3" value="50"
+    id="translateX" onchange="redisplay()"/>, <input type="text" size="3"
+    value="50" id="translateY" onchange="redisplay()"/>)"/&gt;
+&lt;/svg&gt;</pre></div>
+<div>
+  <input type="checkbox" id="showGrid" onclick="showAllGrids()"
+    checked="checked"/> Show grid
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="300" viewBox="0 0 300 300"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <marker id="arrowhead" markerWidth="5" markerHeight="10"
+      refX="5" refY="5" orient="auto">
+      <path d="M 0 0 5 5 0 10 Z" style="fill:#c00;"/>
+    </marker>
+        
+    <line id="arrow" x1="0" y1="0" x2="0" y2="0"
+        style="stroke-dasharray:4 2; marker-end: url(#arrowhead)"/>
+   
+  </defs>
+  
+  <g id="svgGrid">
+    <use xlink:href="grid_parts.svg#tickmarks" x="35" y="35" style="stroke:#999"/>
+    <use xlink:href="grid_parts.svg#numbers" x="35" y="35" style="fill:#999"/>
+    <use xlink:href="grid_parts.svg#dashed-frame" x="35" y="35" style="stroke:#999"/>
+    <use xlink:href="#arrow" transform="translate(35,35)" style="stroke:#c00; fill:none"/>
+  </g>
+
+  <g id="transformed">
+    <g id="transformedGrid">
+      <use xlink:href="grid_parts.svg#tickmarks" x="35" y="35" style="stroke:#666"/>
+      <use xlink:href="grid_parts.svg#numbers" x="35" y="35" style="fill:#666"/>
+      <use xlink:href="grid_parts.svg#grid" x="35" y="35" style="stroke:#ccc"/>
+      <use xlink:href="grid_parts.svg#axes" x="35" y="35" style="stroke:#666"/>
+    </g>
+    <rect x="0" y="0" width="20" height="20" transform="translate(35,35)"
+      style="fill:none; stroke: #000; stroke-width: 2"/>
+  </g>
+  
+  <rect x="0" y="0" width="20" height="20" transform="translate(35,35)"
+    style="fill:none; stroke:#000; stroke-width: 2"/>
+  
+</svg>
+</div>
+
+</body>
+</html>

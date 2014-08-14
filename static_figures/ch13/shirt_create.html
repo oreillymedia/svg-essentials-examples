@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>SVG and HTML</title>
+  <style type="text/css">
+    /* make form entries begin on a new line */
+    label {display: block;}
+    h1 {font-size: 125%;}
+  </style>
+  <script type="text/javascript">
+    var svgDoc;
+
+    function init() {
+      var obj = document.getElementById("shirt");
+      svgDoc = obj.getSVGDocument();
+    }
+    
+    function createRings(nRings) {
+      var shirt = svgDoc.getElementById("shirt");
+      var rings = shirt.getElementsByTagName("circle");
+      var i;
+      var radius;
+      var circle;
+      
+      for (i = rings.length - 1; i >= 0; i--) {
+        shirt.removeChild(rings[i]);
+      }
+      
+      /* Pin the range to 0-5 */
+      if (nRings < 0) { nRings = 0; }
+      else if (nRings > 5) { nRings = 5; }
+      
+      radius = nRings * 4;
+      for (i = 0; i < nRings * 2; i++) {
+        circle = svgDoc.createElementNS("http://www.w3.org/2000/svg",
+          "circle");
+        circle.setAttribute("cx", "0");
+        circle.setAttribute("cy", "0");
+        circle.setAttribute("r", radius);
+        
+        if (i % 2 == 0) {
+            circle.style.cssText = "fill:black; stroke:none";
+        }
+        else {
+            circle.style.cssText = "fill:white; stroke:none;";
+        }
+        shirt.appendChild(circle);
+        radius -= 2;
+      }
+    }
+    
+    function updateSVG(which, amount) {
+      amount = parseInt(amount);
+      if (!isNaN(amount)) {
+        window.setShirtColor(which, amount);
+      }
+    }
+
+    function updateHTMLField(which, percent) {
+      document.getElementById("fld" + which).value = percent;
+    }
+  </script>
+</head>
+
+<body onload="init()">
+<h1>SVG and HTML</h1>
+<div style="text-align:center">
+  <object id="shirt" data="shirt_create.svg"
+    type="image/svg+xml">
+    <p>Alas, your browser does not support SVG.</p>
+  </object>
+
+  <form id="rgbForm">
+    <label>Red: <input id="fld0" type="text" size="5" value="100"
+      onchange="updateSVG(0, this.value)" />% </label>
+    <label>Green: <input id="fld1" type="text" size="5" value="100"
+      onchange="updateSVG(1, this.value)" />% </label>
+    <label>Blue: <input id="fld2" type="text" size="5" value="100"
+      onchange="updateSVG(2, this.value)" />%</label>
+    <label>Rings: <input id="nRings" type="text" size="3" value="0"
+      onchange="createRings(this.value)" /></label>
+  </form>
+</div>
+</body>
+</html>

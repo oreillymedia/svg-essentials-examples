@@ -1,0 +1,68 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body" width="300" height="300"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Scaled-by-two Rulers</title>
+
+<!-- tick marks on horizontal axis -->
+<defs>
+<g id="hruler2">
+  <path d="M0 0 h220
+    M0 0 v-10  M20 0 v-5 M40 0 v-10 M60 0 v-5  M80 0 v-10 M100 0 v-5
+    M120 0 v-10 M140 0 v-5 M160 0 v-10 M180 0 v-5
+    M200 0 v-10" style="fill: none; stroke: black;"/>
+  <path fill="none" stroke="#cccccc" d="
+    M20 0 v220 M40 0 v220 M60 0 v220 M80 0 v220 M100 0 v220
+    M120 0 v220 
+    "/>
+
+  <g style="font-family: sans-serif; font-size: 10pt; text-anchor: middle;">
+  <text x="0" y="-25">0</text> <text x="40" y="-25">20</text>
+  <text x="80" y="-25">40</text> <text x="120" y="-25">60</text>
+  <text x="160" y="-25">80</text> <text x="200" y="-25">100</text>
+  </g>
+  
+  <g style="font-family: sans-serif; font-size: 8pt; fill: #999;
+    text-anchor: middle;">
+  <text x="0" y="-12">0</text> 
+  <text x="40" y="-12">40</text> 
+  <text x="80" y="-12">80</text> 
+  </g>
+</g>
+
+<g id="vruler2">
+  <path d="M0 0 v220
+    M0 0 h-10  M0 20 h-5 M0 40 h-10 M0 60 h-5  M0 80 h-10 M0 100 h-5
+    M0 120 h-10 M0 140 h-5 M0 160 h-10 M0 180 h-5
+    M0 200 h-10" style="fill: none; stroke: black;"/>
+  <path d="M0 20 h220 M0 40 h220 M0 60 h220 M0 80 h220 M0 100 h220
+    M0 120 h220" style="fill: none; stroke: #ccc;"/>
+
+  <g transform="translate(0, 4)" style="font-family: sans-serif;
+    font-size: 10pt; text-anchor: end;">
+  <text x="-30" y="0">0</text> <text x="-30" y="40">20</text>
+  <text x="-30" y="80">40</text> <text x="-30" y="120">60</text>
+  <text x="-30" y="160">80</text> <text x="-30" y="200">100</text>
+  </g>
+
+  <g transform="translate(0, 4)" style="font-family: sans-serif;
+    font-size: 8pt; fill: #999; text-anchor: end;">
+  <text x="-15" y="0">0</text> 
+  <text x="-15" y="40">40</text> 
+  <text x="-15" y="80">80</text>
+  </g>
+
+</g>
+
+<g id="scale2_axes">
+  <use xlink:href="#hruler2"/>
+  <use xlink:href="#vruler2"/>
+</g>
+</defs>
+
+<use xlink:href="#hruler2" transform="translate(40,40)" />
+<use xlink:href="#vruler2" transform="translate(40,40)" />
+<text x="6" y="25" style="font-family: sans-serif;">px</text>
+</svg>

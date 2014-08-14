@@ -1,0 +1,14 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100px" height="50px" viewBox="0 0 100 50"
+  xmlns="http://www.w3.org/2000/svg">
+  
+  <title>polyline</title>
+  <desc>Symbol for a resistor drawn with polyline element</desc>
+  
+  <polyline
+    points="5 20, 20 20, 25 10, 35 30, 45 10,
+      55 30, 65 10, 75 30, 80 20, 95 20"
+    style="stroke: black; stroke-width: 3; fill: none;"/> 
+</svg>

@@ -1,0 +1,24 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="120" viewBox="0 0 300 120"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Animating Paths and Polygons</title>
+
+  <polygon points="30 30 70 30 90 70 10 70"
+    style="fill:#fcc; stroke:black">
+    <animate id="animation"
+      attributeName="points"
+      attributeType="XML"
+      to="50 30 70 50 50 90 30 50"
+      begin="0s" dur="5s" fill="freeze" />
+  </polygon>
+
+  <path d="M15 50 Q 40 15, 50 50, 65 32, 100 40"
+    style="fill:none; stroke: black" transform="translate(0,50)">
+    <animate attributeName="d"
+      attributeType="XML"
+      to="M50 15 Q 15 40, 50 50, 32 65, 40 100"
+      begin="0s" dur="5s" fill="freeze"/>
+  </path>
+</svg>

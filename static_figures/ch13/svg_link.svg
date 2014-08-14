@@ -1,0 +1,17 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="200" height="100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  
+  <a xlink:href="cat.svg">
+    <text x="100" y="30" style="font-size: 12pt;">Cat</text>
+  </a>
+
+  <a xlink:href="http://www.w3.org/SVG/">
+    <circle cx="50" cy="70" r="20" style="fill: red;"/>
+    <rect x="75" y="50" width="40" height="40" style="fill: green;"/>
+    <path d="M120 90, 140 50, 160 90 Z" style="fill: blue;"/>
+  </a>
+</svg>

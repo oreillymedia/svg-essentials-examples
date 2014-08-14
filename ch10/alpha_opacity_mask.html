@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Alpha value as Opacity</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+var textPath;
+
+function update() {
+  var decimalInput = getValue("decimalInput");
+  var decimal = parseFloat(decimalInput);
+  var percent = decimal * 100;
+  var node = document.createTextNode(percent);
+  var el = document.getElementById("percentOutput");
+  
+  el.replaceChild(node, el.firstChild);
+  
+  node = document.createTextNode(percent + "%");
+  el = document.getElementById("percentText");
+  el.replaceChild(node, el.firstChild);
+  
+  setAttr("opacityRect", "style",
+    "fill-opacity: " + decimal + "; fill: white");
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); update();">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="300" height="100" viewBox="0 0 300 100"
+  xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+&lt;defs&gt;
+  &lt;mask id="fullmask" x="0" y="0" width="1" height="1"
+      maskContentUnits="objectBoundingBox"&gt;
+      &lt;rect x="0" y="0" width="1" height="1"
+          style="fill-opacity: 1.0; fill: white;"/&gt;
+  &lt;/mask&gt;
+
+  &lt;mask id="opacityMask" x="0" y="0" width="1" height="1"
+      maskContentUnits="objectBoundingBox"&gt;
+      &lt;rect x="0" y="0" width="1" height="1"
+          style="fill-opacity: <input type="text" id="decimalInput" value="0.75"
+            onchange="update()" size="4"/>; fill: white;"/&gt;
+  &lt;/mask&gt;
+&lt;/defs&gt;
+
+&lt;g style="font-size: 14pt; text-anchor:middle; fill:black;"&gt;
+  &lt;g style="mask: url(#fullmask);"&gt;
+    &lt;circle cx="35" cy="35" r="25"/&gt;
+    &lt;text x="35" y="80"&gt;100%&lt;/text&gt;
+  &lt;/g&gt;
+
+  &lt;g style="mask: url(#opacityMask);"&gt;
+    &lt;circle cx="95" cy="35" r="25"/&gt;
+    &lt;text x="95" y="80"&gt;<span id="percentOutput">75</span>%&lt;/text&gt;
+  &lt;/g&gt;
+&lt;/g&gt;
+
+&lt;/svg&gt;
+</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="200" height="120" viewBox="0 0 200 120"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <mask id="fullmask" x="0" y="0" width="1" height="1"
+    maskContentUnits="objectBoundingBox">
+    <rect x="0" y="0" width="1" height="1"
+      style="fill-opacity: 1.0; fill: white;"/>
+  </mask>
+
+  <mask id="opacityMask" x="0" y="0" width="1" height="1"
+    maskContentUnits="objectBoundingBox">
+    <rect x="0" y="0" width="1" height="1" id="opacityRect"
+      style="fill-opacity: 0.75; fill: white;"/>
+  </mask>
+</defs>
+
+<g style="font-size: 14pt; text-anchor:middle; fill:black;">
+    <g style="mask: url(#fullmask);">
+    <circle cx="35" cy="35" r="25"/>
+    <text x="35" y="80">100%</text>
+    </g>
+
+    <g style="mask: url(#opacityMask);">
+    <circle cx="95" cy="35" r="25"/>
+    <text x="95" y="80" id="percentText">75</text>
+    </g>
+</g>
+</svg>
+</div>
+
+</body>
+</html>

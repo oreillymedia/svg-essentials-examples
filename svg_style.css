@@ -1,0 +1,27 @@
+#svgSource {
+  font-size: 10pt;
+}
+
+#svgOriginal {
+  display: none;
+}
+
+#svgError {
+  display: none;
+  margin: 0.5em 0;
+  background-color: #fcc;
+}
+
+#svgShowError {
+  display: none;
+}
+
+.highlight {
+  background-color: #cfc;
+  font-weight: bold;
+}
+
+.editable {
+  border: 2px solid #080;
+  padding: 0.25em;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Basic Lines</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="200px" height="200px" viewBox="0 0 200 200"&gt;
+  &lt;!-- horizontal line --&gt;
+  &lt;line x1="40" y1="20" x2="80" y2="20" style="stroke: black;"/&gt;
+  &lt;!-- vertical line --&gt;
+  &lt;line x1="0.7cm" y1="1cm" x2="0.7cm" y2="2.0cm"
+    style="stroke: black;"/&gt;
+   &lt;!-- diagonal line --&gt;
+   &lt;line x1="30" y1="30" x2="85" y2="85" style="stroke: black;"/&gt;
+&lt;/svg&gt;</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="showGrid" onclick="showGrid()"
+    checked="checked"/> Show grid
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <g id="svgGrid">
+    <image xlink:href="pixel_ruler.svg" x="0" y="0" width="200" height="200"/>
+    </g>
+    <g id="svgMarkup" transform="translate(40,40)">></g>
+  </svg>
+</div>
+
+</body>
+</html>

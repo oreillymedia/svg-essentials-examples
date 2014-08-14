@@ -1,0 +1,66 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="250px" viewBox="0 0 400 250"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  
+  <title>Defining vectors for a linear gradient</title>
+  <desc>The same gradient, shown in various directions, with
+    arrows showing the directions.</desc>
+
+  <defs>
+  <linearGradient id="three_stops">
+      <stop offset="0%" style="stop-color: #ffcc00;"/>
+      <stop offset="33.3%" style="stop-color: #cc6699"/>
+      <stop offset="100%" style="stop-color: #66cc99;"/>
+  </linearGradient>
+
+  <linearGradient id="right_to_left"
+      xlink:href="#three_stops"
+      x1="100%" y1="0%" x2="0%" y2="0%"/>
+
+  <linearGradient id="down"
+      xlink:href="#three_stops"
+      x1="0%" y1="0%" x2="0%" y2="100%"/>
+
+  <linearGradient id="up"
+      xlink:href="#three_stops"
+      x1="0%" y1="100%" x2="0%" y2="0%"/>
+
+  <linearGradient id="diagonal"
+      xlink:href="#three_stops"
+      x1="0%" y1="0%" x2="100%" y2="100%"/>
+
+  <marker id="arrow" markerWidth="8" markerHeight="8"
+    refX="8" refY="4" orient="auto">
+    <path d="M0 0 8 4 0 8 Z" style="fill: gray;"/>
+  </marker>
+
+  </defs>
+
+  <rect x="40" y="20" width="200" height="40"
+      style="fill: url(#three_stops); stroke: black;"/>
+  <line x1="40" y1="40" x2="240" y2="40"
+    style="marker-end: url(#arrow); stroke: gray;"/>
+
+  <rect x="40" y="70" width="200" height="40"
+      style="fill: url(#right_to_left); stroke: black;"/>
+  <line x1="240" y1="90" x2="40" y2="90"
+    style="marker-end: url(#arrow); stroke: gray;"/>
+
+  <rect x="250" y="20" width="40" height="200"
+      style="fill: url(#down); stroke: black;"/>
+  <line x1="270" y1="20" x2="270" y2="220"
+    style="marker-end: url(#arrow); stroke: gray;"/>
+
+  <rect x="300" y="20" width="40" height="200"
+      style="fill: url(#up); stroke: black;"/>
+  <line x1="320" y1="220" x2="320" y2="20"
+    style="marker-end: url(#arrow); stroke: gray;"/>
+
+  <rect x="40" y="120" width="200" height="100"
+      style="fill: url(#diagonal); stroke: black;"/>
+  <line x1="40" y1="120" x2="240" y2="220"
+    style="marker-end: url(#arrow); stroke: gray;"/>
+</svg>

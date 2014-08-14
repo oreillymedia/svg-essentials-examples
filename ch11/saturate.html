@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>saturate</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+var textPath;
+
+function update() {
+  var saturateInput = getValue("saturateInput");
+  var node = document.createTextNode(saturateInput);
+  var el = document.getElementById("saturateOutput");
+  
+  el.replaceChild(node, el.firstChild);
+  
+  node = document.createTextNode(saturateInput);
+  el = document.getElementById("saturateLabel");
+  el.replaceChild(node, el.firstChild);
+  
+  setAttr("saturate", "values", saturateInput);
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="update()">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="350" height="100" viewBox="0 0 350 100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+
+&lt;defs&gt;
+
+  &lt;filter id="s1" filterUnits="objectBoundingBox"&gt;
+  &lt;feColorMatrix type="saturate" values="1.0"/&gt;
+  &lt;/filter&gt;
+
+  &lt;filter id="satFilter" filterUnits="objectBoundingBox"&gt;
+  &lt;feColorMatrix id="saturate" type="saturate" values="<input type="text"
+    id="saturateInput" value="0.5" size="4" onchange="update()"/>/&gt;
+  &lt;/filter&gt;
+
+
+  &lt;g id="squares"&gt;
+    &lt;rect x="0" y="0" width="30" height="30" style="fill: #f00;"/&gt;
+    &lt;rect x="40" y="0" width="30" height="30" style="fill: #0f0;"/&gt;
+    &lt;rect x="80" y="0" width="30" height="30" style="fill: #00f;"/&gt;
+    &lt;rect x="120" y="0" width="30" height="30" style="fill: #ff0;"/&gt;
+    &lt;rect x="160" y="0" width="30" height="30" style="fill: #f0f;"/&gt;
+    &lt;rect x="200" y="0" width="30" height="30" style="fill: #0ff;"/&gt;
+  &lt;/g&gt;
+&lt;/defs&gt;
+
+&lt;g style="font-size: 10pt; text-anchor: end;"&gt;
+  &lt;text x="65" y="15"&gt;Saturate&lt;/text&gt;
+  &lt;text x="65" y="35"&gt;1.0&lt;/text&gt;
+  &lt;text x="65" y="75"&gt;<span id="saturateLabel">0.5</span>&lt;/text&gt;
+&lt;/g&gt;
+
+&lt;g transform="translate( 70, 10 )"&gt;
+  &lt;use xlink:href="#squares" style="filter: url(#s1);"/&gt;
+&lt;/g&gt;
+
+&lt;g transform="translate(70, 50)"&gt;
+  &lt;use xlink:href="#squares" style="filter: url(#satFilter)"/&gt;
+&lt;/g&gt;
+
+&lt;/svg&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="350" height="100" viewBox="0 0 350 100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Result of saturate on primary colors</title>
+
+<defs>
+
+  <filter id="s1" filterUnits="objectBoundingBox">
+  <feColorMatrix type="saturate" values="1.0"/>
+  </filter>
+
+  <filter id="satFilter" filterUnits="objectBoundingBox">
+  <feColorMatrix id="saturate" type="saturate" values="0.5"/>
+  </filter>
+
+
+  <g id="squares">
+    <rect x="0" y="0" width="30" height="30" style="fill: #f00;"/>
+    <rect x="40" y="0" width="30" height="30" style="fill: #0f0;"/>
+    <rect x="80" y="0" width="30" height="30" style="fill: #00f;"/>
+    <rect x="120" y="0" width="30" height="30" style="fill: #ff0;"/>
+    <rect x="160" y="0" width="30" height="30" style="fill: #f0f;"/>
+    <rect x="200" y="0" width="30" height="30" style="fill: #0ff;"/>
+  </g>
+</defs>
+
+<g style="font-size: 10pt; text-anchor: end;">
+  <text x="65" y="15">Saturate</text>
+  <text x="65" y="35">1.0</text>
+  <text x="65" y="75"><tspan id="saturateOutput">0.5</tspan></text>
+</g>
+
+<g transform="translate( 70, 10 )">
+  <use xlink:href="#squares" style="filter: url(#s1);"/>
+</g>
+
+<g transform="translate(70, 50)">
+  <use xlink:href="#squares" style="filter: url(#satFilter)"/>
+</g>
+
+</svg>
+</div>
+
+</body>
+</html>

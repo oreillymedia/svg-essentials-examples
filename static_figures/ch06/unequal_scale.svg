@@ -1,0 +1,15 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Non-uniform Scaling</title>
+  <desc>Shows a square tripled in width and multiplied by
+  one and a half in height.</desc>
+    <g id="square">
+        <rect x="10" y="10" width="20" height="20"
+      style="fill: none; stroke: black;"/>
+    </g>
+    <use xlink:href="#square" transform="scale(3, 1.5)"/>
+</svg>

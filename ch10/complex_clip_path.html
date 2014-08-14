@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Simple clip path</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+function showClip(isChecked)
+{
+  setAttr("unclipped", "style", "display:" +
+    ((isChecked) ? "block" : "none"));
+  setAttr("clipped", "style", "display:" +
+    ((isChecked) ? "none" : "block"));
+}
+
+// ]]>
+  </script>
+</head>
+
+<body>
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="200" height="150" viewBox="0 0 200 150"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <clipPath id="curveClip">
+      <path id="curve1"
+        d="M5 55 C 25 5, 45 -25, 75 55, 85 85, 20 105, 40 55 Z"
+        style="stroke: black; fill: none;"/>
+    </clipPath>
+
+    <clipPath id="textClip">
+      <text id="text1" x="20" y="20" transform="rotate(60)"
+        style="font-family: 'Liberation Sans';
+          font-size: 48pt; stroke: black; fill: none;">
+        CLIP
+      </text>
+    </clipPath>
+
+    <g id="shapes">
+      <rect x="0" y="50" width="90" height="60" style="fill: #999;"/>
+      <circle cx="25" cy="25" r="25" style="fill: #666;"/>
+      <polygon points="30 0 80 0 80 100" style="fill: #ccc;"/>
+    </g>
+  </defs>
+
+  <!-- draw with curved clip-path -->
+  <g id="clipped" style="display: block">
+    <use xlink:href="#shapes" style="clip-path: url(#curveClip);" />
+    <!-- draw with text as clip-path -->
+    <use transform="translate(100, 0)"
+      xlink:href="#shapes" style="clip-path: url(#textClip);"/>
+  </g>
+
+  <g id="unclipped" style="display: none">
+    <g>
+      <use xlink:href="#shapes"/>
+      <use xlink:href="#curve1"/>   <!-- show clip path -->
+    </g>
+
+    <g transform="translate(100, 0)">
+      <use xlink:href="#shapes"/>
+      <use xlink:href="#text1"/>
+    </g>
+  </g>
+</svg>
+</div>
+<div>
+<input type="checkbox" id="showClip"
+  onclick="showClip(this.checked)" /> Show unclipped picture
+</div>
+
+</body>
+</html>

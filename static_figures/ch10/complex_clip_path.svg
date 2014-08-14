@@ -1,0 +1,47 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="300" viewBox="0 0 200 300"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Complex path clipping</title>
+   
+  <defs>
+    <clipPath id="curveClip">
+      <path id="curve1"
+        d="M5 55 C 25 5, 45 -25, 75 55, 85 85, 20 105, 40 55 Z"
+        style="stroke: black; fill: none;"/>
+    </clipPath>
+
+    <clipPath id="textClip">
+      <text id="text1" x="20" y="20" transform="rotate(60)"
+        style="font-family: 'Liberation Sans';
+          font-size: 48pt; stroke: black; fill: none;">
+        CLIP
+      </text>
+    </clipPath>
+
+    <g id="shapes">
+      <rect x="0" y="50" width="90" height="60" style="fill: #999;"/>
+      <circle cx="25" cy="25" r="25" style="fill: #666;"/>
+      <polygon points="30 0 80 0 80 100" style="fill: #ccc;"/>
+    </g>
+  </defs>
+
+  <!-- draw with curved clip-path -->
+  <use xlink:href="#shapes" style="clip-path: url(#curveClip);" />
+
+  <!-- draw with text as clip-path -->
+  <use transform="translate(100, 0)"
+    xlink:href="#shapes" style="clip-path: url(#textClip);"/>
+
+  <g transform="translate(0, 150)">
+    <use xlink:href="#shapes"/>
+    <use xlink:href="#curve1"/>   <!-- show clip path -->
+  </g>
+
+  <g transform="translate(100,150)">
+    <use xlink:href="#shapes"/>
+    <use xlink:href="#text1"/>
+  </g>
+</svg>

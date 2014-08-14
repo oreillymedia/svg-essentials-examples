@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en"
+  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>SVG in HTML</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style>
+    svg { 
+    /* define how the SVG should be positioned and sized
+      within the HTML document */
+      display:block;
+      width:500px;
+      height:500px;
+      margin: auto;
+    /* you can also style the box in which the SVG will
+      be drawn using other CSS properties */
+      border: thick double navy;
+      background-color: lightblue;
+    }
+    
+    body {
+    /* styles you define for the main document will be
+      inherited by the SVG */
+      font-family: cursive;
+    }
+    
+    circle {
+    /* you can also define styles for your SVG elements
+      within your main stylesheet */
+      fill: lavender;
+      stroke: navy;
+      stroke-width: 5;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Inline SVG in HTML Demo Page</h1>
+    <svg viewBox="0 0 250 250" 
+         xmlns="http://www.w3.org/2000/svg">
+      <title>An SVG circle</title>
+      <circle cx="125" cy="125" r="100"/>
+      <text x="125" y="125" dy="0.5em" text-anchor="middle">
+         Look Ma, Same Font!</text>
+    </svg>
+  <p>And here is regular HTML again...</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="200" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+
+  <text style="font-size: 24px; font-family:Times,serif" x="20" y="30">glyphs</text>
+  <text style="font-size: 24px; font-family:Helvetica,sans-serif" x="120" y="30">glyphs</text>
+</svg>

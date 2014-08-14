@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Line Join</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  
+function redisplay()
+{
+  var linejoin = document.getElementById("linejoin").value;
+  var attr = "stroke-linejoin:" + linejoin + "; " +
+    "stroke: black; stroke-width: 12; fill: none;"
+  
+  document.getElementById("join").setAttribute("style",
+    attr);
+
+} 
+  </script>
+</head>
+
+<body>
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="100px" height="100px" viewBox="0 0 100 100"&gt;
+&lt;polyline
+    style="stroke-linejoin: <select id="linejoin" onchange="redisplay()"><option value="miter">miter</option><option value="round">round</option><option value="bevel">bevel</option></select>;
+    stroke: black; stroke-width: 12; fill: none;"
+    points="30 30, 45 15, 60 30"/&gt;
+&lt;/svg&gt;</pre></div>
+
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="100" height="100">
+
+<polyline id="join"
+    style="stroke-linejoin: miter;
+    stroke: black; stroke-width: 12; fill: none;"
+    points="30 30, 45 15, 60 30"/>
+
+</svg>
+</div>
+
+</body>
+</html>
+

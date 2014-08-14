@@ -1,0 +1,38 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="300"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Cartesian Coordinates Diagram</title>
+  <desc>A trapezoid, with its cartesian coordinates pointed out</desc>
+
+<g transform="translate(40,40)">
+
+<use xlink:href="default_ruler.svg#hruler"
+  transform="translate(0, 100) scale(1,-1)" style="stroke: black;"/>
+<use xlink:href="default_ruler.svg#htext"
+  transform="translate(0, 140)" style="fill: black;"/>
+<use xlink:href="default_ruler.svg#vruler" style="stroke: black;"/>
+<use xlink:href="default_ruler.svg#vtext-upwards" style="fill: black;"/>
+
+  <g transform="translate(0,100) scale(1, -1)">
+  <polygon points="40 40, 100 40, 70 70, 40 70"
+    style="fill: gray; stroke: black;"/>
+  </g>
+  <g style="font-size: 8pt; fill: black;">
+    <text x="10" y="85">(40,40)</text>
+    <line x1="40" y1="75" x2="40" y2="60"
+      style="stroke: black; stroke-dasharray: 3 3;"/>
+    <text x="90" y="85">(100,40)</text>
+    <line x1="100" y1="75" x2="100" y2="60"
+      style="stroke: black; stroke-dasharray: 3 3;"/>
+     <text x="70" y="15">(70,70)</text>
+     <line x1="70" y1="17" x2="70" y2="30" 
+      style="stroke: black; stroke-dasharray: 3 3;"/>
+     <text x="10" y="15">(40,70)</text>
+     <line x1="40" y1="17" x2="40" y2="30"
+      style="stroke: black; stroke-dasharray: 3 3;"/>   
+  </g>
+</g>
+</svg>

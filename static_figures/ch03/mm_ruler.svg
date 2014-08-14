@@ -1,0 +1,73 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="300"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>millimeter rulers</title>
+<desc>Draws a labelled grid spaced every five millimeters</desc>
+
+<defs>
+<g id="hruler">
+  <g style="stroke: black; fill: none;">
+    <line x1="0mm" y1="0" x2="35mm" y2="0" />
+    <line x1="0mm" y1="0" x2="0mm" y2="-10"/>
+    <line x1="5mm" y1="0" x2="5mm" y2="-5" />
+    <line x1="10mm" y1="0" x2="10mm" y2="-10" />
+    <line x1="15mm" y1="0" x2="15mm" y2="-5" />
+    <line x1="20mm" y1="0" x2="20mm" y2="-10" />
+    <line x1="25mm" y1="0" x2="25mm" y2="-5" />
+    <line x1="30mm" y1="0" x2="30mm" y2="-10" />
+  </g>
+  <g style="stroke: #cccccc; fill: none;">
+    <line x1="0mm" y1="0mm" x2="0mm" y2="35mm" />
+    <line x1="5mm" y1="0mm" x2="5mm" y2="35mm" />
+    <line x1="10mm" y1="0mm" x2="10mm" y2="35mm" />
+    <line x1="15mm" y1="0mm" x2="15mm" y2="35mm" />
+    <line x1="20mm" y1="0mm" x2="20mm" y2="35mm" />
+    <line x1="25mm" y1="0mm" x2="25mm" y2="35mm" />
+    <line x1="30mm" y1="0mm" x2="30mm" y2="35mm" />
+  </g>
+
+  <g style="font-family: sans-serif; font-size: 8pt;
+    stroke: none; fill: black;
+    text-anchor: middle;">
+  <text x="0mm" y="-15">0</text> <text x="10mm" y="-15">10</text>
+  <text x="20mm" y="-15">20</text> <text x="30mm" y="-15">30</text>
+  </g>
+</g>
+
+<g id="vruler">
+  <g style="fill: none; stroke: black;">
+    <line x1="0" y1="0mm" x2="0" y2="35mm" />
+    <line x1="0" y1="0mm" x2="-10" y2="0mm"/>
+    <line x1="0" y1="5mm" x2="-5" y2="5mm" />
+    <line x1="0" y1="10mm" x2="-10" y2="10mm" />
+    <line x1="0" y1="15mm" x2="-5" y2="15mm" />
+    <line x1="0" y1="20mm" x2="-10" y2="20mm" />
+    <line x1="0" y1="25mm" x2="-5" y2="25mm" />
+    <line x1="0" y1="30mm" x2="-10" y2="30mm" />
+  </g>
+  <g style="fill: none; stroke: #cccccc;">
+    <line x1="0mm" y1="5mm" x2="35mm" y2="5mm" />
+    <line x1="0mm" y1="10mm" x2="35mm" y2="10mm" />
+    <line x1="0mm" y1="15mm" x2="35mm" y2="15mm" />
+    <line x1="0mm" y1="20mm" x2="35mm" y2="20mm" />
+    <line x1="0mm" y1="25mm" x2="35mm" y2="25mm" />
+    <line x1="0mm" y1="30mm" x2="35mm" y2="30mm" />
+  </g>
+
+  <g transform="translate(0,4)"
+    style="font-family: sans-serif; font-size: 8pt;
+    text-anchor: end; fill: black; stroke: none;">
+    <text x="-15" y="0mm">0</text> <text x="-15" y="10mm">10</text>
+    <text x="-15" y="20mm">20</text> <text x="-15" y="30mm">30</text>
+  </g>
+</g>
+</defs>
+
+<use xlink:href="#hruler" transform="translate(40, 40)"  />
+<use xlink:href="#vruler" transform="translate(40, 40)" />
+<text x="1mm" y="25"
+  style="font-family: sans-serif; fill: black; stroke: none;">mm</text>
+</svg>

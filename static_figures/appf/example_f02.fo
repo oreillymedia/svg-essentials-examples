@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"> 
+<fo:layout-master-set> 
+<fo:simple-page-master 
+    margin-right="0.5cm"
+    margin-left="0.5cm"
+    margin-bottom="0.5cm"
+    margin-top="0.5cm"
+    page-height="12cm" page-width="12cm"
+    master-name="cdcover">
+<fo:region-body/> 
+</fo:simple-page-master>
+</fo:layout-master-set>
+
+<fo:page-sequence master-name="cdcover"> 
+<fo:flow flow-name="xsl-region-body" font-family="Times"> 
+
+    <fo:block font-size="12pt" font-style="italic" space-after="12pt"> 
+    The Peoria Bagpipe and Timpani Ensemble Performs
+    </fo:block>
+    
+    <fo:block font-size="24pt" font-weight="bold" space-after="24pt"
+        text-align="center">
+    Beethoven on Broadway!
+    </fo:block>
+
+    <fo:block text-align="center">  
+    <fo:instream-foreign-object width="140px" height="140px">  
+    <!-- Simple geometric design -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="140px" height="140px"> 
+        <polygon points="0 0 140 0 0 140" style="fill: #cccccc;"/>
+        <polygon points="0 140 140 140 140 0" style="fill: #666666;"/>
+        <circle cx="70" cy="70" r="35" style="fill: white; stroke: black;"/>
+    </svg>
+    </fo:instream-foreign-object> 
+    </fo:block>
+
+    <fo:block text-align="center" font-size="9pt" space-before="2.5cm"> 
+    Copyright 2001 O'Reilly &amp; Associates
+    </fo:block>
+</fo:flow>
+</fo:page-sequence>
+</fo:root>

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>feMorphology</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+function update() {
+  setAttr("feMorph", "operator", document.getElementById("morphologyMenu").value);
+  setAttr("feMorph", "radius", getValue("radiusInput"));
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="update();">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="300" height="190" viewBox="0 0 300 190"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+  
+  &lt;defs&gt;
+    &lt;g id="cat" stroke-width="2"&gt;
+      &lt;!-- drawing of cat goes here --&gt;
+    &lt;/g&gt;
+
+    &lt;filter id="morphology"&gt;
+      &lt;feMorphology operator="<select id="morphologyMenu" onchange="update()">
+      <option value="erode">erode</option>
+      <option value="dilate">dilate</option></select>" radius="<input id="radiusInput"
+      type="text" size="3" value="1" onchange="update()"/>"/&gt;
+    &lt;/filter&gt;
+  &lt;/defs&gt;
+
+  &lt;use xlink:href="#cat"/&gt;
+  &lt;text x="75" y="170" style="text-anchor: middle;"&gt;Normal&lt;/text&gt;
+
+  &lt;use xlink:href="#cat" transform="translate(150,0)"
+    style="filter: url(#morphology);"/&gt; 
+&lt;/svg&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="190" viewBox="0 0 300 190"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<g id="cat" stroke-width="2">
+  <circle cx="70" cy="95" r="50" style="stroke: black; fill: none;"/>
+  <polyline  points="108 62,
+    90 10,
+    70 45,
+    50, 10,
+    32, 62" style="stroke: black; fill: none;"/>
+  <circle cx="55" cy="80" r="5" style="stroke: black; fill: #339933;"/>
+  <circle cx="85" cy="80" r="5" style="stroke: black; fill: #339933;"/>
+  <line x1="65" y1="95" x2="5" y2="85" style="stroke: black;"/>
+  <line x1="65" y1="95" x2="5" y2="105" style="stroke: black;"/>
+  <line x1="75" y1="95" x2="135" y2="85" style="stroke: black;"/>
+  <line x1="75" y1="95" x2="135" y2="105" style="stroke: black;"/>
+  <polyline points="35 110, 45 120, 95 120, 105 110"
+    style="stroke: black; fill: none;"/>
+  <path  d="M 75 90 L 65 90 A 5 10 0  0 0 75 90"
+    style="stroke: black; fill: #ffcccc;"/>
+</g>
+
+<filter id="morphology">
+    <feMorphology id="feMorph" operator="erode" radius="1"/>
+</filter>
+
+</defs>
+
+<use xlink:href="#cat"/>
+<text x="75" y="170" style="text-anchor: middle;">Normal</text>
+
+<use xlink:href="#cat" transform="translate(150,0)"
+  style="filter: url(#morphology);"/>
+</svg>
+</div>
+
+</body>
+</html>

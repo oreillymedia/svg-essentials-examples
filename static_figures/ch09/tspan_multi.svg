@@ -1,0 +1,13 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="250px" height="100px" viewBox="0 0 250 100"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Multiple horizontal and vertical offsets</title>
+
+  <text x="30" y="30" style="font-size:14pt">It’s
+  <tspan dx="0 4 -3 5 -4 6" dy="0 -3 7 3 -2 -8"
+    rotate="5 10 -5 -20 0 15">shaken</tspan>,
+  not stirred.
+  </text>
+</svg>

@@ -1,0 +1,24 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>stroke-linejoin</title>
+  <desc>Shows lines with stroke-linejoin's various values.</desc>
+  <g transform="translate(10,10)">
+    <polyline
+      style="stroke-linejoin: miter; stroke: black; stroke-width: 12;
+      fill: none;"
+      points="30 30, 45 15, 60 30"/>
+
+    <polyline
+      style="stroke-linejoin: round; stroke: black; stroke-width: 12;
+      fill: none;"
+      points="90 30, 105 15, 120 30"/>
+
+    <polyline
+      style="stroke-linejoin: bevel; stroke-width: 12; stroke: black;
+      fill: none;"
+      points="150 30, 165 15, 180 30"/>
+  </g>
+</svg>

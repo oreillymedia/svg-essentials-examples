@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>SVG and HTML</title>
+  <style type="text/css">
+    /* make form entries begin on a new line */
+    label {display: block;}
+    h1 {font-size: 125%;}
+  </style>
+  <script type="text/javascript">
+    function updateSVG(which, amount) {
+      amount = parseInt(amount);
+      if (!isNaN(amount)) {
+        window.setShirtColor(which, amount);
+      }
+    }
+
+    function updateHTMLField(which, percent) {
+      document.getElementById("fld" + which).value = percent;
+    }
+  </script>
+</head>
+
+<body>
+<h1>SVG and HTML</h1>
+<div style="text-align:center">
+  <object id="shirt" data="shirt_interact.svg"
+    type="image/svg+xml">
+    <p>Alas, your browser does not support SVG.</p>
+  </object>
+
+  <form id="rgbForm">
+    <label>Red: <input id="fld0" type="text" size="5" value="100"
+      onchange="updateSVG(0, this.value)" />% </label>
+    <label>Green: <input id="fld1" type="text" size="5" value="100"
+      onchange="updateSVG(1, this.value)" />% </label>
+    <label>Blue: <input id="fld2" type="text" size="5" value="100"
+      onchange="updateSVG(2, this.value)" />%</label>
+  </form>
+</div>
+</body>
+</html>

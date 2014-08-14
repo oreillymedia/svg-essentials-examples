@@ -1,0 +1,64 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="150" height="200" viewBox="0 0 150 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Gamma Adjustment with feComponentTransfer</title>
+
+<defs>
+<g id="petal">
+  <path d="M 10 0 Q 27 -15 40 0 27 15 10 0" />
+</g>
+
+<filter id="gamma-shadow" filterUnits="objectBoundingBox">
+  <feImage xlink:href="sky.jpg" result="sky"
+     x="0" y="0" width="100%" height="100%"
+     preserveAspectRatio="none"/>
+  <feComponentTransfer in="sky" result="sky">
+    <feFuncB type="gamma"
+      amplitude="1" exponent="0.2" offset="0"/>
+    <feFuncR type="gamma"
+      amplitude="1" exponent="0.707" offset="0"/>
+    <feFuncG type="gamma"
+      amplitude="1" exponent="0.707" offset="0"/>
+  </feComponentTransfer>
+    
+  <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+  <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+  <feMerge>
+    <feMergeNode in="sky"/>
+    <feMergeNode in="offsetBlur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+</defs>
+
+<g id="flower" style="filter: url(#gamma-shadow)">
+  <path  d="M 50 50 Q 40 70, 70 100 T 70 150"
+    style="stroke: green; fill: none; stroke-width: 3;"/>
+  <path d="M 70 100 Q 80 70, 120 80, 90 75, 75 105"
+     style="stroke: none; fill: green;"/>
+  <circle cx="40" cy="50" r="10" style="fill: gray;"/>
+  <g style="stroke: black; fill: yellow;">
+    <use xlink:href="#petal" transform="translate(40,50)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(40)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(80)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(120)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(160)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(200)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(240)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(280)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(320)"/>
+  </g>
+</g>
+</svg>

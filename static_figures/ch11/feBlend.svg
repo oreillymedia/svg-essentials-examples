@@ -1,0 +1,96 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="300" viewBox="0 0 400 300"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Example feBlend - Examples of feBlend modes</title>
+  <desc>A solid gray bar blended into a series of color squares,
+          one for each of the five feBlend modes.</desc>
+  <defs>
+    <g id="A">
+      <rect x="0" y="0" width="20" height="20" style="fill: black;"/>
+      <rect x="20" y="0" width="20" height="20" style="fill: #ff0;"/>
+      <rect x="40" y="0" width="20" height="20" style="fill: #f00;"/>
+      <rect x="60" y="0" width="20" height="20" style="fill: #0c0;"/>
+      <rect x="80" y="0" width="20" height="20" style="fill: #009;"/>
+      <g fill-opacity="0.5">
+        <rect x="110" y="0" width="20" height="20" style="fill: black;"/>
+        <rect x="130" y="0" width="20" height="20" style="fill: #ff0;"/>
+        <rect x="150" y="0" width="20" height="20" style="fill: #f00;"/>
+        <rect x="170" y="0" width="20" height="20" style="fill: #0c0;"/>
+        <rect x="190" y="0" width="20" height="20" style="fill: #009;"/>
+      </g>
+    </g>
+      
+    <filter id="Normal" color-interpolation-filters="sRGB"
+      x="0" y="0" width="100%" height="100%">
+      <feImage xlink:href="#A" result="A"/>
+      <feBlend mode="normal" in2="A" in="SourceGraphic"/>
+    </filter>
+
+    <filter id="Multiply" color-interpolation-filters="sRGB"
+      x="0" y="0" width="100%" height="100%">
+      <feImage xlink:href="#A" result="A"/>
+      <feBlend mode="multiply" in2="A" in="SourceGraphic"/>
+    </filter>
+
+    <filter id="Screen" color-interpolation-filters="sRGB"
+      x="0" y="0" width="100%" height="100%">
+      <feImage xlink:href="#A" result="A"/>
+      <feBlend mode="screen" in2="A" in="SourceGraphic"/>
+    </filter>
+
+    <filter id="Darken" color-interpolation-filters="sRGB"
+      x="0" y="0" width="100%" height="100%">
+      <feImage xlink:href="#A" result="A"/>
+      <feBlend mode="darken" in2="A" in="SourceGraphic"/>
+    </filter>
+
+    <filter id="Lighten" color-interpolation-filters="sRGB"
+      x="0" y="0" width="100%" height="100%">
+      <feImage xlink:href="#A" result="A"/>
+      <feBlend mode="lighten" in2="A" in="SourceGraphic"/>
+    </filter>
+
+    <linearGradient id="white_to_black"
+      x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color: #ffffff"/>
+      <stop offset="100%" style="stop-color: #000000"/>
+    </linearGradient>
+
+    <g id="grays" style="fill: url(#white_to_black); fill-opacity: 1;">
+      <rect x="0" y="0" width="100" height="20"/>
+      <rect x="110" y="0" width="100" height="20"/>
+    </g>
+  </defs>
+  
+  <text x="260" y="55" style="text-anchor:middle;">original</text>
+  <text x="70" y="30" style="text-anchor: middle;">Opaque</text>
+  <text x="180" y="30" style="text-anchor: middle;">50% Opaque</text>
+
+  <g transform="translate(20,40)">
+    <use xlink:href="#A" />
+
+    <use xlink:href="#grays" transform="translate(0,30)"
+      style="filter: url(#Normal);"/>
+    <text x="220" y="45">normal</text>
+      
+    <use xlink:href="#grays" transform="translate(0,60)"
+      style="filter: url(#Multiply);"/>
+    <text x="220" y="75">multiply</text>
+
+    <use xlink:href="#grays" transform="translate(0,90)"
+      filter="url(#Screen)"/>
+    <text x="220" y="105">screen</text>
+
+    <use xlink:href="#grays" transform="translate(0,120)"
+      style="filter: url(#Darken);"/>
+    <text x="220" y="135">darken</text>
+
+    <use xlink:href="#grays" transform="translate(0,150)"
+      style="filter: url(#Lighten);"/>
+    <text x="220" y="165">lighten</text>
+  </g>
+</svg>

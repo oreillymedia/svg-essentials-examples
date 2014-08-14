@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>patternUnits</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <style type="text/css">
+  #markupW, #markupH { background-color: #ffc; }
+  pre {font-size: 10pt;}
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  function changeUnits()
+  {
+    var value = document.getElementById("patternUnits").value;
+    var obj = document.getElementById("tile");
+    var str = (value == "objectBoundingBox") ? "20%" : "20";
+    obj.setAttribute("patternUnits", value);
+    obj.setAttribute("width", str);
+    obj.setAttribute("height", str);
+    document.getElementById("markupW").innerHTML = str;
+    document.getElementById("markupH").innerHTML = str;
+  }
+  
+  // ]]>
+  </script>
+</head>
+
+<body onload="initElements()">
+
+<div id="svgInput">
+<pre>&lt;svg width="400px" height="200px" viewBox="0 0 400 200"&gt;
+&lt;defs&gt;
+  &lt;pattern id="tile" x="0" y="0" width="<span id="markupW">20%</span>" height="<span id="markupH">20%</span>"
+  patternUnits="<select id="patternUnits" onchange="changeUnits()">
+    <option value="objectBoundingBox">objectBoundingBox</option>
+    <option value="userSpaceOnUse">userSpaceOnUse</option></select>"&gt;
+    &lt;path d="M 0 0 Q 5 20 10 10 T 20 20"
+      style="stroke: black; fill: none;"/&gt;
+    &lt;path d="M 0 0 h 20 v 20 h -20 z"
+      style="stroke: gray; fill: none;"/&gt;
+  &lt;/pattern&gt;
+&lt;/defs&gt;
+
+&lt;rect x="20" y="20" width="100" height="100"
+  style="fill: url(#tile); stroke: black;"/&gt;
+&lt;rect x="135" y="20" width="70" height="80"
+  style="fill: url(#tile); stroke: black;"/&gt;
+&lt;rect x="220" y="20" width="150" height="130"
+  style="fill: url(#tile); stroke: black;"/&gt;
+</pre>
+<div id="svgError"></div>
+<div>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="400" height="200" viewBox="0 0 400 200" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="svgMarkup">
+    <defs>
+    <pattern id="tile" x="0" y="0" width="20%" height="20%"
+        patternUnits="objectBoundingBox">
+      <path d="M 0 0 Q 5 20 10 10 T 20 20"
+        style="stroke: black; fill: none;"/>
+      <path d="M 0 0 h 20 v 20 h -20 z"
+        style="stroke: gray; fill: none;"/>
+    </pattern>
+    </defs>
+
+    <rect x="0" y="0" width="400" height="200" style="fill:white; stroke:none"/>
+    <rect x="20" y="20" width="100" height="100"
+        style="fill: url(#tile); stroke: black;"/>
+    <rect x="135" y="20" width="70" height="80"
+        style="fill: url(#tile); stroke: black;"/>
+    <rect x="220" y="20" width="150" height="130"
+        style="fill: url(#tile); stroke: black;"/>
+    </g>
+  </svg>
+</div>
+
+</body>
+</html>

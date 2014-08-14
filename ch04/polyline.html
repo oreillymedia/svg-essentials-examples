@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>The polyline Element</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="100px" height="50px" viewBox="0 0 100 50"&gt;
+
+&lt;polyline
+    points="5 20, 20 20, 25 10, 35 30, 45 10,
+        55 30, 65 10, 75 30, 80 20, 95 20"
+    style="stroke: black; stroke-width: 3; fill: none;"/&gt;
+&lt;/svg&gt;</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="100" height="100" viewBox="0 0 100 100">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>

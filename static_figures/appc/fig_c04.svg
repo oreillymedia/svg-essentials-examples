@@ -1,0 +1,132 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="500" height="400" viewBox="0 0 500 400"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+<style type="text/css"><![CDATA[
+   .label {
+        font-size: 8pt; 
+      }
+  .content {
+    text-anchor: middle;
+  }
+  .mname {
+    text-anchor: middle;
+    font-style: italic;
+    font-family: monospace;
+    font-size: 10pt;
+  }
+]]></style>
+
+<defs>
+  <marker id="mTriangle" markerWidth="5" markerHeight="10"
+          refX="5" refY="5" orient="auto">
+    <path d="M 0 0 5 5 0 10 Z" style="fill:black;"/>
+  </marker>
+<g id="prop">
+  <rect x="0" y="0" width="80" height="20"
+    style="stroke: gray; fill: none;"/>
+  <rect x="0" y="20" width="100" height="20"
+    style="fill: none; stroke: black;"/>
+</g>
+
+<g id="method">
+  <!-- <path d="M 2.5 0 L 102.5 0 97.5 20 -2.5 20 Z"
+    style="fill: none; stroke: black;"/> -->
+  <rect x="0" y="0" width="100" height="20"
+    rx="8" ry="6" style="fill: none; stroke: black;" />
+</g>
+
+</defs>
+
+<g transform="translate(10,10)">
+<rect x="0" y="0" width="80" height="20"
+  style="stroke: gray; fill: none;" />
+<text x="5" y="15" class="label">toaster</text>
+<rect x="0" y="20" width="350" height="150"
+  style="fill: none; stroke: black;"/>
+  
+  <g transform="translate(10,30)">
+    <use xlink:href="#prop" />
+    <text class="label" x="5" y="15">color</text>
+    <text class="content" x="50" y="35">"silver"</text>
+  </g>
+  
+  <g transform="translate( 180, 30 )">
+    <use xlink:href="#prop" />
+    <text class="label" x="5" y="15">slots</text>
+    <text class="content" x="50" y="35">2</text>
+  </g>
+  
+  <g transform="translate(10, 100)"> <!-- power supply -->
+    <rect x="0" y="0" width="80" height="20"
+      style="stroke: gray; fill: none;"/>
+    <text class="label" x="5" y="15">powerSupply</text>
+    <rect x="0" y="20" width="80" height="20"
+      style="fill: none; stroke: black;"/>  
+  </g>
+  <path d="M50 130 50 195" style="stroke:black; marker-end: url(#mTriangle)"/>
+  
+  <g transform="translate(110, 100)"> <!-- dial -->
+    <rect x="0" y="0" width="80" height="20"
+      style="stroke: gray; fill: none;"/>
+    <text class="label" x="5" y="15">dial</text>
+   <rect x="0" y="20" width="80" height="20"
+          style="stroke: black; fill: none;"/>
+  </g>
+  <path d="M150 130 190 195" style="stroke:black; marker-end: url(#mTriangle)"/>
+  
+  <g transform="translate(210, 100)"> <!-- lever -->
+    <rect x="0" y="0" width="80" height="20"
+      style="stroke: gray; fill: none;"/>
+    <text class="label" x="5" y="15">lever</text>
+    <rect x="0" y="20" width="80" height="20"
+          style="stroke: black; fill: none;"/>
+  </g>
+  <path d="M250 130 350 195" style="stroke:black; marker-end: url(#mTriangle)"/>
+  
+    <g transform="translate(0, 180)">
+      <rect x="0" y="20" width="120" height="120"
+      style="fill: none; stroke: black;"/>
+      <g transform="translate(10, 30)">
+      <use xlink:href="#prop" />
+      <text class="label" x="5" y="15">voltage</text>
+      <text class="content" x="50" y="35">110</text>
+      <use xlink:href="#method" x="0" y="50"/>
+      <text class="mname" x="50" y="65">turnOn()</text>
+      <use xlink:href="#method" x="0" y="80"/>
+      <text class="mname" x="50" y="95">turnOff()</text>
+    </g>
+    </g>
+
+    <g transform="translate(140, 180)">
+    <rect x="0" y="20" width="140" height="140"
+      style="fill: none; stroke: black;"/>
+    <g transform="translate(10, 30)">
+      <use xlink:href="#prop" />
+      <text class="label" x="5" y="15">minimum</text>
+      <text class="content" x="50" y="35">1</text>
+      <use xlink:href="#prop" y="50"/>
+      <text class="label" x="5" y="65">maximum</text>
+      <text class="content" x="50" y="85">10</text>
+      <use xlink:href="#method" x="0" y="100"/>
+      <text class="mname" x="50" y="115">setDial(n)</text>
+    </g>
+  </g>
+
+ <g transform="translate(290, 180)">
+     <rect x="0" y="20" width="140" height="70"
+      style="fill: none; stroke: black;"/>
+    <g transform="translate(10, 30)">
+      <use xlink:href="#method" x="0" y="0"/> 
+      <text class="mname" x="50" y="15">pushDown()</text>
+      <use xlink:href="#method" x="0" y="30"/>
+      <text class="mname" x="50" y="45">popUp()</text>    
+    </g>
+  </g>
+
+</g>
+
+
+</svg>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>The textLength property</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+var theText;
+
+function changeLength() {
+  var textLength = parseInt(document.getElementById("textLength").value, 10);
+  var path = "M 20 40 20 70 M" + (20 + textLength) + " 40 " +
+    (20 + textLength) + " 70";
+  var guide = document.getElementById("guidelines");
+  guide.setAttribute("d", path);
+  theText.setAttribute("textLength", textLength);
+}
+
+function changeAdjust() {
+  var adjust = document.getElementById("lengthAdjust").value;
+  theText.setAttribute("lengthAdjust", adjust);
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); theText = document.getElementById('theText');">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="300px" height="100px" viewBox="0 0 300 100"&gt;
+&lt;text x="20" y="30"&gt;Two words
+  &lt;tspan style="font-size: 10pt;"&gt;(normal length)&lt;/tspan&gt;
+&lt;/text&gt;
+&lt;text x="20" y="60"
+  textLength="<input type="text"
+    size ="4" id="textLength"
+    value="200" onchange="changeLength();"/>"
+  lengthAdjust="<select id="lengthAdjust" onchange="changeAdjust()">
+  <option value="spacing">spacing</option>
+  <option value="spacingAndGlyphs">spacingAndGlyphs</option>
+  </select>"&gt;
+    Two words
+&lt;/text&gt;
+&lt;/svg&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="100" viewBox="0 0 300 100"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<path id="guidelines" d="M 20 40 20 70 M 220 40 220 70" style="stroke: gray;"/>
+<g style="font-size:12pt">
+<text x="20" y="30">Two words
+    <tspan style="font-size: 10pt;">(normal length)</tspan></text>
+<text id="theText" x="20" y="60"
+    textLength="200" lengthAdjust="spacing">Two words</text>
+</g>
+  
+</svg>
+</div>
+
+</body>
+</html>

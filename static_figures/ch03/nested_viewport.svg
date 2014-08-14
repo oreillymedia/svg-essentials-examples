@@ -1,0 +1,19 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Demonstration of nested viewports</title>
+  <desc>
+    Show an &lt;svg&gt; element nested inside another one, both
+    of which have viewBox attributes.
+  </desc>
+    <circle cx="25" cy="25" r="25" style="stroke: black; fill: none;"/>
+    <rect x="100" y="5" width="30" height="80"
+    style="stroke: blue; fill: none;"/>
+        
+    <svg x="100px" y="5px" width="30px" height="80px" viewBox="0 0 50 50"
+        preserveAspectRatio="xMaxYMax meet">
+      <circle cx="25" cy="25" r="25" style="stroke: black; fill: none;"/>
+    </svg>
+</svg>

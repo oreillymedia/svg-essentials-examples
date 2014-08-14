@@ -1,0 +1,38 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="300" height="100" viewBox="0 0 300 100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <title>Simple Event Handling in SVG</title>
+  <desc>Change radius of a circle when hovered; change
+    stroke width when clicked</desc>
+
+  <circle id="circle" cx="50" cy="50" r="20" 
+    style="fill: #ff9; stroke:black; stroke-width: 1"/>
+
+  <script type="text/ecmascript">
+    // <![CDATA[
+    function grow(evt) {
+      var obj = evt.target;
+      obj.setAttribute("r", "30");
+    }
+    
+    function shrink(evt) {
+      this.setAttribute("r", "20");
+    }
+    
+    function reStroke(evt) {
+      var w = evt.target.style.getPropertyValue("stroke-width");
+      w = 4 - parseFloat(w); /* toggle between 1 and 3 */
+      evt.target.style.setProperty("stroke-width", w, null);
+    }
+    
+    var c = document.getElementById("circle");
+    c.addEventListener("mouseover", grow);
+    c.addEventListener("mouseout", shrink);
+    c.addEventListener("click", reStroke);
+    // ]]>
+  </script>
+</svg>

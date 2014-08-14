@@ -1,0 +1,73 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="500" height="500" viewBox="0 0 500 500"
+  xmlns="http://www.w3.org/2000/svg">
+  
+  <title>Using baseval and animval for attributes</title>
+  
+  <ellipse id="el" cx="50%" cy="20" rx="40%" ry="1em">
+    <animate id="animation" attributeName="rx" to="20%" 
+      begin="indefinite" dur="2s" fill="freeze"/>
+  </ellipse>
+
+  <text y="3em">
+      <tspan x="1em" dy="1.5em">getAttribute("rx"):</tspan>
+          <tspan x="50%" id="getRx"/>
+      <tspan x="1em" dy="1.5em">getAttribute("ry"):</tspan>
+          <tspan x="50%" id="getRy"/>
+      <tspan x="1em" dy="1.5em">rx.baseVal.value:</tspan>
+          <tspan x="50%" id="rxBase"/>
+      <tspan x="1em" dy="1.5em">ry.baseVal.value:</tspan>
+          <tspan x="50%" id="ryBase"/>
+      <tspan x="1em" dy="1.5em">rx.baseVal.valueAsString:</tspan>
+          <tspan x="50%" id="rxBaseString"/>
+      <tspan x="1em" dy="1.5em">ry.baseVal.valueInSpecifiedUnits:</tspan>
+          <tspan x="50%" id="ryBaseUnits"/>
+
+      
+      <tspan style="font-weight:bold;" x="1em" dy="2.5em">After rx.baseVal.convertToSpecifiedUnits():</tspan>
+      <tspan x="1em" dy="1.5em">rx.baseVal.valueAsString:</tspan>
+          <tspan x="50%" id="rxBaseUnits"/>
+      
+      <tspan style="font-weight:bold;" x="1em" dy="2.5em">After approx. 1 second of animation:</tspan>
+      <tspan x="1em" dy="1.5em">
+          rx.animVal.value:</tspan>
+          <tspan x="50%" id="rxAnim"/>
+      <tspan x="1em" dy="1.5em">ry.animVal.value:</tspan>
+          <tspan x="50%" id="ryAnim"/>
+  </text>
+
+  <script type="text/ecmascript">
+  <![CDATA[
+  var doc = document;
+  var el = doc.getElementById("el");
+  doc.getElementById("getRx").textContent = el.getAttribute("rx");
+  doc.getElementById("getRy").textContent = el.getAttribute("ry");
+  doc.getElementById("rxBase").textContent = el.rx.baseVal.value;
+  doc.getElementById("ryBase").textContent = el.ry.baseVal.value;
+  doc.getElementById("rxBaseString").textContent =
+  el.rx.baseVal.valueAsString;
+  doc.getElementById("ryBaseUnits").textContent =
+  el.ry.baseVal.valueInSpecifiedUnits;
+
+  el.rx.baseVal.convertToSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_EMS);
+  doc.getElementById("rxBaseUnits").textContent =
+    el.rx.baseVal.valueAsString;
+
+  var animate = doc.getElementById("animation");
+  try {
+    animate.beginElement(); //start the animation 
+  } catch(e){/* catch exception if animation not supported */}
+  setTimeout(getAnimatedValue, 1000);
+
+  function getAnimatedValue() { 
+    try {
+      animate.endElement(); //freeze the animation
+    } catch(e){}
+    doc.getElementById("rxAnim").textContent = el.rx.animVal.value;
+    doc.getElementById("ryAnim").textContent = el.ry.animVal.value;
+  }
+  ]]>
+  </script>
+</svg>

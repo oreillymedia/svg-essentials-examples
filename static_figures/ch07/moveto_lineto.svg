@@ -1,0 +1,22 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Result of using moveto and lineto</title>
+  <desc>Simple use of the moveto and lineto commands in a
+    path</desc>
+<g transform="translate(20,20)">
+  <g style="stroke: black; fill: none;">
+    <!-- single line -->
+    <path d="M 10 10 L 100 10"/>
+
+    <!-- a right angle -->
+    <path d="M 10, 20  L 100, 20  L  100,50"/>
+
+    <!-- two thirty-degree angles -->
+    <path d="M 40 60 L 10, 60 L 40 42.68
+      M 60, 60 L 90 60 L 60, 42.68"/>
+  </g>
+</g>
+</svg>

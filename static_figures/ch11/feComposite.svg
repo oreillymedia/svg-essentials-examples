@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="350" viewBox="0 0 400 350"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter id="over">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/> 
+            <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+            <feComposite in="SourceGraphic" in2="offsetBlur" operator="over">
+            </feComposite>
+        </filter>
+        
+        <filter id="in">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/> 
+            <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+            <feComposite in="SourceGraphic" in2="offsetBlur" operator="in">
+            </feComposite>
+        </filter>
+        
+        <filter id="out">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/> 
+            <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+            <feComposite in="SourceGraphic" in2="offsetBlur" operator="out">
+            </feComposite>
+        </filter>
+        
+        <filter id="atop">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/> 
+            <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+            <feComposite in="SourceGraphic" in2="offsetBlur" operator="atop">
+            </feComposite>
+        </filter>
+        
+        <filter id="xor">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/> 
+            <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+            <feComposite in="SourceGraphic" in2="offsetBlur" operator="xor">
+            </feComposite>
+        </filter>
+        
+        <filter id="arithmetic">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/> 
+            <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+            <feComposite in="SourceGraphic" in2="offsetBlur" operator="arithmetic" k1=".5" k2=".5" k3=".5" k4="0" >
+            </feComposite>
+        </filter>
+    </defs>
+
+    <g style="font-size: 30px; font-weight: bold; fill:#ff0000">
+    <text x="1ex" y="1em">
+    <tspan x="1ex" style="filter:url(#over)">
+        over</tspan>
+    <tspan dx="1ex" filter="url(#in)">
+        in</tspan>
+    <tspan dx="1ex" filter="url(#out)">
+        out</tspan>
+    <tspan x="1ex" dy="1.5em" filter="url(#atop)">
+        atop</tspan>
+    <tspan dx="1ex" filter="url(#xor)">
+        xor</tspan>
+    <tspan dx="1ex" filter="url(#arithmetic)">
+        arithmetic</tspan>
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- (c) 2013 J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Synchronized animation with offset</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils_webkit.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="200" height="200"&gt;
+  &lt;circle cx="60" cy="60" r="30" style="fill: #f9f; stroke: gray;"&gt;
+    &lt;animate <span class="highlight">id="c1"</span> attributeName="r" attributeType="XML"
+      begin="0s" dur="4s" from="30" to="10" fill="freeze"/&gt;
+  &lt;/circle&gt;
+
+  &lt;circle cx="120" cy="60" r="10" style="fill: #9f9; stroke: gray;"&gt;
+    &lt;animate attributeName="r" attributeType="XML"
+      <span class="highlight">begin="c1.begin+1.25s"</span> dur="4s" from="10" to="30" fill="freeze"/&gt;
+  &lt;/circle&gt;
+&lt;/svg&gt;
+</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh(); reanimate();"/>
+  <input type="button" value="Reset" onclick="reset(); reanimate();"/>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput"></div>
+
+</body>
+</html>
+

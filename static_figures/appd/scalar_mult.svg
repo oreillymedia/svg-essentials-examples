@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                      "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="78" viewBox="0 0 184 78" width="184">
+    <text font-size="14" transform="translate(12, 46.0)">5</text>
+    <text font-size="14" transform="translate(25, 46.0)">•</text>
+    <g font-family="sans-serif" font-size="14" transform="translate(36, 15.0)">
+        <path d="M3 0h-3v48h3" fill="none" stroke="black"/>
+        <text font-size="14" text-anchor="middle" x="11.5" y="14"> 3 </text>
+        <text font-size="14" text-anchor="middle" x="11.5" y="38"> 5 </text>
+        <text font-size="14" text-anchor="middle" x="32.5" y="14"> 2 </text>
+        <text font-size="14" text-anchor="middle" x="32.5" y="38"> 6 </text>
+        <path d="M43 0h3v48h-3" fill="none" stroke="black"/>
+    </g>
+    <text font-size="14" transform="translate(88, 46.0)">=</text>
+    <g font-family="sans-serif" font-size="14" transform="translate(102, 15.0)">
+        <path d="M3 0h-3v48h3" fill="none" stroke="black"/>
+        <text font-size="14" text-anchor="middle" x="16.0" y="14"> 15 </text>
+        <text font-size="14" text-anchor="middle" x="16.0" y="38"> 25 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="14"> 10 </text>
+        <text font-size="14" text-anchor="middle" x="46.0" y="38"> 30 </text>
+        <path d="M61 0h3v48h-3" fill="none" stroke="black"/>
+    </g>
+</svg>

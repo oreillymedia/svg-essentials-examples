@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="200" viewBox="0 0 400 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Result of using table and discrete transfers</title>
+  <defs>
+    <filter id="table-filter" filterUnits="objectBoundingBox"
+      color-interpolation-filters="sRGB"
+      x="0%" y="0%" width="100%" height="100%">
+      <feComponentTransfer>
+        <feFuncG type="table"
+          tableValues="0.0 0.5 0.6 0.85 1.0"/>
+      </feComponentTransfer>
+    </filter>
+
+    <filter id="discrete-filter" filterUnits="objectBoundingBox"
+      color-interpolation-filters="sRGB"
+      x="0%" y="0%" width="100%" height="100%">
+      <feComponentTransfer>
+        <feFuncG type="discrete"
+          tableValues="0.125 0.375 0.625 0.875"/>
+      </feComponentTransfer>
+    </filter>
+
+    <filter id="invert-filter" filterUnits="objectBoundingBox"
+      color-interpolation-filters="sRGB"
+      x="0%" y="0%" width="100%" height="100%">
+      <feComponentTransfer in="SourceGraphic">
+        <feFuncG type="table" tableValues="0.6 0"/>
+      </feComponentTransfer>
+    </filter>
+
+    <linearGradient id="green-grad">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#339933"/>
+    </linearGradient>
+
+    <g id="green-bar">
+      <rect x="0" y="0" width="200" height="30"
+        style="fill: url(#green-grad);"/>
+    </g>
+  </defs>
+
+  <g transform="translate(10, 10)">
+    <use xlink:href="#green-bar" transform="translate(0,0)"/>
+    <text x="210" y="20">Original</text>
+
+    <use xlink:href="#green-bar" transform="translate(0,40)"
+      style="filter: url(#table-filter);"/>
+    <text x="210" y="60">
+      <tspan style="font-family: Courier;">table</tspan> transfer
+    </text>
+
+    <use xlink:href="#green-bar" transform="translate(0,80)" 
+      style="filter: url(#discrete-filter);"/>
+    <text x="210" y="100">
+      <tspan  font-family="Courier">discrete</tspan> transfer
+    </text>
+
+    <use xlink:href="#green-bar" transform="translate(0,120)" 
+      style="filter: url(#invert-filter);"/>
+    <text x="210" y="140">inverted color</text>
+
+    <path d="M 50 0 v150 M 100 0 v150 M 150 0 v180"
+      style="stroke: white; fill: none;"/>
+  </g>
+</svg>

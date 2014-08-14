@@ -1,0 +1,18 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Result of using moveto and lineto</title>
+  <desc>Simple use of the moveto and lineto commands in a
+    path</desc>
+<g transform="translate(20,20)">
+  <g style="stroke: gray; stroke-width: 8; fill: none;">
+      <!-- rectangle; all four lines -->
+      <path d="M 10 10 L 40 10 L 40 30 L 10 30 L 10 10"/>
+
+      <!-- rectangle with closepath -->
+      <path d="M 60 10 L 90 10 L 90 30 L 60 30 Z"/>
+  </g>
+</g>
+</svg>

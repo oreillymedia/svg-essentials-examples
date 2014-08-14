@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    id="clock" width="250" height="250" viewBox="0 0 250 250">
+  <title>SVG Analog Clock</title>
+  <desc>Draw an analog clock face using pure SVG and no scripting</desc>
+  
+  <circle id="face" cx="125" cy="125" r="100" 
+          style="fill: white; stroke: black"/>
+  <g id="ticks" transform="translate(125,125)">
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(30)"  />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(60)"  />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(90)"  />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(120)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(150)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(180)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(210)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(240)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(270)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(300)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(330)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(360)" />
+  </g>
+
+  <g id="hands" style="stroke: black;  
+                      stroke-width: 5px; 
+                      stroke-linecap: round;">
+    <path id="hour" d="M125,125 L125,75"
+          transform="rotate(0, 125, 125)"/>
+    <path id="minute" d="M125,125 L125,45"
+          transform="rotate(0, 125, 125)"/>
+    <path id="second" d="M125,125 L125,30"
+          transform="rotate(0, 125, 125)"
+          style="stroke: red; stroke-width: 2px" />
+  </g>
+  <circle id="knob" r="6" cx="125" cy="125" style="fill: #333;"/>
+</svg>

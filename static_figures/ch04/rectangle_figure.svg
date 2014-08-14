@@ -1,0 +1,34 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  preserveAspectRatio="xMinYMin meet">
+  
+  <title>rect element with fill and fill-opacity</title>
+  <desc>Displays several rectangles with varying fill
+  and fill-opacity properties. Grid in background.</desc>
+
+  <image xlink:href="default_ruler.svg" x="0" y="0" width="200"
+    height="200"/>
+  <g transform="translate(40,40)">
+
+   <!-- black interior, no outline -->
+   <rect x="10" y="10" width="30" height="50"/>
+
+   <!-- no interior, black outline -->
+   <rect x="50" y="10" width="20" height="40"
+     style="fill: none; stroke: black;"/>
+
+   <!-- blue interior, thick semi-transparent red outline -->
+   <rect x="10" y="70" width="25" height="30"
+      style="fill: #0000ff;
+        stroke: red; stroke-width: 7; stroke-opacity: 0.5;"/>
+
+   <!-- semi-transparent yellow interior, dashed green outline -->
+   <rect x="50" y="70" width="35" height="20"
+     style="fill: yellow; fill-opacity: 0.5;
+       stroke: green; stroke-width: 2; stroke-dasharray: 5 2"/>
+  </g>
+</svg>

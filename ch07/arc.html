@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Arcs</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[
+/*
+  x0, y0: beginning point
+  rx, ry: x and y ellipse radius
+  xAngle: angle of x-rotation for ellipse
+  largeArc: 0 for < 180 degreees, 1 for >= 180 degrees
+  sweep: 0 for positive (CW), 1 for negative (CCW)
+  x, y: ending point
+*/
+
+ 
+function convertArc(x0, y0, rx, ry, xAngle, largeArcFlag, sweepFlag, x, y)
+{
+  // Step 1: compute half the distance between the current and final point.
+  var dx2 = (x0 - x) / 2.0;
+  var dy2 = (y0 - y) / 2.0;
+  
+  // convert angle from degrees to radians
+  var xAngle = Math.PI * (xAngle % 360.0) / 180.0;
+  var cosXAngle = Math.cos(xAngle);
+  var sinXAngle = Math.sin(xAngle);
+  
+  // Compute x1, y1
+  var x1 = (cosXAngle * dx2 + sinXAngle * dy2);
+  var y1 = (-sinXAngle * dx2 + cosXAngle * dy2);
+  
+  // Ensure radii are large enough
+  rx = Math.abs(rx);
+  ry = Math.abs(ry);
+  var rxSq = rx * rx;
+  var rySq = ry * ry;
+  var x1Sq = x1 * x1;
+  var y1Sq = y1 * y1;
+  
+  var radiiCheck = x1Sq / rxSq + y1Sq / rySq
+  if (radiiCheck > 1) {
+    rx = Math.sqrt(radiiCheck) * rx;
+    ry = Math.sqrt(radiiCheck) * ry;
+    rxSq = rx * rx;
+    rySq = ry * ry;
+  }
+  
+  // Step 2: Compute (cx1, cy1)
+  var sign = (largeArcFlag == sweepFlag) ? -1 : 1;
+  var sq = ((rxSq * rySq) - (rxSq * y1Sq) - (rySq * x1Sq)) /
+    ((rxSq * y1Sq) + (rySq * x1Sq));
+  sq = (sq < 0) ? 0 : sq;
+  var coef = (sign * Math.sqrt(sq));
+  var cx1 = coef * ((rx * y1) / ry);
+  var cy1 = coef * -((ry * x1) / rx);
+  
+  // Step 3 : Compute (cx, cy) from (cx1, cy1)
+  var sx2 = (x0 + x) / 2.0;
+  var sy2 = (y0 + y) / 2.0;
+  var cx = sx2 + (cosXAngle * cx1 - sinXAngle * cy1);
+  var cy = sy2 + (sinXAngle * cx1 + cosXAngle * cy1);
+
+  // Step 4 : Compute the angleStart (angle1) and the angleExtent (dangle)
+  //
+  var ux = (x1 - cx1) / rx;
+  var uy = (y1 - cy1) / ry;
+  var vx = (-x1 - cx1) / rx;
+  var vy = (-y1 - cy1) / ry;
+  var p, n;
+  // Compute the angle start
+  n = Math.sqrt((ux * ux) + (uy * uy));
+  p = ux; // (1 * ux) + (0 * uy)
+  sign = (uy < 0) ? -1.0 : 1.0;
+  var angleStart = 180.0 * (sign * Math.acos(p / n)) / Math.PI;
+
+  // Compute the angle extent
+  n = Math.sqrt((ux * ux + uy * uy) * (vx * vx + vy * vy));
+  p = ux * vx + uy * vy;
+  sign = (ux * vy - uy * vx < 0) ? -1.0 : 1.0;
+  var angleExtent = 180.0 * (sign * Math.acos(p / n)) / Math.PI;
+  if(!sweepFlag && angleExtent > 0)
+  {
+    angleExtent -= 360.0;
+  }
+  else if (sweepFlag && angleExtent < 0)
+  {
+    angleExtent += 360.0;
+  }
+  angleExtent %= 360;
+  angleStart %= 360;
+  
+  return( [cx, cy, rx, ry, angleStart, angleExtent, xAngle] );
+
+}
+
+function redisplay()
+{
+  var startX = getFloat("startXInput");
+  var startY = getFloat("startYInput");
+  var xRadius = getFloat("xRadiusInput");
+  var yRadius = getFloat("yRadiusInput");
+  var xRotate = getFloat("xRotateInput");
+  var largeArc = getInt("largeArcInput");
+  var sweep = getInt("sweepInput");
+  var endX = getFloat("endXInput");
+  var endY = getFloat("endYInput");
+  
+  var arcPath = "M" + startX + "," + startY + " A" + xRadius + "," + yRadius +
+    " " + xRotate + " " + largeArc + " " + sweep + " " + endX + "," + endY;
+  var arc = document.getElementById("arc");
+  arc.setAttribute("d", arcPath);
+  if (document.getElementById("ckDirection").checked)
+  {
+    arc.setAttribute("style", "marker-end: url(#mArrow);");
+  }
+  else
+  {
+    arc.removeAttribute("style");
+  }
+  
+  document.getElementById("arcSource").innerHTML="&lt;path d=\"" + arcPath + "\"/&gt;"
+  
+  var result = convertArc(startX, startY, xRadius, yRadius, xRotate,
+      largeArc, sweep, endX, endY);
+  var ellipse = document.getElementById("ellipse");
+  var transform = "translate(" + result[0] + "," + result[1] + ")";
+  if (xRotate != 0)
+  {
+    transform += " rotate(" + xRotate + ")";
+  }
+
+  ellipse.setAttribute("rx", result[2]);
+  ellipse.setAttribute("ry", result[3]);
+  ellipse.setAttribute("transform", transform);
+  var styleAttr = "stroke: #ccc;";
+  if (document.getElementById("ckEllipse").checked)
+  {
+    styleAttr += "display:block;"
+  }
+  else
+  {
+    styleAttr += "display:none;"
+  }
+  ellipse.setAttribute("style", styleAttr);
+}
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); redisplay();">
+
+<div id="svgInput">
+<div>
+<table>
+  <tr><td>starting <i>x</i>-coordinate</td>
+    <td><input type="text" value="125" id="startXInput" size="4"
+       onchange="redisplay();"/></td>
+  </tr>
+  <tr><td>starting <i>y</i>-coordinate</td>
+    <td><input type="text" value="75" id="startYInput" size="4"
+       onchange="redisplay();"/></td>
+  </tr>
+  <tr><td><i>x</i>-radius</td>
+    <td><input type="text" value="100" id="xRadiusInput"  size="4"
+       onchange="redisplay();"/></td>
+  </tr>
+  <tr><td><i>y</i>-radius</td>
+    <td><input type="text" value="50" id="yRadiusInput" size="4"
+       onchange="redisplay();"/></td>
+  </tr>
+  <tr><td><i>x</i>-axis rotation</td>
+    <td><input type="text" value="0" id="xRotateInput" size="4"
+       onchange="redisplay();"/></td>
+  </tr>
+  <tr><td>large-arc-flag</td>
+    <td><select id="largeArcInput" onchange="redisplay();">
+      <option value="0">0 (&lt; 180&#176;)</option>
+      <option value="1">1 (&ge; 180&#176;)</option>
+      </select></td>
+  </tr>
+  <tr><td>sweep-flag</td>
+    <td><select id="sweepInput" onchange="redisplay();">
+      <option value="0">0 (negative angle)</option>
+      <option value="1">1 (positive angle)</option>
+      </select></td>
+  </tr>
+  <tr><td>ending <i>x</i>-coordinate</td>
+    <td><input type="text" value="225" id="endXInput" size="4"
+      onchange="redisplay()"/></td>
+  </tr>
+  <tr><td>ending <i>y</i>-coordinate</td>
+    <td><input type="text" value="125" id="endYInput" size="4"
+      onchange="redisplay()"/></td>
+  </tr>
+
+</table>
+
+<pre id="arcSource">&lt;path d="M 125,75 A100,50 0 0 0 225,125"/&gt;</pre></div>
+<div>
+  <input type="checkbox" id="ckDirection" onclick="redisplay()" /> Show Direction
+  <input type="checkbox" id="ckEllipse" onclick="redisplay()"/> Show Ellipse
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="400" height="400" viewBox="0 0 400 400"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <marker id="mArrow" markerWidth="5" markerHeight="10"
+      refX="5" refY="5" orient="auto">
+      <path d="M 0 0 5 5 0 10 Z" style="fill:black"/>
+    </marker>
+  </defs>
+  <g style="fill:none; stroke:black">
+    <ellipse id="ellipse" cx="0" cy="0" rx="100" ry="50"
+      style="stroke:#ccc; display:none" transform="translate(225,75)"/>
+    <path id="arc" d="M 125,75 A100,50 0 0 0 225,125"/>
+  </g>
+</svg>
+</div>
+
+</body>
+</html>

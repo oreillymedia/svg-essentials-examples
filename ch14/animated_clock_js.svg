@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    id="clock" width="250" height="250"
+    viewBox="0 0 250 250"
+    onload="init()">
+  <title>SVG Analog Clock</title>
+  <desc>Draw an analog clock face using pure SVG and no scripting</desc>
+
+  <script type="application/ecmascript"><![CDATA[
+  if (!window.requestAnimationFrame ) {
+
+    window.requestAnimationFrame = function(animationFunction) {
+
+      function wrapperFunction() {
+        animationFunction(Date.now());
+      }
+
+      setTimeout(wrapperFunction, 30);
+    };
+  }
+
+  /* references to the SVGPathElements for the clock hands */
+  var hourHand,
+      minuteHand,
+      secondHand;
+  /* references to SVGTransform object that rotates each hand*/
+  var secondTransform,
+      minuteTransform,
+      hourTransform;
+
+  /* time conversion constants */
+  var secPerMinute  = 60,
+      secPerHour    = 60*60,
+      secPer12Hours = 60*60*12;
+
+  function init() {
+    /*
+      Access the SVGPathElements for the clock hands
+    */
+    hourHand = document.getElementById("hour");
+    minuteHand = document.getElementById("minute");
+    secondHand = document.getElementById("second");
+    
+    /* Access the SVGTransform objects that represent
+      the current rotate(0, 125, 125) transform on each hand:
+    */
+    secondTransform = secondHand.transform.baseVal.getItem(0);
+    minuteTransform = minuteHand.transform.baseVal.getItem(0);
+    hourTransform   = hourHand.transform.baseVal.getItem(0);
+    updateClock(); /* start the clock going */
+  }
+
+  function updateClock() {
+    /* get the system time */
+    var date = new Date();
+    /* calculate the number of seconds since midnight */
+    var time = date.getMilliseconds()/1000 +
+               date.getSeconds() +
+               date.getMinutes()*60 +
+               date.getHours()*60*60;
+
+    /* calculate the rotation angles */
+    var s = 360*( time % secPerMinute )/secPerMinute,
+        m = 360*( time % secPerHour )/secPerHour,
+        h = 360*( time % secPer12Hours )/secPer12Hours;
+
+    /* use SVGTransform.setRotate(angle, cx, cy)
+       to update the rotation angle:
+    */
+    secondTransform.setRotate( s, 125, 125);
+    minuteTransform.setRotate( m, 125, 125);
+    hourTransform.setRotate( h, 125, 125);
+
+    window.requestAnimationFrame( updateClock );
+    // repeat for the next frame
+  }
+  ]]>
+  </script>
+  
+  <circle id="face" cx="125" cy="125" r="100" 
+          style="fill: white; stroke: black"/>
+  <g id="ticks" transform="translate(125,125)">
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(30)"  />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(60)"  />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(90)"  />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(120)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(150)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(180)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(210)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(240)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(270)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(300)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(330)" />
+      <path d="M95,0 L100,-5 L100,5 Z" transform="rotate(360)" />
+  </g>
+
+  <g id="hands" style="stroke: black;  
+                      stroke-width: 5px; 
+                      stroke-linecap: round;">
+    <path id="hour" d="M125,125 L125,75"
+          transform="rotate(0, 125, 125)"/>
+    <path id="minute" d="M125,125 L125,45"
+          transform="rotate(0, 125, 125)"/>
+    <path id="second" d="M125,125 L125,30"
+          transform="rotate(0, 125, 125)"
+          style="stroke: red; stroke-width: 2px" />
+  </g>
+  <circle id="knob" r="6" cx="125" cy="125" style="fill: #333;"/>
+</svg>

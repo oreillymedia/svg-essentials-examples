@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- (c) 2013 J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Simple animation
+dimensions:width="250" y="50"
+viewBox:viewBox="0 0 250 50"</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"&gt;
+
+&lt;svg width="250" height="50"&gt;
+&lt;title&gt;Shrinking Rectangle&lt;/title&gt;
+&lt;desc&gt;Animating the width attribute of a rectangle&lt;/desc&gt;
+
+&lt;rect x="10" y="10" width="200" height="20" stroke="black" fill="none"&gt;
+  &lt;animate id="animation"
+    attributeName="width"
+    attributeType="XML"
+    from="200" to="20"
+    begin="0s" dur="5s"
+    fill="freeze" /&gt;
+&lt;/rect&gt;
+
+&lt;/svg&gt;</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh(); reanimate();"/>
+  <input type="button" value="Reset" onclick="reset(); reanimate();"/>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg   id="svgSvg">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>
+

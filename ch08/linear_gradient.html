@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Simple Two-color Linear Gradient</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="250" height="150" viewBox="0 0 250 150"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+
+  &lt;defs&gt;
+    &lt;linearGradient id="two_hues"&gt;
+      &lt;stop offset="0%" style="stop-color: #ffcc00;"/&gt;
+      &lt;stop offset="100%" style="stop-color: #0099cc;"/&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+
+  &lt;rect x="20" y="20" width="200" height="100"
+    style="fill: url(#two_hues);  stroke: black;"/&gt;
+&lt;/svg&gt;</div>
+
+  <p>Edit the preceding SVG by changing the stop colors and the offsets to see what it does.
+    (You&#8217;ll learn more about the offsets later.)</p>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="250" height="150" viewBox="0 0 250 150" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>

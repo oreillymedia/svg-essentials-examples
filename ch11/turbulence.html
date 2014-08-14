@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>feTurbulence</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+function update() {
+  var tType = document.getElementById("typeMenu").value;
+  var base = getValue("baseInput");
+  var octave = getValue("octaveInput");
+ 
+  setAttr("turb", "type", tType);
+  setAttr("turb", "baseFrequency", base);
+  setAttr("turb", "numOctaves", octave);
+  
+  setHTML("typeOutput", tType);
+  setHTML("baseOutput", base);
+  setHTML("octaveOutput", octave);
+  
+  setText("svgType", tType);
+  setText("svgBase", base);
+  setText("svgOctave", octave);
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="update();">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="100" height="150" viewBox="0 0 100 150"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+&lt;defs&gt;
+  &lt;filter id="turbFilter"&gt;
+    &lt;feTurbulence type="<select id="typeMenu" onchange="update()">
+      <option value="turbulence">turbulence</option>
+      <option value="fractalNoise">fractalNoise</option></select>"
+      baseFrequency="<input type="text" id="baseInput" size="4" value="0.1" onchange="update()"/>" numOctaves="<input type="text" id="octaveInput" size="4" value="1" onchange="update()"/>"
+      in="SourceGraphic"/&gt;
+  &lt;/filter&gt;
+
+&lt;/defs&gt;
+
+&lt;g style="font-family: sans-serif; font-size: 12pt"&gt;
+  &lt;g transform="translate(10,20)"&gt;
+  &lt;rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turbFilter);"/&gt;
+  &lt;text x="0" y="70"&gt;type="<span id="typeOutput">turbulence</span>"&lt;/text&gt;
+  &lt;text x="0" y="85"&gt;baseFrequency="<span id="baseOutput">0.1</span>"&lt;/text&gt;
+  &lt;text x="0" y="100"&gt;numOctaves="<span id="octaveOutput">1</span>"&lt;/text&gt;
+  &lt;/g&gt;
+&lt;/g&gt;
+
+&lt;/svg&gt;
+</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+
+<svg width="450" height="275" viewBox="0 0 450 275"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+
+  <filter id="turbFilter">
+    <feTurbulence id="turb"
+      type="turbulence"
+      baseFrequency="0.1"
+      numOctaves="1"
+      in="SourceGraphic"/>
+  </filter>
+
+</defs>
+
+<g style="font-family: sans-serif; font-size: 10pt">
+  <g transform="translate(10,20)">
+  <rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turbFilter);"/>
+  <text x="0" y="70">type="<tspan id="svgType">turbulence</tspan>"</text>
+  <text x="0" y="85">baseFrequency="<tspan id="svgBase">0.1</tspan>"</text>
+  <text x="0" y="100">numOctaves="<tspan id="svgOctave">1</tspan>"</text>
+  </g>
+</g>
+
+</svg>
+
+</div>
+
+</body>
+</html>

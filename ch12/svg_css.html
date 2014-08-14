@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>Drag and Click</title>
+  <style type="text/css">
+#star {
+  animation-duration: 2s;
+  animation-name: starAnim;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 4;
+  animation-direction: alternate;
+  animation-transition: linear;
+}
+
+@keyframes starAnim {
+  0% {
+    fill-opacity: 1.0;
+    stroke-width: 0;
+  }
+
+  100% {
+    fill-opacity: 0;
+    stroke-width: 5;
+  }
+}
+</style>
+<script type="text/javascript">
+  var rules = document.styleSheets[0].cssRules;
+  
+  function setDuration(n) {
+    alert(rules[1].cssRules[0].style.fill);
+    rules[0].style.animationDuration = n + "s";
+    rules[1].cssRules[0].style.fill = (n < 1) ? "#ffff00" : "#ff0000";
+  }
+  
+</script>
+
+</head>
+
+<body>
+<svg id="game" width="450" height="450" viewBox="0 0 450 450">
+  <defs>
+    <g id="starDef">
+      <path d="M 38.042 -12.361 9.405 -12.944 -0.000 -40.000
+        -9.405 -12.944 -38.042 -12.361 -15.217 4.944
+        -23.511 32.361 0.000 16.000 23.511 32.361 15.217 4.944 Z"/>
+    </g>
+  </defs>
+  
+  <use id="star" xlink:href="#starDef"
+    style="transform: translate(225px,225px) rotate(0deg); fill: #ff0000; stroke: #ff0000"/>
+</svg>
+<input type="button" id="testor" onclick="setDuration(0.5)" value="Quick"/>
+<input type="button" onclick="setDuration(3)" value="Slower"/>
+
+</body>
+</html>
+

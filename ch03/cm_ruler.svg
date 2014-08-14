@@ -1,0 +1,63 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN"
+   "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd">
+
+<svg width="10cm" height="10cm"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns="http://www.w3.org/2000/svg">
+<title>centimeter rulers</title>
+
+<defs>
+<g id="hruler">
+	<g style="fill: none; stroke:#999999">
+		<line x1="0cm" y1="0" x2="4cm" y2="0" />
+	</g>
+
+	<g style="font-family: sans-serif; font-size: 8pt; fill: #999999; stroke: none,
+		text-anchor: middle">
+	<text x="0cm" y="-30">0</text> <text x="1.0cm" y="-30">1</text>
+	<text x="2.0cm" y="-30">2</text> <text x="3.0cm" y="-30">3</text>
+	<text x="4.0cm" y="-30">4</text>
+	</g>
+	
+	<g style="font-family: sans-serif; font-size: 8pt; fill: black; stroke: none;
+		text-anchor: middle">
+	<text x="0cm" y="-10">0</text>
+	<text x="0.625cm" y="-10">10</text>
+	<text x="1.25cm" y="-10">20</text>
+	<text x="1.875cm" y="-10">30</text>
+	<text x="2.500cm" y="-10">40</text>
+	<text x="3.125cm" y="-10">50</text>
+	<text x="3.750cm" y="-10">60</text>
+	<!-- <text x="4.375cm" y="-10">70</text> -->
+	</g>
+</g>
+
+<g id="vruler">
+	<g style="fill: none, stroke: #999999">
+		<line x1="0" y1="0cm" x2="0" y2="5cm" />
+	</g>
+
+	<g style="font-family: sans-serif; font-size: 8pt; fill: #999999; stroke: none;
+		text-anchor: end" transform="translate(0,4)">
+	<text x="-30" y="0cm">0</text> <text x="-30" y="1.0cm">1</text>
+	<text x="-30" y="2.0cm">2</text> <text x="-30" y="3.0cm">3</text>
+	<text x="-30" y="4.0cm">4</text> <text x="-30" y="5.0cm">5</text>
+	</g>
+	<g style="font-family: sans-serif; font-size: 8pt; fill: black; stroke: none,
+    text-anchor: end" transform="translate(0, 4)">
+	<text y="0cm" x="-10">0</text>
+	<text y="0.625cm" x="-10">10</text>
+	<text y="1.25cm" x="-10">20</text>
+	<text y="1.875cm" x="-10">30</text>
+	<text y="2.500cm" x="-10">40</text>
+	<text y="3.125cm" x="-10">50</text>
+	<text y="3.750cm" x="-10">60</text>
+	<text y="4.375cm" x="-10">70</text>
+	<text y="5.000cm" x="-10">80</text>
+	</g>
+</g>
+</defs>
+
+<use xlink:href="#hruler" transform="translate(60, 60)"/>
+<use xlink:href="#vruler" transform="translate(60, 60)"/>
+</svg>

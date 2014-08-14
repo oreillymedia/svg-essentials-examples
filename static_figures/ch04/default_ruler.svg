@@ -1,0 +1,54 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body" width="200" height="200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Default Rulers</title>
+
+<!-- tick marks on horizontal axis -->
+<defs>
+<g id="hruler" style="shape-rendering: crispEdges;">
+  <path d="
+    M0 0 h110
+    M0 0 v-10  M10 0 v-5 M20 0 v-10 M30 0 v-5  M40 0 v-10 M50 0 v-5
+    M60 0 v-10 M70 0 v-5 M80 0 v-10 M90 0 v-5
+    M100 0 v-10" style="stroke: black; fill: none;"/>
+  <path d="
+    M10 0 v110 M20 0 v110 M30 0 v110 M40 0 v110 M50 0 v110
+    M60 0 v110 M70 0 v110 M80 0 v110 M90 0 v110 M100 0 v110"
+    style="stroke: #cccccc; fill: none;"/>
+
+  <g shape-rendering="auto" style="font-family: sans-serif;
+    font-size: 8pt;  text-anchor: middle;">
+  <text x="0" y="-15">0</text> <text x="20" y="-15">20</text>
+  <text x="40" y="-15">40</text> <text x="60" y="-15">60</text>
+  <text x="80" y="-15">80</text> <text x="100" y="-15">100</text>
+  </g>
+</g>
+
+<g id="vruler" style="shape-rendering: crispEdges;">
+  <path d="
+    M0 0 v110
+    M0 0 h-10  M0 10 h-5 M0 20 h-10 M0 30 h-5  M0 40 h-10 M0 50 h-5
+    M0 60 h-10 M0 70 h-5 M0 80 h-10 M0 90 h-5
+    M0 100 h-10" style="stroke:black; fill:none;"/>
+  <path d="
+    M0 10 h110 M0 20 h110 M0 30 h110 M0 40 h110 M0 50 h110
+    M0 60 h110 M0 70 h110 M0 80 h110 M0 90 h110 M0 100 h110"
+    style="stroke:#cccccc; fill:none;"/>
+
+  <g transform="translate(0, 4)" shape-rendering="auto"
+      style="font-family: sans-serif; font-size: 8pt;  text-anchor: middle;">
+  <text x="-22" y="0">0</text> <text x="-22" y="20">20</text>
+  <text x="-22" y="40">40</text> <text x="-22" y="60">60</text>
+  <text x="-22" y="80">80</text> <text x="-22" y="100">100</text>
+  </g>
+</g>
+</defs>
+
+<use xlink:href="#hruler" transform="translate(40,40)"  />
+<use xlink:href="#vruler" transform="translate(40,40)" />
+<text x="6" y="25" style="font-family: sans-serif;">px</text>
+
+</svg>

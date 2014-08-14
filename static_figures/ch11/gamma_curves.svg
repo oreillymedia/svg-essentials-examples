@@ -1,0 +1,78 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>Gamma curve functions</title>
+<defs>
+<!-- tick marks on horizontal axis -->
+<g id="hruler">
+  <path d="
+    M0 100 h110
+    M0 100 v10  M10 100 v5 M20 100 v10 M30 100 v5
+    M40 100 v10 M50 100 v5
+    M60 100 v10 M70 100 v5 M80 100 v10 M90 100 v5
+    M100 100 v10"
+    style="fill: none; stroke: black;"/>
+  <path d="
+    M10 0 v100 M20 0 v100 M30 0 v100 M40 0 v100 M50 0 v100
+    M60 0 v100 M70 0 v100 M80 0 v100 M90 0 v100 M100 0 v100"
+    style="fill: none; stroke: #cccccc;"/>
+
+  <g style="font-family: sans-serif; font-size: 8pt; text-anchor: middle;">
+  <text x="0" y="125">0</text> <text x="20" y="125">.2</text>
+  <text x="40" y="125">.4</text> <text x="60" y="125">.6</text>
+  <text x="80" y="125">.8</text> <text x="100" y="125">1</text>
+  </g>
+</g>
+
+<g id="vruler">
+  <path d="
+    M0 0 v100
+    M0 0 h-10  M0 10 h-5 M0 20 h-10 M0 30 h-5  M0 40 h-10 M0 50 h-5
+    M0 60 h-10 M0 70 h-5 M0 80 h-10 M0 90 h-5
+    M0 100 h-10" style="fill: none; stroke: black;"/>
+  <path d="
+    M0 10 h110 M0 20 h110 M0 30 h110 M0 40 h110 M0 50 h110
+    M0 60 h110 M0 70 h110 M0 80 h110 M0 90 h110"
+    style="fill: none; stroke: #cccccc;"/>
+
+  <g transform="translate(0, 4)"
+    style="font-family: sans-serif; font-size: 8pt; text-anchor: end;">
+  <text x="-15" y="0">1</text> <text x="-15" y="20">.8</text>
+  <text x="-15" y="40">.6</text> <text x="-15" y="60">.4</text>
+  <text x="-15" y="80">.2</text> <text x="-15" y="100">0</text>
+  </g>
+</g>
+</defs>
+
+<g transform="translate(60,30)">
+<use xlink:href="#hruler"/>
+<use xlink:href="#vruler"/>
+<text style="text-anchor: middle;"
+   x="50" y="140">Original</text>
+<text x="-35" y="20" style="writing-mode: tb;">Modified</text>
+
+<!-- 0.6 -->
+<path d="M 0 100.000 5 83.428 10 74.881 15 67.963 20 61.927
+25 56.472 30 51.441 35 46.735 40 42.292 45 38.066
+50 34.025 55 30.142 60 26.398 65 22.777 70 19.266
+75 15.853 80 12.531 85 9.291 90 6.126 95 3.031
+ 100 0" style="stroke: black; fill: none;"/>
+
+<!-- 0.3 --> 
+<path d="M 0 100.000 5 59.291 10 49.881 15 43.399 20 38.297
+25 34.025 30 30.315 35 27.017 40 24.034 45 21.302
+50 18.775 55 16.419 60 14.208 65 12.123 70 10.148
+75 8.269 80 6.475 85 4.759 90 3.111 95 1.527
+ 100 0" style="stroke: black; fill: none; stroke-dasharray: 3 3;"/>
+
+ <!-- 1.666667 -->
+<path d="M 0 100.000 5 99.321 10 97.846 15 95.765 20 93.160 
+25 90.079 30 86.556 35 82.617 40 78.285 45 73.575 
+50 68.502 55 63.079 60 57.317 65 51.226 70 44.814 
+75 38.089 80 31.058 85 23.728 90 16.105 95 8.194 
+ 100 0" stroke="gray" fill="none"/></g>
+</svg>

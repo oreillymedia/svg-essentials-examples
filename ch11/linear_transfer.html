@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Linear Component Transfer</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+var textPath;
+
+function update() {
+  var slopeR = getValue("slopeR");
+  var interceptR = getValue("interceptR");
+  var slopeG = getValue("slopeG");
+  var interceptG = getValue("interceptG");
+  var slopeB = getValue("slopeB");
+  var interceptB = getValue("interceptB");
+  
+  setAttr("funcR", "slope", slopeR);
+  setAttr("funcR", "intercept", interceptR);
+  setAttr("funcG", "slope", slopeG);
+  setAttr("funcG", "intercept", interceptG);
+  setAttr("funcB", "slope", slopeB);
+  setAttr("funcB", "intercept", interceptB);
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="update()">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="150" height="200" viewBox="0 0 150 200"&gt;
+  &lt;filter id="brightness-shadow" filterUnits="objectBoundingBox"&gt;
+    &lt;feImage xlink:href="sky.jpg" result="sky"
+      x="0" y="0" width="100%" height="100%"
+      preserveAspectRatio="none"/&gt;
+    &lt;feComponentTransfer in="sky" result="sky"&gt;
+      &lt;feFuncB type="linear" slope="<input type="text" id="slopeB"
+        value="3" size="3" onchange="update()"/> intercept="<input type="text" id="interceptB"
+        value="0" size="3" onchange="update()"/>"/&gt;
+      &lt;feFuncR id="funcR" type="linear" slope="<input type="text" id="slopeR"
+        value="1.5" size="3" onchange="update()"/> intercept="<input type="text" id="interceptR"
+        value="0.2" size="3" onchange="update()"/>"/&gt;
+      &lt;feFuncG id="funcG" type="linear" slope="<input type="text" id="slopeG"
+        value="1.5" size="3" onchange="update()"/> intercept="<input type="text" id="interceptG"
+        value="0.2" size="3" onchange="update()"/>"/&gt;
+    &lt;/feComponentTransfer&gt;
+    &lt;feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/&gt;
+    &lt;feOffset in="blur" dx="4" dy="4" result="offsetBlur"/&gt;
+    &lt;feMerge&gt;
+      &lt;feMergeNode in="sky"/&gt;
+      &lt;feMergeNode in="offsetBlur"/&gt;
+      &lt;feMergeNode in="SourceGraphic"/&gt;
+    &lt;/feMerge&gt;
+  &lt;/filter&gt;
+
+  &lt;g id="flower" style="filter: url(#brightness-shadow)"&gt;
+    &lt;image xlink:href="flower.svg" x="0" y="0" width="150" height="200"/&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="150" height="200" viewBox="0 0 150 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <filter id="brightness-shadow" filterUnits="objectBoundingBox">
+    <feImage xlink:href="sky.jpg" result="sky"
+      x="0" y="0" width="100%" height="100%"
+      preserveAspectRatio="none"/>
+    <feComponentTransfer in="sky" result="sky">
+      <feFuncB id="funcB" type="linear" slope="3" intercept="0"/>
+      <feFuncR id="funcR" type="linear" slope="1.5" intercept="0.2"/>
+      <feFuncG id="funcG" type="linear" slope="1.5" intercept="0.2"/>
+    </feComponentTransfer>
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+    <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+    <feMerge>
+      <feMergeNode in="sky"/>
+      <feMergeNode in="offsetBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <g id="flower" style="filter: url(#brightness-shadow)">
+    <image xlink:href="flower.svg" x="0" y="0" width="150" height="200"/>
+  </g>
+</svg>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="200" viewBox="0 0 300 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Animation Along a Complex Path</title>
+  <!-- show the path along which the triangle will move -->
+  <path d="M50,125 C 100,25 150,225, 200, 125"
+    style="fill: none; stroke: blue;"/>
+
+  <!-- Triangle to be moved along the motion path.
+    It is defined with an upright orientation with the base of
+    the triangle centered horizontally just above the origin. -->
+  <path d="M-10,-3 L10,-3 L0,-25z" style="fill: yellow; stroke: red;">
+    <animateMotion
+      path="M50,125 C 100,25 150,225, 200, 125"
+      dur="6s" fill="freeze"/>
+  </path>
+</svg>

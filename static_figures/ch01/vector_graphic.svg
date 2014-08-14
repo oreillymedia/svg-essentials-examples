@@ -1,0 +1,26 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="200" height="200">
+<title>Pixel Graphics</title>
+
+
+<image xlink:href="graph_paper.svg" x="0" y="0"
+  width="200" height="200" />
+<defs>
+  <path id="tri" d="M-4 4 L-4 -4 L8 0 z"
+    style="stroke: black; fill: black; opacity: 0.4;"/>
+</defs>
+
+<rect x="20" y="20" width="120" height="100"
+  style="stroke: none; fill: blue; opacity: 0.5;"/>
+<rect x="19" y="19" width="121" height="101"
+  style="stroke: black; stroke-width: 2; fill: none;"/>
+<use xlink:href="#tri" transform="translate(132, 20)"/>
+<use xlink:href="#tri" transform="translate(140, 112) rotate(90)"/>
+<use xlink:href="#tri" transform="translate(28, 120) rotate(180)"/>
+<use xlink:href="#tri" transform="translate(20, 28) rotate(270)"/>
+</svg>

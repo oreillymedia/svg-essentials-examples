@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="200" viewBox="0 0 300 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>Result of feComposite in and out</title>
+<defs>
+
+<filter id="sky-in" filterUnits="objectBoundingBox">
+  <feImage xlink:href="sky.jpg" result="sky"
+    x="0" y="0" width="100%" height="100%"
+    preserveAspectRatio="none"/>
+  <feComposite in="sky" in2="SourceGraphic"
+    operator="in"/>
+</filter>
+
+<filter id="sky-out" filterUnits="objectBoundingBox">
+  <feImage xlink:href="sky.jpg" result="sky"
+    x="0" y="0" width="100%" height="100%"
+    preserveAspectRatio="none"/>
+  <feComposite in="sky" in2="SourceGraphic"
+    operator="out"/>
+</filter>
+
+<g id="petal">
+  <path d="M 10 0 Q 27 -15 40 0 27 15 10 0" />
+</g>
+
+<g id="flower">
+  <path d="M 50 50 Q 40 70 70 100 T 70 150"
+    style="stroke: green; fill: none; stroke-width: 3;"/>
+  <path d="M 70 100 Q 80 70, 120 80, 90 75, 75 105"
+    style="stroke: none; fill: green;"/>
+  <circle cx="40" cy="50" r="10" fill="gray"/>
+  <g style="stroke: black; fill: yellow;">
+    <use xlink:href="#petal" transform="translate(40,50)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(40)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(80)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(120)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(160)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(200)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(240)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(280)"/>
+    <use xlink:href="#petal" transform="translate(40,50)
+      rotate(320)"/>
+  </g>
+</g>
+</defs>
+
+<use xlink:href="#flower" transform="translate(10,10)"
+  filter="url(#sky-in)"/>
+
+<use xlink:href="#flower" transform="translate(170,10)" 
+  filter="url(#sky-out)"/>
+
+</svg>

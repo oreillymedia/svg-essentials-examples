@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>The text-alignment property</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[  
+function changeAnchor() {
+  var anchor = document.getElementById("anchor").value;
+  document.getElementById("sampleText").style.textAnchor = anchor;
+}
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements();">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="250px" height="60px" viewBox="0 0 250 60"&gt;
+  &lt;g style="font-size: 12pt;"&gt;
+    &lt;path d="M 125 10 125 60"
+      style="stroke: gray; fill: none;"/&gt;
+    &lt;text x="125" y="30" style="text-anchor: <select id="anchor" onchange="changeAnchor();">
+    <option value="start">start</option>
+    <option value="middle">middle</option>
+    <option value="end">end</option>
+    </select>"&gt;
+      Sample Text
+    &lt;/text&gt;  
+  &lt;/g&gt;
+&lt;/svg&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="250" height="60" viewBox="0 0 250 60"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<g style="font-size: 12pt;">
+<path d="M 125 10 125 60" style="stroke: gray; fill: none;"/>
+<text id="sampleText" x="125" y="30" style="text-anchor: start">
+Sample Text
+</text>
+</g>
+  
+</svg>
+</div>
+
+</body>
+</html>

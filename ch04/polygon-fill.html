@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Polygon Fill Rules</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  
+function redisplay()
+{
+  var rule = document.getElementById("fillRule").value;
+  var polygon = document.getElementById("polygon");
+  var theStyle = "fill-rule: " + rule + "; fill: yellow; stroke: black;";
+  
+  polygon.setAttribute("style", theStyle);
+} 
+  </script>
+</head>
+
+<body>
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="100px" height="100px" viewBox="0 0 100 100"&gt;
+
+&lt;polygon style="fill-rule: <select id="fillRule" onchange="redisplay()"><option value="nonzero">nonzero</option><option value="evenodd">evenodd</option></select>; fill: yellow; stroke: black;"
+    points="48,16  16,96  96,48  0,48  80,96" /&gt;
+&lt;/svg&gt;</pre></div>
+
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="150" height="150">
+  <polygon id="polygon" style="fill-rule: nonzero; fill: yellow; stroke: black;"
+    points="48,16  16,96  96,48  0,48  80,96" />
+</svg>
+</div>
+
+</body>
+</html>
+

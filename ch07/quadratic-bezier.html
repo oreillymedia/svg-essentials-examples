@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Quadratic Bézier Curve</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[
+
+var controlX = 240;
+var controlY = 30;
+var x0 = 30;
+var y0 = 75;
+var x1 = 300;
+var y1 = 120;
+var activeItem = null;
+var svgBounds;
+
+function attach()
+{
+  var obj = document.getElementById("controlPoint");
+  obj.addEventListener("mousedown", startDrag, false);
+  obj = document.getElementById("svgOutput");
+  svgBounds = obj.getBoundingClientRect(); 
+}
+
+function startDrag(evt) {
+  evt.preventDefault();
+  var obj = document.getElementById("svgOutput");
+  activeItem = evt.target;
+  obj.addEventListener("mousemove", dragCP, false);
+  obj.addEventListener("mouseup", endDrag, false);
+  obj = document.getElementById("controlPoint");
+  obj.style = "fill:red; stroke:none";
+}
+
+function endDrag(evt) {
+  evt.preventDefault();
+  var obj = document.getElementById("controlPoint");
+  obj.style = "fill:black; stroke:none";
+  obj = document.getElementById("svgOutput");
+  obj.removeEventListener("mousemove", dragCP);
+  obj.removeEventListener("mouseup", endDrag);
+  activeItem = null;
+}
+
+function dragCP(evt)
+{
+  var path;
+  var text;
+  var obj;
+  var x = evt.clientX - svgBounds.left;
+  var y = evt.clientY - svgBounds.top;
+ 
+  if (x < 0) { x = 0; }
+  if (y < 0) { y = 0; }
+  if (x > 300) { x = 300; }
+  if (y > 300) { y = 300; }
+  evt.preventDefault();
+  if (activeItem)
+  {
+    activeItem.setAttribute("cx", x);
+    activeItem.setAttribute("cy", y);
+
+    path = "M30 75 Q " + x + " " + y + ", 300 120";
+    document.getElementById("bezier").setAttribute("d", path);
+    text = document.createTextNode('<path d="' + path + '"/>');
+    obj = document.getElementById("bezierSource");
+    obj.replaceChild(text, obj.firstChild);
+    
+    path = "M " + x + " " + y + "L 30 75 M" + x + " " + y + "L 300 120 M" +
+      ((x + 30)/2.0) + " " + ((y + 75) / 2.0) + " L " +
+      ((x + 300) /2.0) + " " + ((y + 120) / 2.0);
+    document.getElementById("guidepath").setAttribute("d", path);
+  }
+}
+
+function guide(obj)
+{
+  var guides = document.getElementById("guidelines");
+  if (obj.checked)
+  {
+    guidelines.setAttribute("style", "display: block");
+  }
+  else
+  {
+    guidelines.setAttribute("style", "display: none");
+  }
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); attach();">
+
+<div id="svgInput">
+<pre id="bezierSource">&lt;path d="M30 75 Q 240 30, 300 120"/&gt;</pre></div>
+<div>
+  <input type="checkbox" id="svgGuide" onclick="guide(this)"/> Show guidelines
+  <!--<input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="300" height="300" viewBox="0 0 300 300"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g style="fill:none; stroke:black">
+    <g id="guidelines" style="display:none">
+      <path id="guidepath" style="stroke: #aaa; fill:none"
+        d="M 240 30 L 30 75 M 240 30 L 300 120 M 135 52.5 L270 75"/>
+    </g>
+    <circle id="controlPoint" cx="240" cy="30" r="5" style="fill:black; stroke:none"/>
+    <path id="bezier" d="M30 75 Q 240 30, 300 120"/>
+  </g>
+</svg>
+</div>
+
+</body>
+</html>

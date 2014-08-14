@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Stroke Dash Array</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="200px" height="100px" viewBox="0 0 200 100"&gt;
+   &lt;!-- nine-pixel dash, five-pixel gap --&gt;
+   &lt;line x1="10" y1="10" x2="100" y2="10"
+       style="stroke-dasharray: 9, 5;
+       stroke: black; stroke-width: 2;"/&gt;
+
+   &lt;!-- five-pixel dash, three-pixel gap, nine-pixel dash, two-pixel gap --&gt;
+   &lt;line x1="10" y1="20" x2="100" y2="20"
+       style="stroke-dasharray: 5, 3, 9, 2;
+       stroke: black; stroke-width: 2;"/&gt;
+
+   &lt;!-- Odd number of entries is duplicated; this is equivalent to:
+        nine-pixel dash, three-pixel gap,  five-pixel dash,
+        nine-pixel gap,  three-pixel dash, five-pixel gap --&gt;
+   &lt;line x1="10" y1="30" x2="100" y2="30"
+       style="stroke-dasharray: 9, 3, 5;
+       stroke: black; stroke-width: 2;"/&gt;
+&lt;/svg&gt;</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="200" height="100" viewBox="0 0 200 100">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>

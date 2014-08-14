@@ -1,0 +1,17 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body" width="70mm" height="70mm"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <title>Units in SVG element but not in shape</title>
+
+  <image xlink:href="mm_ruler.svg" x="0" y="0" width="300"
+    height="300"/>
+
+  <g transform="translate(40,40)">
+    <rect x="10" y="10" width="50" height="30"
+      style="fill: none; stroke: black;"/>
+  </g>
+</svg>

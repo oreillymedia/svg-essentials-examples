@@ -1,0 +1,69 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="400" height="250" viewBox="0 0 400 250"
+  onload="init(evt)"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<script type="text/ecmascript">
+<![CDATA[
+  var scaleChoice = 1; 
+  var scaleFactor = [1.25, 1.5, 1.75];
+
+  function init(evt)
+  {
+    transformShirt();
+  }
+
+  function setScale(n)
+  {
+    obj = document.getElementById("scale" + scaleChoice);  
+    obj.setAttribute("fill", "white");
+    scaleChoice = n;
+    obj = document.getElementById("scale" + scaleChoice);
+    obj.setAttribute("fill", "#ffc");
+    transformShirt();
+  }
+
+  function transformShirt()
+  {
+  var obj = document.getElementById("shirt");
+  obj.setAttribute("transform",
+    "scale(" + scaleFactor[scaleChoice] + ")");
+  obj.setAttribute("stroke-width",
+    1 / scaleFactor[scaleChoice]);
+  }
+
+// ]]>
+</script>
+ 
+<defs>
+  <path id="shirt" 
+    d="M -6 -30 -32 -19 -25.5 -13 -22 -14 -22 30 23 30
+      23 -14 26.5 -13 33 -19 7 -30
+      A 6.5 6 0 0 1 -6 -30"
+  fill="white" stroke="black"/>
+</defs>
+
+<use xlink:href="#shirt" x="150" y="150"/>
+
+<g onclick="setScale(0)"> 
+<rect id="scale0" x="100" y="10" width="30" height="30"
+  fill="white" stroke="black"/>
+<text x="115" y="30" text-anchor="middle">S</text>
+</g>
+
+<g onclick="setScale(1)">
+<rect id="scale1" x="140" y="10" width="30" height="30"
+  fill="#ffc" stroke="black"/>
+<text x="155" y="30" text-anchor="middle">M</text>
+</g>
+
+<g onclick="setScale(2)">
+<rect id="scale2" x="180" y="10" width="30" height="30"
+  fill="white" stroke="black"/>
+<text x="195" y="30" text-anchor="middle">L</text>
+</g>
+
+</svg>

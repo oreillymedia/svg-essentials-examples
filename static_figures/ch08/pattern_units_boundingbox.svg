@@ -1,0 +1,24 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="200px" viewBox="0 0 400 200"
+ xmlns="http://www.w3.org/2000/svg">
+  <title>Tiles spaced by objectBoundingBox</title>
+
+  <defs>
+    <pattern id="tile" x="0" y="0" width="20%" height="20%"
+        patternUnits="objectBoundingBox">
+    <path d="M 0 0 Q 5 20 10 10 T 20 20"
+        style="stroke: black; fill: none;"/>
+    <path d="M 0 0 h 20 v 20 h -20 z"
+        style="stroke: gray; fill: none;"/>
+    </pattern>
+  </defs>
+
+  <rect x="20" y="20" width="100" height="100"
+      style="fill: url(#tile); stroke: black;"/>
+  <rect x="135" y="20" width="70" height="80"
+      style="fill: url(#tile); stroke: black;"/>
+  <rect x="220" y="20" width="150" height="130"
+      style="fill: url(#tile); stroke: black;"/>
+</svg>

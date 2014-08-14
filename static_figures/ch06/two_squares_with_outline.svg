@@ -1,0 +1,16 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(20,20)">
+  <rect x="0" y="0" width="150" height="150"
+    style="fill: none; stroke: black; stroke-dasharray: 5 5;"/>
+  <g id="square">
+    <rect x="0" y="0" width="20" height="20"
+      style="fill: none; stroke: black; stroke-width: 2;"/>
+  </g>
+  <use xlink:href="#square" x="50" y="50"/>
+</g>
+</svg>

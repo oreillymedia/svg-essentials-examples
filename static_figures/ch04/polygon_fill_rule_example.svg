@@ -1,0 +1,15 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  
+  <title>Effect of fillrule</title>
+  <desc>Shows a star filled with nonzero and evenodd values</desc>
+
+  <polygon style="fill-rule: nonzero; fill: yellow; stroke: black;"
+    points="48,16  16,96  96,48  0,48  80,96" />
+
+  <polygon style="fill-rule: evenodd;  fill: #00ff00; stroke: black;"
+    points="148,16  116,96  196,48  100,48  180,96" />
+</svg>

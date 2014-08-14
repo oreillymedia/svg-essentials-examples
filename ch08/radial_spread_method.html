@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Radial Gradient spreadMethod</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <style type="text/css">
+  pre {font-size: 10pt;}
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  var attrName = ["cx", "cy", "r"];
+  var value =  [30, 30, 70];
+  function update(n)
+  {
+    var arrowPath;
+    for (var i = 0; i < attrName.length; i++)
+    {
+      value[i] = getInt(attrName[i]);
+      setAttr("radial", attrName[i],
+        value[i] + "%");
+    }
+    setAttr("radial", "spreadMethod",
+      document.getElementById("spreadMethod").value);
+  }
+  
+  // ]]>
+  </script>
+</head>
+
+<body onload="initElements(); update()">
+
+<div id="svgInput">
+<pre>&lt;svg width="150" height="150" viewBox="0 0 150 150"&gt;
+  &lt;radialGradient id="radial"
+    cx="<input type="text" id="cx"
+    size="2" value="0" onchange="update()"/>%" cy="<input type="text" id="cy"
+    size="2" value="0" onchange="update()"/>%" r="<input type="text" id="r"
+    size="2" value="70" onchange="update()"/>%" spreadMethod="<select id="spreadMethod" onchange="update()"><option value="pad">pad</option>
+        <option value="repeat">repeat</option>
+        <option value="reflect">reflect</option></select>"&gt;
+      &lt;stop offset="0%" style="stop-color: #f96;"/&gt;
+      &lt;stop offset="50%" style="stop-color: #9c9;"/&gt;
+      &lt;stop offset="100%" style="stop-color: #906;"/&gt;
+  &lt;/radialGradient&gt;
+
+  &lt;rect x="10" y="10" width="130" height="130"
+    style="fill: url(#radial); stroke: black;"/&gt;
+  &lt;/svg&gt;</pre>
+<div id="svgError"></div>
+<div>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="150" height="150" viewBox="0 0 150 150" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <radialGradient id="radial"
+      cx="0%" cy="0%" r="70%" spreadMethod="pad">
+        <stop offset="0%" style="stop-color: #f96;"/>
+        <stop offset="50%" style="stop-color: #9c9;"/>
+        <stop offset="100%" style="stop-color: #906;"/>
+    </radialGradient>
+
+    <radialGradient id="spread" xlink:href="#three_stops"
+      spreadMethod="pad"/>
+    </defs>
+
+    <rect x="10" y="10" width="130" height="130"
+      style="fill: url(#radial); stroke: black;"/>
+  </svg>
+</div>
+
+</body>
+</html>

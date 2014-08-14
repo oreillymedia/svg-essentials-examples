@@ -1,0 +1,22 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body"
+  xmlns="http://www.w3.org/2000/svg"
+  width="200" height="200" viewBox="0 0 200 200">
+<title>Graph Paper</title>
+<!-- vertical lines -->
+<path d="
+     M20 0 v200 M40 0 v200  
+    M60 0 v200 M80 0 v200 M100 0 v200 M120 0 v200 
+    M140 0 v200 M160 0 v200 M180 0 v200"
+  style="stroke: #cccccc; fill: none; stroke-width: 1;"/>
+
+<!-- horizontal lines -->
+<path d="
+    M0 20 h200 M0 40 h200 M0 60 h200 
+    M0 80 h200 M0 100 h200 M0 120 h200
+    M0 140 h200 M0 160 h200 M0 180 h200"
+  style="stroke: #cccccc; fill: none; stroke-width: 1;"/>
+
+</svg>

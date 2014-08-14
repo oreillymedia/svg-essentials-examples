@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="350" height="200" viewBox="0 0 350 200">
+  <g style="font-family: sans-serif">
+    <text font-size="10pt" x="10" y="20">KSJC</text>
+    <text font-size="10pt" x="345" y="20" text-anchor="end">15 Jul 2014</text>
+    <text font-size="10pt" x="345" y="40" text-anchor="end">07:53</text>
+    <g id="clock" transform="translate(255, 30)">
+      <circle cx="20" cy="20" r="20" fill="#ffffcc" stroke="black"/>
+      <line transform="rotate(228, 20, 20)" x1="20" y1="20" x2="38" y2="20" stroke="black"/>
+      <line transform="rotate(146.5, 20, 20)" x1="20" y1="20" x2="33" y2="20" stroke="black"/>
+    </g>
+    <g id="thermometer" transform="translate(10, 40)">
+      <path id="thermometer-path" stroke="black" fill="none" d="M 25 0 25 90 A 10 10 0 1 0 35 90 L 35 0 Z"/>
+      <g id="thermometer-text" font-size="8pt" font-family="sans-serif">
+        <text x="20" y="95" text-anchor="end">-40</text>
+        <text x="20" y="55" text-anchor="end">0</text>
+        <text x="20" y="5" text-anchor="end">50</text>
+        <text x="10" y="110" text-anchor="end">C</text>
+        <text x="40" y="95">-40</text>
+        <text x="40" y="55">32</text>
+        <text x="40" y="5">120</text>
+        <text x="50" y="110">F</text>
+        <text x="30" y="130" text-anchor="middle">Temp.</text>
+        <text x="30" y="145" text-anchor="middle">17°C /
+              62°F
+            </text>
+      </g>
+      <clipPath id="thermoclip">
+        <use xlink:href="#thermometer-path"/>
+      </clipPath>
+      <path d="M 10 33.3 h40 V 120 h-40 Z" fill="red" clip-path="url(#thermoclip)"/>
+    </g>
+    <g id="compass" font-size="8pt" font-family="sans-serif" transform="translate(110, 70)">
+      <circle cx="40" cy="40" r="30" stroke="black" fill="none"/>
+      <path stroke="black" fill="none" d="M 40 10 L 40 14         M 70 40 L 66 40         M 40 70 L 40 66         M 10 40 L 14 40"/>
+      <path transform="rotate(200,40,40)" d="M 40 40 h 25" fill="none" stroke="black"/>
+      <text x="40" y="9" text-anchor="middle">N</text>
+      <text x="73" y="44">E</text>
+      <text x="40" y="80" text-anchor="middle">S</text>
+      <text x="8" y="44" text-anchor="end">W</text>
+      <text x="40" y="100" text-anchor="middle">Wind (m/sec)</text>
+      <text x="40" y="115" text-anchor="middle">2.59</text>
+    </g>
+    <g id="visbar" transform="translate(220,110)" font-size="8pt" text-anchor="middle">
+      <rect fill="green" stroke="none" x="0" y="0" width="40.2336" height="20"/>
+      <rect x="0" y="0" width="100" height="20" stroke="black" fill="none"/>
+      <path fill="none" stroke="black" d="M 25 20 L 25 25 M 50 20 L 50 25 M 75 20 L 75 25"/>
+      <text x="0" y="35">0</text>
+      <text x="25" y="35">10</text>
+      <text x="50" y="35">20</text>
+      <text x="75" y="35">30</text>
+      <text x="100" y="35">40+</text>
+      <text x="50" y="60">
+      Visibility (km)
+    </text>
+      <text x="50" y="75">16.093</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en"
+  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>SVG in HTML</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style>
+    h1 {
+      font-size: large;
+      font-style: italic;
+      text-decoration: underline;
+    }
+    figure {
+      display: inline-block;
+      vertical-align: top;
+      width: 20%;
+      min-width: 205px;
+      margin: 2%;
+      border: thin solid;
+      text-align: center;
+    }
+    figcaption {
+      display: block;
+      padding: 0.25em;
+    }
+    img, svg, object, div.background-cat {
+      width: 200px;
+      height: 200px;
+    }
+    div.background-cat {
+      background-image: url("cat.svg");
+      background-size: 100% 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Including SVG in HTML Web Pages</h1>
+    <figure>
+      <figcaption>SVG as &lt;img&gt;</figcaption>
+      <img src="cat.svg" title="Cat Image" 
+          alt="Stick Figure of a Cat" />
+    </figure>
+
+    <figure>
+      <figcaption>SVG as CSS background</figcaption>
+      <div class="background-cat" title="Cat Background" />
+    </figure>
+
+    <figure>
+      <figcaption>SVG as &lt;object&gt;</figcaption>
+      <object data="cat.svg" type="image/svg+xml" 
+          title="Cat Object" alt="Stick Figure of a Cat" >
+        <!-- As a fallback, include text or a raster image file -->
+        <p>No SVG support! Here's a substitute:</p>
+        <img src="cat.png" title="Cat Fallback" 
+          alt="A raster rendering of a Stick Figure of a Cat" />
+      </object>
+    </figure>
+
+    <figure>
+      <figcaption>Inline SVG</figcaption>
+
+        <svg width="140" height="170" viewBox="0 0 140 170"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>Inline Cat</title>
+          <desc>Stick Figure of a Cat</desc>
+
+          <circle cx="70" cy="95" r="50" style="stroke: black; fill: none;"/>
+          <circle cx="55" cy="80" r="5" stroke="black" fill="#339933"/>
+          <circle cx="85" cy="80" r="5" stroke="black" fill="#339933"/>
+          <g id="whiskers">
+            <line x1="75" y1="95" x2="135" y2="85" style="stroke: black;"/>
+            <line x1="75" y1="95" x2="135" y2="105" style="stroke: black;"/>
+          </g>
+          <use xlink:href="#whiskers" transform="scale(-1 1) translate(-140 0)"/>
+          <!-- ears -->
+          <polyline points="108 62,  90 10,  70 45,  50, 10,  32, 62"
+            style="stroke: black; fill: none;" />
+          <!-- mouth -->
+          <polyline points="35 110, 45 120, 95 120, 105, 110"
+              style="stroke: black; fill: none;" />
+          <!-- nose -->
+          <path d="M 75 90 L 65 90 A 5 10 0  0 0 75 90"
+            style="stroke: black; fill: #ffcccc"/>
+          <text x="60" y="165" style="font-family: sans-serif; font-size: 14pt;
+            stroke: none; fill: black;">Cat</text>
+        </svg>
+
+    </figure>
+</body>
+</html>

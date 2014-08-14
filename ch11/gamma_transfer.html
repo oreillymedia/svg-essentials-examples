@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Gamma Component Transfer</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <style type="text/css">
+  svg { display: block; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[ 
+var textPath;
+
+function update() {
+  setAttr("funcB", "amplitude", getValue("amplitudeB"));
+  setAttr("funcB", "exponent", getValue("exponentB"));
+  setAttr("funcB", "offset", getValue("offsetB"));
+
+  setAttr("funcR", "amplitude", getValue("amplitudeR"));
+  setAttr("funcR", "exponent", getValue("exponentR"));
+  setAttr("funcR", "offset", getValue("offsetR"));
+
+  setAttr("funcG", "amplitude", getValue("amplitudeG"));
+  setAttr("funcG", "exponent", getValue("exponentG"));
+  setAttr("funcG", "offset", getValue("offsetG"));
+  }
+
+// ]]>
+  </script>
+</head>
+
+<body onload="update()">
+
+<div id="svgInput">
+<div><pre style="font-size:10pt">&lt;svg width="150" height="200" viewBox="0 0 150 200"&gt;
+  &lt;filter id="brightness-shadow" filterUnits="objectBoundingBox"&gt;
+    &lt;feImage xlink:href="sky.jpg" result="sky"
+      x="0" y="0" width="100%" height="100%"
+      preserveAspectRatio="none"/&gt;
+    &lt;feComponentTransfer in="sky" result="sky"&gt;
+      &lt;feFuncB type="gamma"
+        amplitude="<input type="text" size="4" id="amplitudeB" value="1"
+        onchange="update()"/>" exponent="<input type="text" size="4" id="exponentB" value="0.2"
+        onchange="update()"/>" offset="<input type="text" size="4" id="offsetB" value="0"
+        onchange="update()"/>"/&gt;
+      &lt;feFuncR type="gamma"
+        amplitude="<input type="text" size="4" id="amplitudeR" value="1"
+        onchange="update()"/>" exponent="<input type="text" size="4" id="exponentR" value="0.707"
+        onchange="update()"/>" offset="<input type="text" size="4" id="offsetR" value="0"
+        onchange="update()"/>"/&gt;
+      &lt;feFuncG type="gamma"
+        amplitude="<input type="text" size="4" id="amplitudeG" value="1"
+        onchange="update()"/>" exponent="<input type="text" size="4" id="exponentG" value="0.707"
+        onchange="update()"/>" offset="<input type="text" size="4" id="offsetG" value="0"
+        onchange="update()"/>"/&gt;
+    &lt;/feComponentTransfer&gt;
+    &lt;feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/&gt;
+    &lt;feOffset in="blur" dx="4" dy="4" result="offsetBlur"/&gt;
+    &lt;feMerge&gt;
+      &lt;feMergeNode in="sky"/&gt;
+      &lt;feMergeNode in="offsetBlur"/&gt;
+      &lt;feMergeNode in="SourceGraphic"/&gt;
+    &lt;/feMerge&gt;
+  &lt;/filter&gt;
+
+  &lt;g id="flower" style="filter: url(#brightness-shadow)"&gt;
+    &lt;image xlink:href="flower.svg" x="0" y="0" width="150" height="200"/&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;</pre></div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+
+<svg width="150" height="200" viewBox="0 0 150 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<defs>
+<filter id="gamma-shadow" filterUnits="objectBoundingBox">
+  <feImage xlink:href="sky.jpg" result="sky"
+     x="0" y="0" width="100%" height="100%"
+     preserveAspectRatio="none"/>
+  <feComponentTransfer in="sky" result="sky">
+    <feFuncB id="funcB" type="gamma"
+      amplitude="1" exponent="0.2" offset="0"/>
+    <feFuncR id="funcR" type="gamma"
+      amplitude="1" exponent="0.707" offset="0"/>
+    <feFuncG id="funcG" type="gamma"
+      amplitude="1" exponent="0.707" offset="0"/>
+  </feComponentTransfer>
+    
+  <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+  <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+  <feMerge>
+    <feMergeNode in="sky"/>
+    <feMergeNode in="offsetBlur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+</defs>
+
+<g id="flower" style="filter: url(#gamma-shadow)">
+  <image xlink:href="flower.svg" x="0" y="0" width="150" height="200"/>
+</g>
+</svg>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="375px" height="350px" viewBox="0 0 375 350"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Text along path added to graphic</title>
+
+  <defs>
+    <font-face font-family="bakbatn">
+      <font-face-src>
+        <font-face-uri xlink:href="kfont.svg#kfont-defn"/>
+      </font-face-src>
+    </font-face>
+
+    <path id="upper-curve" d="M -8 154 A 162 130 0 1 1 316 154"/>
+    <path id="lower-curve" d="M -21 154 A 175 140 0 1 0 329 154"/>
+  </defs>
+
+  <ellipse cx="154" cy="154" rx="150" ry="120" style="fill: #999999;"/>
+  <ellipse cx="152" cy="152" rx="150" ry="120" style="fill: #cceeff;"/>
+
+  <!--
+    large light red semicircle fills upper half,
+    followed by small light red semicircle that dips into
+    lower left half of symbol
+  -->
+  <path d="M 302 152 A 150 120, 0, 1, 0, 2 152
+    A 75 60, 0, 1, 0, 152 152" style="fill: #ffcccc;"/>
+
+  <!--
+    light blue semicircle rises
+    into upper right half of symbol
+  -->
+  <path d="M 152 152 A 75 60, 0, 1, 1, 302 152"
+    style="fill: #cceeff;"/>
+
+
+  <text font-family="bakbatn"
+    style="font-size: 28pt; text-anchor: middle;">
+    <textPath xlink:href="#upper-curve" startOffset="50%">
+      서울 - 대한민국
+    </textPath>
+  </text>
+
+  <text style="font-size: 14pt; text-anchor: middle;">
+    <textPath xlink:href="#lower-curve" startOffset="50%">
+    Seoul - Republic of Korea
+    </textPath>
+  </text>
+</svg>

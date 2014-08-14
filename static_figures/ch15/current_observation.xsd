@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:complexType name="imageType">
+	<xsd:sequence>   
+		<xsd:element name="url" type="xsd:anyURI" minOccurs="0"/>
+		<xsd:element name="title" type="xsd:token" minOccurs="0"/>
+		<xsd:element name="link" type="xsd:anyURI" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="current_observation">
+	<xsd:complexType>
+		<xsd:sequence>    
+			<xsd:element name="credit" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="credit_URL" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="image" type="imageType" minOccurs="0"/>
+			<xsd:element name="suggested_pickup" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="suggested_pickup_period" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="location" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="station_id" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="latitude" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="longitude" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="elevation" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="observation_time" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="observation_time_rfc822" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="weather" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="temperature_string" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="temp_f" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="temp_c" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="water_temp_f" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="water_temp_c" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="relative_humidity" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="wind_string" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="wind_dir" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="wind_degrees" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="wind_mph" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="wind_gust_mph" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="wind_kt" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="wind_gust_kt" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="pressure_string" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="pressure_mb" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="pressure_in" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="pressure_tendency_mb" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="pressure_tendency_in" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="dewpoint_string" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="dewpoint_f" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="dewpoint_c" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="heat_index_string" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="heat_index_f" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="heat_index_c" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="windchill_string" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="windchill_f" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="windchill_c" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="visibility_mi" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="wave_height_m" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="wave_height_ft" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="dominant_period_sec" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="average_period_sec" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="mean_wave_dir" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mean_wave_degrees" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="tide_ft" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="steepness" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="water_column_height" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="surf_height_ft" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="swell_dir" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="swell_degrees" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="swell_period" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="icon_url_base" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="icon_name" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="two_day_history_url" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="icon_url_name" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="ob_url" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="disclaimer_url" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="copyright_url" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="privacy_policy_url" type="xsd:anyURI" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" default="1.0"/>
+	</xsd:complexType>
+</xsd:element>
+</xsd:schema>

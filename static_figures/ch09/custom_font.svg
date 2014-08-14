@@ -1,0 +1,22 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="375px" height="200px" viewBox="0 0 375 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Korean syllables from an external font</title>
+
+<defs>
+  <font-face font-family="bakbatn">
+    <font-face-src>
+      <font-face-uri xlink:href="kfont.svg#kfont-defn"/>
+    </font-face-src>
+  </font-face>
+</defs>
+
+<text font-size="28" x="20" y="40"
+  style="font-family: bakbatn;">
+    서울 - 대한민국
+</text>
+
+</svg>

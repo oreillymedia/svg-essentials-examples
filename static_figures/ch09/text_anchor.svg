@@ -1,0 +1,14 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Result of using text-anchor</title>
+
+  <g style="font-size: 14pt;">
+    <path d="M 100 10 100 100" style="stroke: gray; fill: none;"/>
+    <text x="100" y="30" style="text-anchor: start">Start</text>
+    <text x="100" y="60" style="text-anchor: middle">Middle</text>
+    <text x="100" y="90" style="text-anchor: end">End</text>
+  </g>
+</svg>

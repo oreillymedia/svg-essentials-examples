@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Scale</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[  
+
+function redisplay()
+{
+  var transform = document.getElementById("transformation").value;
+  var attr = "translate(35, 35) " + transform;
+  document.getElementById("transformed").setAttribute("transform",
+    attr);
+}
+
+function showAllGrids()
+{
+  var show = (document.getElementById("showGrid").checked) ? "block" : "none";
+  document.getElementById("svgGrid").style.display = show;
+}
+
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); redisplay()">
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="200px" height="200px" viewBox="0 0 200 200"&gt;
+  &lt;line x1="0" y1="0" x2="0" y2="100" style="stroke: gray;"/&gt;
+  &lt;line x1="0" y1="0" x2="100" y2="0" style="stroke: gray;"/&gt;
+
+  &lt;rect x="10" y="10" width="20" height="15" style="fill: #ccc;"/&gt;
+
+  &lt;rect x="10" y="10" width="20" height="15"
+    transform="<input type="text" id="transformation" value="scale(2) translate(30, 20)"
+      onchange="redisplay()"/>"
+    style="fill: black;"/&gt;
+&lt;/svg&gt;</pre></div>
+<div>
+  <input type="checkbox" id="showGrid" onclick="showAllGrids()"
+    checked="checked"/> Show grid
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="200" height="200" viewBox="0 0 200 200"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+   
+  </defs>
+  
+  <g id="svgGrid">
+    <use xlink:href="grid_parts.svg#tickmarks" x="35" y="35" style="stroke:#999"/>
+    <use xlink:href="grid_parts.svg#numbers" x="35" y="35" style="fill:#999"/>
+    <use xlink:href="grid_parts.svg#axes" x="35" y="35" style="stroke:#666"/>
+    <use xlink:href="grid_parts.svg#grid" x="35" y="35" style="stroke:#ccc"/>
+  </g>
+
+  <g id="original" transform="translate(35,35)">
+  <rect x="10" y="10" width="20" height="15"
+    style="fill:#999; stroke:#999"/>
+  </g>
+
+  <g id="transformed">
+    <rect x="10" y="10" width="20" height="15"
+      style="fill:#000; stroke: #000"/>
+  </g>
+  
+  
+</svg>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Result of rotation around a center point</title>
+  <desc>Shows a circle as a center, then several
+    arrows rotated around that point.</desc>
+
+  <!-- center of rotation -->
+  <circle cx="50" cy="50" r="3" style="fill: black;"/>
+
+  <!-- non-rotated arrow -->
+  <g id="arrow" style="stroke: black;">
+      <line x1="60" y1="50" x2="90" y2="50"/>
+      <polygon points="90 50, 85 45, 85 55"/>
+  </g>
+
+  <!-- rotated around center point -->
+  <use xlink:href="#arrow" transform="rotate(60, 50, 50)"/>
+  <use xlink:href="#arrow" transform="rotate(-90, 50, 50)"/>
+  <use xlink:href="#arrow" transform="rotate(-150, 50 50)"/>
+</svg>

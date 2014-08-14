@@ -1,0 +1,24 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="200" height="100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="button">
+    <rect x="10" y="10" width="40" height="20" rx="4" ry="4"
+      style="fill: #ddd;"/>
+    <text x="30" y="25"
+      style="text-anchor: middle; font-size: 8pt">Start</text>
+  </g>
+
+  <g transform="translate(100, 60)">
+    <path d="M-25 -15, 0 -15, 25 15, -25 15 Z"
+      style="stroke: gray; fill: #699;">
+
+      <animateTransform id="trapezoid" attributeName="transform"
+        type="rotate" from="0" to="360"
+        begin="button.click"
+        dur="6s"/>
+    </path>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?> 
+<?xml-stylesheet type="text/xsl" href="weather.xsl"?>
+<current_observation version="1.0">
+  <credit>NOAA's National Weather Service</credit>
+  <credit_URL>http://weather.gov/</credit_URL>
+  <location>San Jose International Airport, CA</location>
+  <station_id>KSJC</station_id>
+  <latitude>37.37</latitude>
+  <longitude>-121.93</longitude>
+  <observation_time>Last Updated on Jul 15 2014, 7:53 am PDT
+    </observation_time>
+  <observation_time_rfc822>Tue, 15 Jul 2014 07:53:00 -0700
+    </observation_time_rfc822>
+  <weather>Overcast</weather>
+  <temperature_string>62.0 F (16.7 C)</temperature_string>
+  <temp_f>62.0</temp_f>
+  <temp_c>16.7</temp_c>
+  <wind_string>West at 5.8 MPH (5 KT)</wind_string>
+  <wind_dir>West</wind_dir>
+  <wind_degrees>290</wind_degrees>
+  <wind_mph>5.8</wind_mph>
+  <visibility_mi>10.00</visibility_mi>
+  <copyright_url>http://weather.gov/disclaimer.html</copyright_url>
+</current_observation>

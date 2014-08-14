@@ -1,0 +1,56 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="500" height="200" viewBox="0 0 500 200"
+  xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="larrow" markerWidth="6" markerHeight="6"
+  refY="2.5" orient="auto">
+  <path d="M 0 2.5, 5 0, 5 5, Z"/>
+</marker>
+<marker id="rarrow" markerWidth="6" markerHeight="6"
+  refX="5" refY="2.5" orient="auto">
+  <path d="M 0 0, 5 2.5, 0 5, Z"/>
+</marker>
+<marker id="larrow2" markerWidth="4" markerHeight="4"
+  refY="1.5" orient="auto">
+  <path d="M 0 1.5, 3 0, 3 3, Z"/>
+</marker>
+<marker id="rarrow2" markerWidth="4" markerHeight="4"
+  refX="3" refY="1.5" orient="auto">
+  <path d="M 0 0, 3 1.5, 0 3, Z"/>
+</marker>
+</defs>
+
+<g transform="translate(10, 30) scale(1.5)">
+  <text  x="75" y="40" transform="scale(1, 1.5)"
+    style="font-family: Times,Times New Roman, serif;
+      font-size: 36pt; fill: #ccc;">Ágx</text>
+  <line x1="65" y1="60" x2="155" y2="60" style="stroke: black;"/> <!-- base -->
+  <line x1="65" y1="70" x2="150" y2="70" style="stroke: black;"/> <!-- descent -->
+  <line x1="50" y1="9" x2="150" y2="9" style="stroke: black;"/> <!-- ascent -->
+  <line x1="65" y1="31" x2="150" y2="31"
+    style="stroke: black; stroke-dasharray: 3 3;"/> <!-- ex height -->
+  <line x1="65" y1="20" x2="150" y2="20"
+    style="stroke: black; stroke-dasharray: 5 5;"/> <!-- ascent -->
+
+  <g style="font-family: sans-serif; font-size: 9pt;">
+
+    <text x="50" y="62" style="text-anchor: end;">baseline</text>
+    <line x1="53" y1="60" x2="65" y2="60"
+      style="stroke: black;"/>
+
+    <text x="50" y="35" style="text-anchor: end;">ascent</text>
+    <line x1="56" y1="60" x2="56" y2="9"
+      style="marker-start: url(#larrow); marker-end: url(#rarrow);
+        stroke: black;"/>
+
+    <text x="160" y="68">descent</text>
+    <line x1="155" y1="60" x2="155" y2="70"
+      style="marker-start: url(#larrow2); marker-end: url(#rarrow2);
+        stroke: black;"/>
+
+  </g>
+</g>
+
+</svg>

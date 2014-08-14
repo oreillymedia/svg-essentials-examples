@@ -1,0 +1,57 @@
+template:: ch03/ch03_grid_template.html
+output:: ch03/default_coordinates.html
+title:: Rectangle using default coordinates
+dimensions:: width="200" height="200"
+grid:: {{image xlink:href="pixel_ruler.svg" x="0" y="0" width="200" height="200"/}}
+offset:: transform="translate(40,40)"
+markup::
+<svg width="200" height="200">
+  <rect x="10" y="10" width="50" height="30"
+    style="stroke: black; fill: none"/>
+</svg>
+!fill
+#=====================================
+output:: ch03/explicit_units.html
+title:: Rectangle using explicit units
+dimensions:: width="200" height="200"
+grid:: {{image xlink:href="pixel_ruler.svg" x="0" y="0" width="200" height="200"/}}
+offset:: transform="translate(40,40)"
+markup::
+<svg width="200" height="200">
+  <rect x="10mm" y="10mm" width="15mm" height="10mm"
+    style="stroke: black; fill: none"/>
+</svg>
+!fill
+#=====================================
+output:: ch03/units_on_svg.html
+title:: Viewport with units; rectangle without units
+dimensions:: width="200" height="200"
+grid:: {{image xlink:href="mm_ruler.svg" x="0" y="0" width="200" height="200"/}}
+offset:: transform="translate(40,40)"
+markup::
+<svg width="70mm" height="70mm">
+  <rect x="10" y="10" width="50" height="30"
+    style="fill:none; stroke: black;"/>
+</svg>
+!fill
+#=====================================
+output:: ch03/using_viewbox.html
+title:: Viewport with units
+dimensions:: width="70mm" height="70mm"
+grid:: {{image xlink:href="cm_ruler.svg" x="0" y="0" width="10cm" height="10cm"/}}
+ {{image xlink:href="scaled_grid.svg" x="60" y="60" width="5cm" height="5cm"/}}
+offset:: transform="translate(60,60)"
+markup::
+<svg width="4cm" height="5cm" viewBox="0 0 64 80">
+  <title>House</title>
+  <rect x="10" y="35" width="40" height="40"
+    style="stroke: black; fill: none"/>
+  <!-- roof -->
+  <polyline points="10 35, 30 7.68, 50 35"
+    style="stroke: black; fill: none"/>
+  <!-- door -->
+  <polyline points="30 75, 30 55, 40 55, 40 75"
+    style="stroke: black; fill: none"/>
+</svg>
+!fill
+#=====================================

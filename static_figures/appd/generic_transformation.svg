@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                      "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="102" viewBox="0 0 89 102" width="89">
+    <g font-family="sans-serif" font-size="14" transform="translate(10, 15.0)">
+        <path d="M3 0h-3v72h3" fill="none" stroke="black"/>
+        <text font-size="14" text-anchor="middle" x="10.5" y="13"> a </text>
+        <text font-size="14" text-anchor="middle" x="10.5" y="37"> b </text>
+        <text font-size="14" text-anchor="middle" x="10.5" y="61"> 0 </text>
+        <text font-size="14" text-anchor="middle" x="29.5" y="13"> c </text>
+        <text font-size="14" text-anchor="middle" x="29.5" y="37"> d </text>
+        <text font-size="14" text-anchor="middle" x="29.5" y="61"> 0 </text>
+        <text font-size="14" text-anchor="middle" x="48.5" y="13"> e </text>
+        <text font-size="14" text-anchor="middle" x="48.5" y="37"> f </text>
+        <text font-size="14" text-anchor="middle" x="48.5" y="61"> 1 </text>
+        <path d="M58 0h3v72h-3" fill="none" stroke="black"/>
+    </g>
+</svg>

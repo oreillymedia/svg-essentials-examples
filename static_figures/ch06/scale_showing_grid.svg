@@ -1,0 +1,20 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="400px" viewBox="0 0 400 400"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>How Uniform Scaling Works</title>
+  <desc>Shows a square doubled uniformly in width/height
+  with grid lines.</desc>
+  <g transform="translate(55,55)">
+  <use xlink:href="default_ruler.svg#hruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vruler" style="stroke: #ccc;"/>
+  <use xlink:href="scale2_ruler.svg#scale2_axes"/>
+  <g id="square">
+    <rect x="10" y="10" width="20" height="20"
+      style="fill: none; stroke: black;"/>
+  </g>
+  <use xlink:href="#square" transform="scale(2)"/>
+  </g>
+</svg>

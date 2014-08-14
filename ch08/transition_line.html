@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Gradient Transition Line</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <style type="text/css">
+  #x1, #x2, #y1, #y2 { background-color: #ffc; }
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  
+  var percents = [
+    [0, 0, 100, 0], // left to right
+    [100, 0, 0, 0], // right to left
+    [0, 0, 0, 100], // top to bottom
+    [0, 100, 0, 0], // bottom to top
+    [0, 0, 100, 100], // upper left to bottom right
+    [100, 0, 0, 100] // upper right to bottom left
+  ];
+
+  var arrowPath = [
+    "M 0 100 L 200 100",
+    "M 200 100 L 0 100",
+    "M 100 0 L 100 200",
+    "M 100 200 L 100 0",
+    "M 0 0 L 200 200",
+    "M 200 0 L 0 200"];
+
+  var attrName = ["x1", "y1", "x2", "y2"];
+  
+  function transition(n)
+  {
+    for (var i = 0; i < 4; i++)
+    {
+      setAttr("transition", attrName[i], percents[n][i] + "%");
+      setHTML(attrName[i], percents[n][i] + "%");
+    }
+    setAttr("arrow", "d", arrowPath[n]);
+  }
+  
+  function showArrow(isOn) {
+    var display = (isOn) ? "display: block" : "display: none";
+    setAttr("arrowShow", "style", display);
+  }
+  // ]]>
+  </script>
+</head>
+
+<body onload="initElements()">
+
+<div style="float:right; width: 40%">
+<ul style="list-style-type: none; font-size: 9pt">
+<li><input type="radio" name="ttype" value="0" checked="checked" 
+  onclick="transition(0)"/> Left to right </li>
+<li><input type="radio" name="ttype" value="1" onclick="transition(1)"/> Right to left</li>
+<li><input type="radio" name="ttype" value="2" onclick="transition(2)"/> Top to bottom</li>
+<li><input type="radio" name="ttype" value="3" onclick="transition(3)"/> Bottom to top</li>
+<li><input type="radio" name="ttype" value="4" onclick="transition(4)"/> Upper left to lower right</li>
+<li><input type="radio" name="ttype" value="5" onclick="transition(5)"/> Upper right to lower left</li>
+</ul>
+</div>
+<div id="svgInput">
+<pre style="font-size:9pt">&lt;svg width="250px" height="250px" viewBox="0 0 250 250"&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id="three_stops"&gt;
+      &lt;stop offset="0%" style="stop-color: #ffcc00;"/&gt;
+      &lt;stop offset="33.3%" style="stop-color: #cc6699"/&gt;
+      &lt;stop offset="100%" style="stop-color: #66cc99;"/&gt;
+    &lt;/linearGradient&gt;
+
+    &lt;linearGradient id="transition"
+      xlink:href="#three_stops"
+      <span style="font-size:125%">x1="<span id="x1">0%</span>" y1="<span id="y1">0%</span>" x2="<span id="x2">100%</span>" y2="<span id="y2">0%</span>"/&gt;</span>
+  &lt;/defs&gt;
+  
+  &lt;rect x="10" y="10" width="200" height="200"
+    style="fill: url(#transition); stroke: black;"/&gt;
+&lt;/svg&gt;
+</pre>
+<div id="svgError"></div>
+<div>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="showArrow" onclick="showArrow(this.checked)"/> Show direction
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="250" height="250" viewBox="0 0 250 200" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+    <linearGradient id="three_stops">
+      <stop offset="0%" style="stop-color: #ffcc00;"/>
+      <stop offset="33.3%" style="stop-color: #cc6699"/>
+      <stop offset="100%" style="stop-color: #66cc99;"/>
+    </linearGradient>
+
+    <linearGradient id="transition"
+      xlink:href="#three_stops"
+      x1="0%" y1="100%" x2="100%" y2="100%"/>
+    
+    <marker id="arrowhead" markerWidth="5" markerHeight="10"
+        refX="5" refY="5" orient="auto">
+        <path d="M 0 0 5 5 0 10 Z" style="fill: black;"/>
+    </marker>
+    </defs>
+    <rect x="10" y="10" width="200" height="200"
+      style="fill: url(#transition); stroke: black;"/>
+    <g id="arrowShow" style="display:none">
+      <path id="arrow" transform="translate(10,10)" d="M 0 100 L 200 100"
+        style="marker-end: url(#arrowhead); stroke:black; fill:none" />
+    </g>
+  </svg>
+</div>
+
+</body>
+</html>

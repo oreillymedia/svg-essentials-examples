@@ -1,0 +1,164 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="400" height="250" viewBox="0 0 400 250"
+  onload="init(evt)"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <style type="text/css" > <![CDATA[
+      svg { /* default values */
+        stroke: black;
+        fill: white;
+      }
+      g.selected rect {
+        fill: #ffc; /* light yellow */
+      }
+      text {
+        stroke: none;
+        fill:black;
+        text-anchor: middle;
+      }
+      
+      line.slider {
+        stroke: gray; 
+        stroke-width: 2;
+      }
+    ]]></style>
+    <script type="text/ecmascript"><![CDATA[
+      var scaleChoice = 1;
+      var scaleFactor = [1.25, 1.5, 1.75];
+      var slideChoice = -1;
+      var rgb = [100, 100, 100];
+
+
+      function init(evt) {  
+        var obj;
+        for (var i = 0; i < 3; i++) {
+          obj = document.getElementById("scale" + i);
+          obj.addEventListener("click", clickButton, false);
+          
+          obj = document.getElementById("sliderGroup" + i);
+          obj.addEventListener("mousedown", startColorDrag, false);
+          obj.addEventListener("mousemove", doColorDrag, false);
+          obj.addEventListener("mouseup", endColorDrag, false);
+        }
+        document.getElementById("eventCatcher").
+          addEventListener("mouseup", endColorDrag, false);
+        transformShirt();
+      }
+
+      function clickButton(evt) {
+        var choice = evt.target.parentNode
+        var name = choice.getAttribute("id");
+        var old = document.getElementById("scale" + scaleChoice);
+        old.removeAttribute("class");
+        choice.setAttribute("class", "selected");
+      
+        scaleChoice = parseInt(name[name.length - 1]);
+        transformShirt();
+      }
+
+      function transformShirt() {    
+        var factor = scaleFactor[scaleChoice];
+        var obj = document.getElementById("shirt");
+        obj.setAttribute("transform",
+          "translate(150, 150) " +
+          "scale(" + factor + ")");
+        obj.setAttribute("stroke-width",
+          1 / factor);
+      }
+      
+      /*
+      * Stop dragging the current slider (if any)
+      * and set the current slider to the one specified.
+      * (0 = red, 1 = green, 2 = blue)
+      */
+      function startColorDrag(evt) {
+        var sliderId = evt.target.parentNode.getAttribute("id");
+        endColorDrag( evt );
+        slideChoice = parseInt(sliderId[sliderId.length - 1]);
+      }
+
+      /*
+      * Set slider choice to -1, indicating that no
+      * slider is begin dragged. No access to the event
+      * is needed for this function.
+      */
+      function endColorDrag(evt) {
+        slideChoice = -1;
+      }
+
+      function doColorDrag(evt) {
+        var sliderId = evt.target.parentNode.getAttribute("id");
+        chosen = parseInt(sliderId[sliderId.length - 1]);
+        
+        if (slideChoice >= 0 && slideChoice == chosen) {
+          var pos = evt.clientY - 10;
+          if (pos < 0) { pos = 0; }
+          if (pos > 100) { pos = 100; }
+            
+          obj = document.getElementById("slide" + slideChoice);
+          obj.setAttribute("y1", pos);
+          obj.setAttribute("y2", pos);
+            
+          rgb[slideChoice] = 100-pos;
+            
+          var colorStr = "rgb(" + rgb[0] + "%," +
+            rgb[1] + "%," + rgb[2] + "%)";        
+          obj = document.getElementById("shirt");
+          obj.style.setProperty("fill", colorStr, null);
+        }
+      }
+    ]]></script>
+
+    <path id="shirt-outline"
+      d="M -6 -30 -32 -19 -25.5 -13 -22 -14 -22 30 23 30
+        23 -14 26.5 -13 33 -19 7 -30
+        A 6.5 6 0 0 1 -6 -30"/>
+  </defs>
+
+  <rect id="eventCatcher" x="0" y="0" width="400" height="300"
+    style="fill: none; stroke:none;" pointer-events="visible" />
+
+  <g id="shirt" >
+    <use xlink:href="#shirt-outline" x="0" y="0"/>
+  </g>
+
+  <g id="scale0" > 
+    <rect x="100" y="10" width="30" height="30" />
+    <text x="115" y="30">S</text>
+  </g>
+
+  <g id="scale1" class="selected">
+    <rect x="140" y="10" width="30" height="30" />
+    <text x="155" y="30">M</text>
+  </g>
+
+  <g id="scale2" >
+    <rect x="180" y="10" width="30" height="30" />
+    <text x="195" y="30">L</text>
+  </g>
+  
+  <g id="sliderGroup0" transform="translate( 230, 10 )">
+    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="5" y="0" width="10" height="100" style="fill: red;"/>
+    <line id="slide0" class="slider"
+      x1="0" y1="0" x2="20" y2="0" />
+  </g>
+
+  <g id="sliderGroup1" transform="translate( 280, 10 )">
+    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="5" y="0" width="10" height="100" style="fill: green;"/>
+    <line id="slide1" class="slider"
+      x1="0" y1="0" x2="20" y2="0" />
+  </g>
+
+  <g id="sliderGroup2" transform="translate( 330, 10 )">
+    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="5" y="0" width="10" height="100" style="fill: blue;"/>
+    <line id="slide2" class="slider"
+      x1="0" y1="0" x2="20" y2="0" />
+  </g>
+</svg>

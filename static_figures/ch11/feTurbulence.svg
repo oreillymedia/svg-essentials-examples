@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="450" height="275" viewBox="0 0 450 275"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+
+<filter id="turb1">
+  <feTurbulence
+    type="turbulence"
+    baseFrequency="0.1"
+    numOctaves="1"
+    in="SourceGraphic"/>
+</filter>
+
+<filter id="turb2">
+  <feTurbulence
+    type="turbulence"
+    baseFrequency="0.1"
+    numOctaves="5"
+    in="SourceGraphic"/>
+</filter>
+
+<filter id="turb3">
+  <feTurbulence
+    type="turbulence"
+    baseFrequency="0.05"
+    numOctaves="5"
+    in="SourceGraphic"/>
+</filter>
+
+<filter id="turb4">
+  <feTurbulence
+    type="fractalNoise"
+    baseFrequency="0.1"
+    numOctaves="1"
+    in="SourceGraphic"/>
+</filter>
+
+<filter id="turb5">
+  <feTurbulence
+    type="fractalNoise"
+    baseFrequency="0.1"
+    numOctaves="5"
+    in="SourceGraphic"/>
+</filter>
+
+<filter id="turb6">
+  <feTurbulence
+    type="fractalNoise"
+    baseFrequency="0.05"
+    numOctaves="5"
+    in="SourceGraphic"/>
+</filter>
+
+
+</defs>
+
+<g style="font-family: sans-serif; font-size: 10pt">
+  <g transform="translate(10,20)">
+  <rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turb1);"/>
+  <text x="0" y="70">type="turbulence"</text>
+  <text x="0" y="85">baseFrequency="0.1"</text>
+  <text x="0" y="100">numOctaves="1"</text>
+  </g>
+
+  <g transform="translate(150,20)">
+  <rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turb2);"/>
+  <text x="0" y="70">type="turbulence"</text>
+  <text x="0" y="85">baseFrequency="0.1"</text>
+  <text x="0" y="100">numOctaves="5"</text>
+  </g>
+
+  <g transform="translate(290,20)">
+  <rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turb3);"/>
+  <text x="0" y="70">type="turbulence"</text>
+  <text x="0" y="85">baseFrequency="0.05"</text>
+  <text x="0" y="100">numOctaves="5"</text>
+  </g>
+
+
+  <g transform="translate(10,150)">
+  <rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turb4);"/>
+  <text x="0" y="70">type="fractalNoise"</text>
+  <text x="0" y="85">baseFrequency="0.1"</text>
+  <text x="0" y="100">numOctaves="1"</text>
+  </g>
+
+  <g transform="translate(150,150)">
+  <rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turb5);"/>
+  <text x="0" y="70">type="fractalNoise"</text>
+  <text x="0" y="85">baseFrequency="0.1"</text>
+  <text x="0" y="100">numOctaves="5"</text>
+  </g>
+
+  <g transform="translate(290,150)">
+  <rect x="25" y="0" width="50" height="50"
+    style="filter: url(#turb6);"/>
+  <text x="0" y="70">type="fractalNoise"</text>
+  <text x="0" y="85">baseFrequency="0.05"</text>
+  <text x="0" y="100">numOctaves="5"</text>
+  </g>
+
+</g>
+
+</svg>

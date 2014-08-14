@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>SVG Template</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="refresh()">
+
+<div id="svgInput">
+<div id="svgSource"></div>
+<textarea id="svgOriginal"></textarea>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG errors-->
+</div>
+
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg>
+    <g id="svgMarkup">
+    </g>
+  </svg>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body" width="300" height="300"
+  xmlns="http://www.w3.org/2000/svg">
+
+<g transform="translate(50,20)">
+
+<g style="fill: none; stroke: black;">
+<circle cx="100" cy="100" r="100"/>
+<line x1="0" y1="100" x2="200" y2="100"/>
+<line x1="100" y1="0" x2="100" y2="200"/>
+  <g transform="rotate(45, 100, 100)">
+  <line x1="0" y1="100" x2="200" y2="100"/>
+  <line x1="100" y1="0" x2="100" y2="200"/>
+  </g>
+</g>
+<g style="font-size: 12pt;">
+<text x="210" y="104">0&#176;</text>
+<text x="178" y="178">45&#176;</text>
+<text x="100" y="216" style="text-anchor: middle;">90&#176;</text>
+<text x="15" y="178" style="text-anchor: end;">135&#176;</text>
+<text x="-5" y="104" style="text-anchor: end;">180&#176;</text>
+<text x="28" y="32" style="text-anchor: end;">225&#176;</text>
+<text x="100" y="-5" style="text-anchor: middle;">270&#176;</text>
+<text x="178" y="32">315&#176;</text>
+</g>
+
+
+</g>
+</svg>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Internal Stylesheets</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="200px" height="200px" viewBox="0 0 200 200"&gt;
+&lt;defs&gt;
+&lt;style type="text/css"&gt;&lt;![CDATA[
+    circle {
+        fill: #ffc;
+        stroke: blue;
+        stroke-width: 2;
+        stroke-dasharray: 5 3
+    }
+]]&gt;&lt;/style&gt;
+&lt;/defs&gt;
+
+&lt;circle cx="20" cy="20" r="10"/&gt;
+&lt;circle cx="60" cy="20" r="15"/&gt;
+&lt;circle cx="20" cy="60" r="10" style="fill: #cfc"/&gt;
+&lt;circle cx="60" cy="60" r="15"
+  style="stroke-width: 1; stroke-dasharray: none;"/&gt;
+&lt;/svg&gt;
+</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>

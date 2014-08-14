@@ -1,0 +1,19 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="120" viewBox="0 0 300 120"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Using the set element</title>
+  <desc>Animate through a specific set of values</desc>
+
+  <circle cx="60" cy="60" r="30" style="fill: #ff9; stroke: gray;">
+    <animate id="c1" attributeName="r" attributeType="XML"
+      begin="0s" dur="4s" from="30" to="0" fill="freeze"/>
+  </circle>
+
+  <text text-anchor="middle" x="60" y="60" style="visibility: hidden;">
+    <set attributeName="visibility" attributeType="CSS"
+      to="visible" begin="4.5s" dur="1s" fill="freeze"/>
+    All gone!
+  </text>
+</svg>

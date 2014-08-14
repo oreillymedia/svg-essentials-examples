@@ -1,0 +1,18 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="310px" height="310px" viewBox="0 0 310 310"
+  xmlns="http://www.w3.org/2000/svg">
+
+<title>Using a single marker for all vertices</title>
+
+<defs>
+  <marker id="mCircle" markerWidth="10" markerHeight="10" refX="5" refY="5">
+      <circle cx="5" cy="5" r="4" style="fill: none; stroke: black;"/>
+  </marker>
+</defs>
+
+<path d="M 10 20 100 20 A 20 30 0 0 1 120 50 L 120 110"
+    style="marker: url(#mCircle);
+    fill: none; stroke: black;"/>
+</svg>

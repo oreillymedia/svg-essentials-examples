@@ -1,0 +1,93 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+    id="clock" width="250" height="250" viewBox="0 0 250 250"
+     onload="init()" >
+  <title>Scripted Analog Clock</title>
+  <desc>Draw an Analog Clock using JavaScript exclusively</desc>
+
+  <script type="application/ecmascript"> <![CDATA[
+  /* the <svg> object that will contain the drawing */
+  var clock;
+  /* references to the SVGPathElements for the clock hands */
+  var hourHand,
+      minuteHand,
+      secondHand;
+
+  function init() {
+    /* select the empty <svg> */
+    clock = document.getElementById("clock");
+    var svgns = clock.namespaceURI,
+        doc   = document;
+
+    clock.suspendRedraw(1000);
+
+    /* create the clock face */
+    var face = doc.createElementNS(svgns, "circle");
+    face.cx.baseVal.value = 125;
+    face.cy.baseVal.value = 125;
+    face.r.baseVal.value = 100;
+    face.style.cssText = "fill: white; stroke: black";
+    clock.appendChild( face );
+
+    /* create a group for the ticks */
+    var ticks = clock.appendChild(
+          doc.createElementNS(svgns, "g") );
+    ticks.setAttribute("transform", "translate(125,125)" );
+
+    /* create the tick marks */
+    var tickMark;
+    for (var i = 1; i <= 12; i++) {
+      tickMark = doc.createElementNS(svgns, "path");
+      tickMark.setAttribute( "d",
+                              "M95,0 L100,-5 L100,5 Z" );
+      tickMark.setAttribute( "transform",
+                              "rotate(" + (30*i) + ")" );
+      ticks.appendChild( tickMark );
+    }
+
+    /* create the hands */
+    var hands = clock.appendChild(
+                    doc.createElementNS(svgns, "g") );
+    hands.style.cssText =
+      "stroke: black; stroke-width:5px; stroke-linecap: round;";
+
+    var hourHand = hands.appendChild(
+                    doc.createElementNS(svgns, "path") );
+    hourHand.id = "hour";
+    hourHand.setAttribute("d", "M125,125 L125,75");
+    hourHand.setAttribute("transform", "rotate(0, 125, 125)");
+
+    var minuteHand = hands.appendChild(
+                    doc.createElementNS(svgns, "path") );
+    minuteHand.id = "minute";
+    minuteHand.setAttribute("d", "M125,125 L125,45");
+    minuteHand.setAttribute("transform", "rotate(0, 125, 125)");
+
+    var secondHand = hands.appendChild(
+                    doc.createElementNS(svgns, "path") );
+    secondHand.id = "minute";
+    secondHand.setAttribute("d","M125,125 L125,30");
+    secondHand.setAttribute("transform", "rotate(0, 125, 125)");
+    secondHand.style.cssText="stroke: red; stroke-width: 2px";
+    
+    /* add the center knob */
+    var knob = doc.createElementNS(svgns, "circle");
+    knob.setAttribute("cx", "125");
+    knob.setAttribute("cy", "125");
+    knob.setAttribute("r", "6");
+    knob.style.setProperty("fill", "#333", null);
+    clock.appendChild( knob );
+
+    clock.unsuspendRedrawAll();
+
+    updateClock();
+  }
+
+  function updateClock()
+  {
+      /* adjust the hands */
+  }
+  ]]>
+  </script>
+</svg>

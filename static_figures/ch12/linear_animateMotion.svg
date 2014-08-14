@@ -1,0 +1,12 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="200" viewBox="0 0 300 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Animation Along a Linear Path</title>
+  <g>
+    <rect x="0" y="0" width="30" height="30" style="fill: #ccc;"/>
+    <circle cx="30" cy="30" r="15" style="fill: #cfc; stroke: green;"/>
+    <animateMotion from="0,0" to="60,30" dur="4s" fill="freeze"/>
+  </g>
+</svg>

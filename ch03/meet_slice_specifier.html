@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Meet Specifier</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+function toggleDirection()
+{
+  var w = document.getElementById("rWidth").value;
+  var h = document.getElementById("rHeight").value;
+  document.getElementById("rWidth").value = h;
+  document.getElementById("rHeight").value = w;
+  redisplay();
+}
+
+function redisplay()
+{
+  var aspect = document.getElementById("xParam").value +
+    document.getElementById("yParam").value + " " + document.getElementById("alignment").value;
+  var w = document.getElementById("rWidth").value;
+  var h = document.getElementById("rHeight").value;
+  var inner = document.getElementById("innerSVG");
+  var outer = document.getElementById("outerSVG");
+  var outerR = document.getElementById("outerRect");
+  
+  inner.setAttribute("preserveAspectRatio", aspect);
+  inner.setAttribute("width", w);
+  inner.setAttribute("height", h);
+  outerR.setAttribute("width", w);
+  outerR.setAttribute("height", h);
+  outer.setAttribute("width", w + 20);
+  outer.setAttribute("height", h + 20);
+} 
+  </script>
+</head>
+
+<body>
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg preserveAspectRatio="<select id="xParam" onchange="redisplay()">
+  <option value="xMin">xMin</option>
+  <option value="xMid">xMid</option>
+  <option value="xMax">xMax</option></select><select id="yParam" onchange="redisplay()">
+  <option value="YMin">YMin</option>
+  <option value="YMid">YMid</option>
+  <option value="YMax">YMax</option></select> <select id="alignment" onchange="redisplay()">
+  <option value="meet">meet</option>
+  <option value="slice">slice</option></select>" viewBox="0 0 90 90"
+  width="<input id="rWidth" size="4" value="45" onchange="redisplay()"/>" height="<input id="rHeight" value="135" size="4" onchange="redisplay()"/>"&gt;
+  
+  &lt;circle cx="42" cy="57" r="30" stroke="black" fill="none"/&gt;
+  &lt;circle cx="33" cy="48" r="3" style="stroke:none; fill:#339933;"/&gt;
+  &lt;circle cx="51" cy="48" r="3" style="stroke:none; fill:#339933;"/&gt;
+  &lt;g id="whiskers"&gt;
+    &lt;line x1="45" y1="57" x2="81" y2="51" stroke="black"/&gt;
+    &lt;line x1="45" y1="57" x2="81" y2="62" stroke="black"/&gt;
+  &lt;/g&gt;
+  &lt;use xlink:href="#whiskers" transform="scale(-1 1) translate(-84 0)"/&gt;
+  &lt;!-- ears --&gt;
+  &lt;polyline stroke="black" fill="none"
+    points="64.8 37.2, 54 6, 42 27, 30 6, 19.2 37.2"/&gt;
+  &lt;!-- mouth --&gt;
+  &lt;polyline stroke="black" fill="none"
+    points="21 66, 27 72, 57 72, 62 66"/&gt;
+  &lt;path stroke="black" fill="#ffcccc"
+    d="M 45 54 L 39 54 A 3 6 0  0 0 45 54"/&gt;
+&lt;/svg&gt;</pre></div>
+
+<div>
+  <input type="button" onclick="toggleDirection()" value="Switch width and height"/>
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg id="outerSVG" width="150" height="150">
+  <rect x="0" y="0" width="45" height="135"
+    style="fill:none; stroke:blue" id="outerRect"/>
+
+<svg id="innerSVG" preserveAspectRatio="xMinYMin meet"
+  width="45" height="135" viewBox="0 0 90 90">
+  
+  <circle cx="42" cy="57" r="30" stroke="black" fill="none"/>
+  <circle cx="33" cy="48" r="3" style="stroke:none; fill:#339933;"/>
+  <circle cx="51" cy="48" r="3" style="stroke:none; fill:#339933;"/>
+  <g id="whiskers">
+    <line x1="45" y1="57" x2="81" y2="51" stroke="black"/>
+    <line x1="45" y1="57" x2="81" y2="62" stroke="black"/>
+  </g>
+  <use xlink:href="#whiskers" transform="scale(-1 1) translate(-84 0)"/>
+  <!-- ears -->
+  <polyline stroke="black" fill="none"
+    points="64.8 37.2, 54 6, 42 27, 30 6, 19.2 37.2"/>
+  <!-- mouth -->
+  <polyline stroke="black" fill="none"
+    points="21 66, 27 72, 57 72, 62 66"/>
+  <path stroke="black" fill="#ffcccc"
+    d="M 45 54 L 39 54 A 3 6 0  0 0 45 54"/>
+  </svg>
+</svg>
+</div>
+
+</body>
+</html>
+

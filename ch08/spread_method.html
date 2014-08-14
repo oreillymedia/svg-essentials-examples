@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Linear Gradient spreadMethod</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <style type="text/css">
+  pre {font-size: 10pt;}
+  </style>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  var attrName = ["x1", "y1", "x2", "y2"];
+  var coords = [40, 60, 80, 160];
+  
+  function partial(n)
+  {
+    var arrowPath;
+    for (var i = 0; i < attrName.length; i++)
+    {
+      coords[i] = getInt(attrName[i]);
+      setAttr("partial", attrName[i],
+        coords[i] + "%");
+      coords[i] = 2 * coords[i]; // (* 200 / 100)
+    }
+    setAttr("partial", "spreadMethod",
+      document.getElementById("spreadMethod").value);
+    
+    arrowPath = "M" + coords[0] + " " + coords[1] + " L" +
+      coords[2] + " " + coords[3];
+    setAttr("arrow", "d", arrowPath);
+  }
+  
+  function showArrow(isOn) {
+    var display = (isOn) ? "display: block" : "display: none";
+    setAttr("arrowShow", "style", display);
+  }
+  // ]]>
+  </script>
+</head>
+
+<body onload="initElements(); partial()">
+
+<div id="svgInput">
+<pre>&lt;svg width="250" height="250" viewBox="0 0 250 200"&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id="partial"
+        x1="<input type="text" id="x1" size="4" value="20" onchange="partial()"/>%" y1="<input
+          type="text" id="y1" size="4" value="30" onchange="partial()"/>%" x2="<input
+          type="text" id="x2" size="4" value="40" onchange="partial()"/>%" y2="<input
+          type="text" id="y2" size="4" value="80" onchange="partial()"/>%"
+        spreadMethod="<select id="spreadMethod" onchange="partial()"><option value="pad">pad</option>
+        <option value="repeat">repeat</option>
+        <option value="reflect">reflect</option></select>"&gt;
+        &lt;stop offset="0%" style="stop-color: #ffcc00;"/&gt;
+        &lt;stop offset="33.3%" style="stop-color: #cc6699"/&gt;
+        &lt;stop offset="100%" style="stop-color: #66cc99;"/&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+  
+  &lt;rect x="10" y="10" width="200" height="200"
+    style="fill: url(#partial); stroke: black;"/&gt;
+&lt;/svg&gt;</pre>
+<div id="svgError"></div>
+<div>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+  <input type="checkbox" id="showArrow" onclick="showArrow(this.checked)"/> Show direction
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="250" height="250" viewBox="0 0 250 200" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <linearGradient id="partial"
+          x1="20%" y1="30%" x2="40%" y2="80%"
+          spreadMethod="pad">
+          <stop offset="0%" style="stop-color: #ffcc00;"/>
+          <stop offset="33.3%" style="stop-color: #cc6699"/>
+          <stop offset="100%" style="stop-color: #66cc99;"/>
+      </linearGradient>
+   
+    <marker id="arrowhead" markerWidth="5" markerHeight="10"
+        refX="5" refY="5" orient="auto">
+        <path d="M 0 0 5 5 0 10 Z" style="fill: black;"/>
+    </marker>
+    </defs>
+    <rect x="10" y="10" width="200" height="200"
+      style="fill: url(#partial); stroke: black;"/>
+    <g id="arrowShow" style="display:none">
+      <path id="arrow" transform="translate(10,10)" d="M 40 60 L 80 160"
+        style="marker-end: url(#arrowhead); stroke:black; fill:none" />
+    </g>
+  </svg>
+</div>
+
+</body>
+</html>

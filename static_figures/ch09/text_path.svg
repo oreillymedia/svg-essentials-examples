@@ -1,0 +1,52 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="375px" height="200px" viewBox="0 0 375 200"
+  xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>Text Along a Path</title>
+
+<defs>
+<path id="curvepath"
+    d="M30 40 C 50 10, 70 10, 120 40 S 150 0, 200 40"
+  style="stroke: gray; fill: none;"/>
+
+<path id="round-corner"
+    d="M250 30 L 300 30 A 30 30 0 0 1 330 60 L 330 110"
+  style="stroke: gray; fill: none;"/>
+
+<path id="sharp-corner"
+    d="M 30 110 100 110 100 160"
+  style="stroke: gray; fill: none;"/>
+    
+<path id="discontinuous" 
+    d="M 150 110 A 40 30 0 1 0 230 110 M 250 110 270 140"
+  style="stroke: gray; fill: none;"/>
+</defs>
+
+    
+<text style="font-size: 12;">
+    <textPath xlink:href="#curvepath">
+    Following a cubic B&#xe9;zier curve.
+    </textPath>
+</text>
+
+<text style="font-size: 12;">
+    <textPath xlink:href="#round-corner">
+    Going 'round the bend
+    </textPath>
+</text>
+
+<text style="font-size: 12;">
+    <textPath xlink:href="#sharp-corner">
+    Making a quick turn
+    </textPath>
+</text>
+
+<text style="font-size: 12;">
+    <textPath xlink:href="#discontinuous">
+    Text along a broken path
+    </textPath>
+</text>
+
+</svg>

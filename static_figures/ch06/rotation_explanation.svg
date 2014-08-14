@@ -1,0 +1,36 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg id="body" width="300" height="300"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>How rotation around the origin works</title>
+  <desc>Shows a square in normal position, then
+  rotated 45 degrees about the origin, with underlying grids.</desc>
+
+<g transform="translate(140,40)">
+  <use xlink:href="default_ruler.svg#hruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#htext" style="fill: gray;"/>
+  <use xlink:href="default_ruler.svg#vtext" style="fill: gray;"/>
+  <rect x="70" y="30" width="20" height="20" style="fill: #ccc;"/>
+  
+  <g transform="rotate(45)">
+  <use xlink:href="default_ruler.svg#hruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#htext" style="fill: black;"/>
+  <use xlink:href="default_ruler.svg#vtext" style="fill: black;"/>
+  <use xlink:href="default_ruler.svg#hgrid" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vgrid" style="stroke: #ccc;"/>
+  </g>
+
+<!-- rotated square -->
+<rect x="70" y="30" width="20" height="20" transform="rotate(45)"
+   style="fill: black;"/>
+  
+  <path d="M 100 0 A 100 100, 0, 0 1,  70.7 70.7"
+    style="stroke: black; fill: none; stroke-dasharray: 3 3;" />
+  <path d="M 70.7 70.7 h 9 m -9 0 v -9"
+    style="stroke: black; fill: none;"/>
+</g>
+</svg>

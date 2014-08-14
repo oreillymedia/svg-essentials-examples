@@ -1,0 +1,47 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="200" height="100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Animated CSS Link</title>
+  <desc>Animation plays when mouse hovers over image</desc>
+  <style type="text/css">
+  <![CDATA[
+  a.animatedLink {
+    animation-name: animKeys;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-play-state: paused;
+    -webkit-animation-name: webAnimKeys;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: paused;
+  }
+  
+  a.animatedLink:hover {
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
+  }
+
+  @keyframes animKeys {
+    0% {fill-opacity: 1.0;}
+    100% {fill-opacity: 0.5;}
+  }
+  
+  @-webkit-keyframes webAnimKeys {
+    0% {fill-opacity: 1.0;}
+    100% {fill-opacity: 0.5;}
+  }
+
+  ]]>
+  </style>
+  
+  <a class="animatedLink" xlink:href="http://www.w3.org/SVG/">
+    <circle cx="50" cy="70" r="20" style="fill: red;"/>
+    <rect x="75" y="50" width="40" height="40" style="fill: green;"/>
+    <path d="M120 90, 140 50, 160 90 Z" style="fill: blue;"/>
+  </a>
+</svg>

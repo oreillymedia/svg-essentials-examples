@@ -1,0 +1,18 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+
+<svg width="100" height="100" viewBox="-20 -20 80 80"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <title>Rectangle</title>
+  <desc>Using ViewBox with non-zero minX and minY</desc>
+  
+  <g style="shape-rendering:crispEdges">
+    <rect x="-20" y="-20" width="79" height="79"
+          style="stroke:red; fill:none"/>
+     <rect x="30" y="30" width="20" height="20"
+        style="stroke: black; fill: none;"/>
+  </g>
+</svg>

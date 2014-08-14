@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>skewX and skewY transformation</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css"/>
+  <script type="text/javascript" src="../svg_utils.js"></script>
+  <script type="text/javascript">
+// <![CDATA[  
+function redisplay()
+{
+  var skewAxis = document.getElementById("skewAxis").value;
+  var angle = document.getElementById("angle").value;
+  var attr = skewAxis + "(" + angle + ")";
+  var textNode = document.createTextNode(skewAxis);
+  var node;
+  
+  document.getElementById("transformed").setAttribute("transform",
+    attr);
+  node = document.getElementById("skewText1");
+  node.replaceChild(textNode, node.firstChild);
+  node = document.getElementById("skewText2");
+  textNode = document.createTextNode(skewAxis);
+  node.replaceChild(textNode, node.firstChild);
+}
+// ]]>
+  </script>
+</head>
+
+<body onload="initElements(); redisplay();">
+
+<div id="svgInput">
+<div><pre id="svgSource">&lt;svg width="200px" height="200px" viewBox="0 0 200 200"&gt;
+  &lt;!-- guide lines --&gt; <img src="../callouts/1.png" alt="1"/>
+  &lt;g style="stroke: gray; stroke-dasharray: 4 4;"&gt;
+      &lt;line x1="0" y1="0" x2="200" y2="0"/&gt;
+      &lt;line x1="20" y1="0" x2="20" y2="90"/&gt;
+  &lt;/g&gt;
+
+  &lt;g transform="translate(20, 0)"&gt;     <img src="../callouts/2.png" alt="2"/>
+      &lt;g transform="<select id="skewAxis" onchange="redisplay();"><option value="skewX">skewX</option><option value="skewY">skewY</option></select>(<input type="text" size="3" id="angle" value="30" onchange="redisplay();"/>)"&gt;    <img src="../callouts/3.png" alt="3"/>
+          &lt;polyline points="50 0, 0 0, 0 50"      <img src="../callouts/4.png" alt="4"/>
+              style="fill: none; stroke: black; stroke-width: 2;"/&gt;
+          &lt;text x="0" y="60"&gt;<span id="skewText1">skewX</span>&lt;/text&gt;     <img src="../callouts/5.png" alt="5"/>
+      &lt;/g&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;</pre>
+
+<p>
+<img src="../callouts/1.png" alt="1"/> These dashed lines are drawn in the default coordinate system, before any transformation has occurred.<br />
+<img src="../callouts/2.png" alt="2"/> This will move the entire skewed “package” to the desired location.<br />
+<img src="../callouts/3.png" alt="3"/> Skew the coordinates by the given number of degrees. This transformation doesn’t change the origin, which will still be at (0, 0) in the new coordinate system.<br />
+<img src="../callouts/4.png" alt="4"/> To make things easier, draw the object at the origin.<br />
+<img src="../callouts/5.png" alt="5"/> Text will be covered in more detail in another chapter.
+</p>
+
+<div>
+  <input type="checkbox" id="svgZoom" onclick="zoom()" /> Zoom
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput" style="margin-top: 1em">
+<svg width="200" height="200" viewBox="0 0 300 300"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- guide lines -->
+ <g style="stroke: gray; stroke-dasharray: 4 4;">
+    <line x1="0" y1="0" x2="200" y2="0"/>
+    <line x1="20" y1="0" x2="20" y2="90"/>
+</g>
+
+<g transform="translate(20, 0)">
+    <g id="transformed" transform="skewX(30)">
+        <polyline points="50 0, 0 0, 0 50"
+             style="fill: none; stroke: black; stroke-width: 2;"/>
+        <text x="0" y="60" id="skewText2">skewX</text>
+    </g>
+</g>
+ 
+</svg>
+</div>
+
+</body>
+</html>

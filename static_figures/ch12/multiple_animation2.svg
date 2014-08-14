@@ -1,0 +1,19 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="250" height="200" viewBox="0 0 250 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>Simple Animation of Multiple Objects</title>
+  <rect x="10" y="10" width="20" height="20"
+    style="stroke: black; fill: #cfc;">
+    <animate attributeName="width" attributeType="XML"
+      begin="0s" dur="8s" from="20" to="120" fill="freeze"/>
+    <animate attributeName="height" attributeType="XML"
+      begin="0s" dur="8s" from="20" to="120" fill="freeze"/>
+  </rect>
+
+  <circle cx="70" cy="70" r="20" style="fill: #ccf; stroke: black;">
+    <animate attributeName="r" attributeType="XML"
+      begin="2s" dur="4s" from="20" to="50" fill="freeze"/>
+  </circle>
+</svg>

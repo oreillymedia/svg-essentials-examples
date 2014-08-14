@@ -1,0 +1,26 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200px" height="200px" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>stroke-dasharray</title>
+  <desc>Show various values of the stroke-dasharray property.</desc>
+  <g>
+     <!-- nine-pixel dash, five-pixel gap -->
+     <line x1="10" y1="10" x2="100" y2="10"
+         style="stroke-dasharray: 9, 5;
+       stroke: black; stroke-width: 2;"/>
+
+     <!-- five-pixel dash, three-pixel gap, nine-pixel dash, two-pixel gap -->
+     <line x1="10" y1="20" x2="100" y2="20"
+         style="stroke-dasharray: 5, 3, 9, 2;
+       stroke: black; stroke-width: 2;"/>
+
+     <!-- Odd number of entries is duplicated; this is equivalent to:
+          nine-pixel dash, three-pixel gap,  five-pixel dash, 
+          nine-pixel gap,  three-pixel dash, five-pixel gap -->
+     <line x1="10" y1="30" x2="100" y2="30"
+         style="stroke-dasharray: 9, 3, 5;
+       stroke: black; stroke-width: 2;"/>
+  </g>
+</svg>

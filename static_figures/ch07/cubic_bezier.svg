@@ -1,0 +1,88 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="600" height="375" viewBox="0 0 600 375"
+  xmlns="http://www.w3.org/2000/svg">
+<title>Result of cubic B&#xe9;zier control point combinations</title>
+<desc>Various combinations of control points for cubic B&#xe9;zier
+  curves.</desc>
+<g>
+<path d="M 40 50 C 10 10, 140 10, 110 50"
+  style="fill: none; stroke: black; stroke-width: 2;"/>
+<path d="M 40 50 10 10" style="fill: none; stroke: gray;"/>
+<path d="M 110 50 140 10" style="fill: none; stroke: gray;"/> 
+<circle cx="10" cy="10" r="3" style="fill: gray;"/>
+<circle cx="140" cy="10" r="3" style="fill: gray;"/>
+<text x="10" y="70" style="font-size: 8pt;">
+M 40 50 C 10 10, 140 10, 110 50
+</text>
+</g>
+
+<g transform="translate(200,0)">
+<path d="M 40 50 C 60 10, 90 10, 110 50" 
+  style="fill: none; stroke: black; stroke-width: 2;"/>
+<path d="M 40 50 60 10" style="fill: none; stroke: gray;"/>
+<path d="M 110 50 90 10" style="fill: none; stroke: gray;"/> 
+<circle cx="60" cy="10" r="3" style="fill: gray;"/>
+<circle cx="90" cy="10" r="3" style="fill: gray;"/>
+<!-- <text x="10" y="70" font-size="20">B</text> -->
+<text x="10" y="70" style="font-size: 8pt;">
+M 40 50 C 60 10, 90 10, 110 50
+</text>
+</g>
+
+<g transform="translate(400,0)">
+<path d="M 40 50 C 110 10, 40 10, 110 50" 
+  style="fill: none; stroke: black; stroke-width: 2;"/>
+<path d="M 40 50 110 10" style="fill: none; stroke: gray;"/>
+<path d="M 110 50 40 10" style="fill: none; stroke: gray;"/> 
+<circle cx="110" cy="10" r="3" style="fill: gray;"/>
+<circle cx="40" cy="10" r="3" style="fill: gray;"/>
+<!-- <text x="10" y="70" font-size="20">C</text> -->
+<text x="10" y="70" style="font-size: 8pt;">
+M 40 50 C 110 10, 40 10, 110 50
+</text>
+</g>
+
+<!-- lower row -->
+
+<g transform="translate(0, 100)">
+<path d="M 40 50 C 10 10, 140 90, 110 50" 
+  style="fill: none; stroke: black; stroke-width: 2;"/>
+<path d="M 40 50 10 10" style="fill: none; stroke: gray;"/>
+<path d="M 110 50 140 90" style="fill: none; stroke: gray;"/> 
+<circle cx="10" cy="10" r="3" style="fill: gray;"/>
+<circle cx="140" cy="90" r="3" style="fill: gray;"/>
+<text x="10" y="115" style="font-size: 8pt;">
+M 40 50 C 110 10, 40 10, 110 50
+</text>
+</g>
+
+<g transform="translate(200,100)">
+<path d="M 40 50 C 60 10, 90 90, 110 50" 
+  style="fill: none; stroke: black; stroke-width: 2;"/>
+<path d="M 40 50 60 10" style="fill: none; stroke: gray;"/>
+<path d="M 110 50 90 90" style="fill: none; stroke: gray;"/> 
+<circle cx="60" cy="10" r="3" style="fill: gray;"/>
+<circle cx="90" cy="90" r="3" style="fill: gray;"/>
+<text x="10" y="115" style="font-size: 8pt;">
+M 40 50 C 60 10, 90 90, 110 50
+</text>
+</g>
+
+<g transform="translate(400,100)">
+<path d="M 40 50 C 110 10, 40 90, 110 50" 
+  style="fill: none; stroke: black; stroke-width: 2;"/>
+<path d="M 40 50 110 10" style="fill: none; stroke: gray;"/>
+<path d="M 110 50 40 90" style="fill: none; stroke: gray;"/> 
+<circle cx="110" cy="10" r="3" style="fill: gray;"/>
+<circle cx="40" cy="90" r="3" style="fill: gray;"/>
+<text x="10" y="115" style="font-size: 8pt;">
+M 40 50 C 110 10, 40 90, 110 50
+</text>
+</g>
+
+<path d="M 200 0 200 250 M 390 0 390 250" 
+  style="fill: none; stroke: gray;" />
+
+</svg>

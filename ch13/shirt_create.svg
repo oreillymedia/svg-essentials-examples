@@ -1,0 +1,202 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="250" viewBox="0 0 400 250"
+  onload="init(evt)"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <script type="text/ecmascript">
+  <![CDATA[
+    var scaleChoice = 1; 
+    var scaleFactor = [1.25, 1.5, 1.75];
+    var slideChoice = -1;
+    var rgb = [100, 100, 100];
+    
+    function init(evt)
+    {
+      var obj;
+      for (var i = 0; i < 3; i++) {
+        obj = document.getElementById("scale" + i);
+        obj.addEventListener("click", clickButton, false);
+        obj = document.getElementById("sliderGroup" + i);
+        obj.addEventListener("mousedown", startColorDrag);
+        obj.addEventListener("mousemove", doColorDrag);
+        obj.addEventListener("mouseup", endColorDrag);
+      }
+      document.getElementById("eventCatcher").
+      addEventListener("mouseup", endColorDrag);
+      transformShirt();
+      top.setShirtColor = svgSetShirtColor;
+    }
+
+    function clickButton(evt)
+    {
+      var obj;
+      obj = evt.target.parentNode;
+      var name = obj.getAttribute("id");
+
+      obj = document.getElementById("button" + scaleChoice);
+      obj.style.fill = "white";
+      
+      scaleChoice = parseInt(name[name.length - 1]);
+      obj = document.getElementById("button" + scaleChoice);
+      obj.style.fill = "#ffc";
+      transformShirt();
+    }
+
+    function transformShirt()
+    {
+      var factor = scaleFactor[scaleChoice];
+      var obj = document.getElementById("shirt");
+      obj.setAttribute("transform",
+        "translate(150, 150) " +
+        "scale(" + factor + ")");
+      obj.setAttribute("stroke-width",
+        1 / scaleFactor[scaleChoice]);
+    }
+
+    /*
+    * Stop dragging the current slider (if any)
+    * and set the current slider to the one specified.
+    * (0 = red, 1 = green, 2 = blue)
+    */
+    function startColorDrag(evt)
+    {
+      var sliderId = evt.target.parentNode.getAttribute("id");
+      endColorDrag( evt );
+      slideChoice = parseInt(sliderId[sliderId.length - 1]);
+    }
+
+    /*
+    * Set slider choice to -1, indicating that no
+    * slider is begin dragged. No access to the event
+    * is needed for this function.
+    */
+    function endColorDrag( )
+    {
+      // If a slider was being moved, send the slider number
+      // and its value back to the updateHTMLField function
+      // in the parent web browser window.
+      
+      if (slideChoice >= 0)
+      {
+        top.updateHTMLField(slideChoice, rgb[slideChoice]);
+      }
+
+      /* In any case, nobody's being dragged now */
+      slideChoice = -1;
+    }
+    
+    /*
+     * Set shirt color and text beneath slider
+     */
+    function svgSetShirtColor(which, percent)
+    {
+      var obj;
+      var colorStr;
+      var newText;
+
+      /* Clamp values to range 0..100 */
+      if (percent < 0) { percent = 0; }
+      if (percent > 100) { percent = 100; }
+
+      /* Move the slider line to the new mouse position */
+      obj = document.getElementById("slide" + which);
+      obj.setAttribute("y1", 100 - percent);
+      obj.setAttribute("y2", 100 - percent);
+      rgb[which] = percent;
+      
+      /*
+      * Put together all the color values and
+      * change the shirt's color accordingly.
+      */
+      colorStr = "rgb(" + rgb[0] + "%," +
+          rgb[1] + "%," + rgb[2] + "%)";
+      obj = document.getElementById("shirt");
+      obj.style.fill = colorStr;
+    }
+   
+    function doColorDrag(evt)
+    {
+      var sliderId = evt.target.parentNode.getAttribute("id");
+      chosen = parseInt(sliderId[sliderId.length - 1]);
+      
+      /*
+      * If no slider is active, or the event is on a
+      * slider other than the active one, do nothing
+      */
+      if (slideChoice < 0 || slideChoice != chosen)
+      {
+          return;
+      }
+
+      /*
+      * Get the slider indicator line object, and the
+      * mouse position (relative to the top of the color bar)
+      */
+      svgSetShirtColor(slideChoice, 100 - (evt.clientY - 10));
+    }
+
+  // ]]>
+  </script>
+  
+  <defs>
+    <path id="shirt-outline" 
+      d="M -6 -30 -32 -19 -25.5 -13 -22 -14 -22 30 23 30
+        23 -14 26.5 -13 33 -19 7 -30
+        A 6.5 6 0 0 1 -6 -30" 
+      style="stroke:black"/>
+  </defs>
+
+  <rect id="eventCatcher" x="0" y="0" width="400" height="300"
+    style="fill: none; sroke: none"
+    pointer-events="visible"/>
+
+  <g id="shirt" style="fill:white">
+    <use xlink:href="#shirt-outline" x="0" y="0"/>
+  </g>
+
+  <g id="scale0" style="fill: white"> 
+    <rect id="button0" x="100" y="10" width="30" height="30"
+      style="stroke:black"/>
+    <text x="115" y="30"
+      style="fill:black; text-anchor: middle">S</text>
+  </g>
+
+  <g id="scale1" style="fill: #ffc">
+    <rect id="button1" x="140" y="10" width="30" height="30"
+      style="stroke:black"/>
+    <text x="155" y="30"
+      style="fill:black; text-anchor: middle">M</text>
+  </g>
+
+  <g id="scale2" style="fill: white">
+    <rect id="button2" x="180" y="10" width="30" height="30"
+      style="stroke:black"/>
+    <text x="195" y="30"
+      style="fill:black; text-anchor: middle">L</text>
+  </g>
+  
+  <g id="sliderGroup0" transform="translate(230, 10)">
+    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="5" y="0" width="10" height="100" style="fill: red;"/>
+    <line id="slide0" x1="0" y1="0" x2="20" y2="0"
+      style="stroke: gray; stroke-width: 2;"/>
+  </g>
+
+  <g id="sliderGroup1" transform="translate(280, 10)">
+    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="5" y="0" width="10" height="100" style="fill: green;"/>
+    <line id="slide1" x1="0" y1="0" x2="20" y2="0"
+      style="stroke: gray; stroke-width: 2;"/>
+  </g>
+
+  <g id="sliderGroup2" transform="translate( 330, 10 )">
+    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="5" y="0" width="10" height="100" style="fill: blue;"/>
+    <line id="slide2" x1="0" y1="0" x2="20" y2="0"
+      style="stroke: gray; stroke-width: 2;"/>
+  </g>
+
+</svg>

@@ -1,0 +1,22 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400px" height="200px" viewBox="0 0 400 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  preserveAspectRatio="xMinYMin meet">
+  
+  <title>Radial gradient with three stops</title>
+  <desc>Stops at 0%, 50%, and 100%, in red, green, purple</desc>
+
+  <defs>
+    <radialGradient id="three_stops">
+      <stop offset="0%" style="stop-color: #f96;"/>
+      <stop offset="50%" style="stop-color: #9c9;"/>
+      <stop offset="100%" style="stop-color: #906;"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="20" y="20" width="100" height="100"
+      style="fill: url(#three_stops); stroke: black;"/>
+</svg>

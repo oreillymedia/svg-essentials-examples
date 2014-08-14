@@ -1,0 +1,83 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="400" height="200" viewBox="0 0 400 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>Result of saturate on primary colors</title>
+<defs>
+
+<filter id="s1" filterUnits="objectBoundingBox">
+<feColorMatrix type="saturate" values="1"/>
+</filter>
+
+<filter id="s0.5" filterUnits="objectBoundingBox">
+<feColorMatrix type="saturate" values="0.5"/>
+</filter>
+
+<filter id="s0.25" filterUnits="objectBoundingBox">
+<feColorMatrix type="saturate" values="0.25"/>
+</filter>
+
+<rect id="red" x="0" y="0" width="30" height="30" style="fill: #f00;"/>
+<rect id="green" x="0" y="0" width="30" height="30" style="fill: #0f0;"/>
+<rect id="blue" x="0" y="0" width="30" height="30" style="fill: #00f;"/>
+<rect id="yellow" x="0" y="0" width="30" height="30" style="fill: #ff0;"/>
+<rect id="magenta" x="0" y="0" width="30" height="30" style="fill: #f0f;"/>
+<rect id="cyan" x="0" y="0" width="30" height="30" style="fill: #0ff;"/>
+</defs>
+
+<g style="font-size: 10pt; text-anchor: end;">
+	<text x="65" y="15">Saturate</text>
+	<text x="65" y="35">1.0</text>
+	<text x="65" y="75">0.5</text>
+	<text x="65" y="115">0.25</text>
+</g>
+
+<g transform="translate( 70, 10 )">
+<use xlink:href="#red"
+	style="filter: url(#s1);"/>
+<use xlink:href="#green" transform="translate(40, 0)"
+	style="filter: url(#s1);"/>
+<use xlink:href="#blue" transform="translate(80, 0)"
+	style="filter: url(#s1);"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"
+	style="filter: url(#s1);"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"
+	style="filter: url(#s1);"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"
+	style="filter: url(#s1);"/>
+</g>
+
+<g transform="translate( 70, 50 )">
+<use xlink:href="#red" 
+	style="filter: url(#s0.5);"/>
+<use xlink:href="#green" transform="translate(40, 0)"
+	style="filter: url(#s0.5);"/>
+<use xlink:href="#blue" transform="translate(80, 0)"
+	style="filter: url(#s0.5);"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"
+	style="filter: url(#s0.5);"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"
+	style="filter: url(#s0.5);"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"
+	style="filter: url(#s0.5);"/>
+</g>	
+
+<g transform="translate( 70, 90 )">
+<use xlink:href="#red"
+	style="filter: url(#s0.25);"/>
+<use xlink:href="#green" transform="translate(40, 0)"
+	style="filter: url(#s0.25);"/>
+<use xlink:href="#blue" transform="translate(80, 0)"
+	style="filter: url(#s0.25);"/>
+<use xlink:href="#yellow" transform="translate(120, 0)"
+	style="filter: url(#s0.25);"/>
+<use xlink:href="#magenta" transform="translate(160, 0)"
+	style="filter: url(#s0.25);"/>
+<use xlink:href="#cyan" transform="translate(200, 0)"
+	style="filter: url(#s0.25);"/>
+</g>	
+
+</svg>

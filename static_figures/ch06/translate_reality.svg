@@ -1,0 +1,39 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="300"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>How Moving a Square via Translation Actually Works</title>
+  <desc>This diagram shows the square fixed while the grid moves,
+  which what SVG really does!</desc>
+
+<g transform="translate(40,40)">
+  <use xlink:href="default_ruler.svg#hruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vruler" style="stroke: #ccc;"/>
+  <use xlink:href="default_ruler.svg#htext" style="fill: #ccc;"/>
+  <use xlink:href="default_ruler.svg#vtext" style="fill: #ccc;"/>
+  <defs>
+  <g id="square" style="fill: none; stroke-width: 2;">
+  <rect x="0" y="0" width="20" height="20"/>
+  </g>
+  </defs>
+  <line x1="0" y1="0" x2="48" y2="48"
+    style="stroke: gray; stroke-dasharray: 5 3;"/>
+  <polyline points="42 48 48 48 48 42" style="stroke: gray; fill: gray;"/> 
+
+  <use xlink:href="#square" style="stroke: gray;"/>
+
+  <g transform="translate(50,50)">
+    <use xlink:href="default_ruler.svg#hruler" style="stroke: gray;"/>
+    <use xlink:href="default_ruler.svg#vruler" style="stroke: gray;"/>
+    <use xlink:href="default_ruler.svg#htext" style="fill: gray;"/>
+    <use xlink:href="default_ruler.svg#vtext" style="fill: gray;"/>
+    <use xlink:href="default_ruler.svg#hgrid" style="stroke: #ccc;"/>
+    <use xlink:href="default_ruler.svg#vgrid" style="stroke: #ccc;"/>
+    <use xlink:href="#square" stroke="black"/>
+  </g>
+  <rect  x="0" y="0" width="150" height="150"
+    style="fill: none; stroke: black; stroke-dasharray: 5 5;"/>
+</g>
+</svg>

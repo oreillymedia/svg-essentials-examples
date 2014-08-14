@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- (c) 2014 J D Eisenberg -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Example 1-5</title>
+  <link rel="stylesheet" type="text/css" href="../svg_style.css">
+  <script type="text/javascript" src="../svg_utils.js"></script>
+</head>
+
+<body onload="init();">
+
+<div id="svgInput">
+<div class="editable"><pre id="svgSource" contenteditable="true"></pre></div>
+<div id="svgOriginal">&lt;svg width="140" height="170"
+  <span class="highlight">xmlns:xlink="http://www.w3.org/1999/xlink"&gt;</span>
+&lt;title&gt;Cat&lt;/title&gt;
+&lt;desc&gt;Stick Figure of a Cat&lt;/desc&gt;
+
+&lt;circle cx="70" cy="95" r="50" style="stroke: black; fill: none;"/&gt;
+&lt;circle cx="55" cy="80" r="5" stroke="black" fill="#339933"/&gt;
+&lt;circle cx="85" cy="80" r="5" stroke="black" fill="#339933"/&gt;
+&lt;g id="whiskers"&gt;
+   &lt;line x1="75" y1="95" x2="135" y2="85" style="stroke: black;"/&gt;
+   &lt;line x1="75" y1="95" x2="135" y2="105" style="stroke: black;"/&gt;
+&lt;/g&gt;
+<span class="highlight">&lt;use xlink:href="#whiskers" transform="scale(-1 1) translate(-140 0)"/&gt;</span>
+
+&lt;/svg&gt;</div>
+<div id="svgError"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh();"/>
+  <input type="button" value="Reset" onclick="reset();"/>
+  <input type="checkbox" id="svgShowError" /> <!--Show SVG Errors-->
+</div>
+</div> <!-- svgInput-->
+
+<div id="svgOutput">
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <g id="svgMarkup"></g>
+  </svg>
+</div>
+
+</body>
+</html>
+

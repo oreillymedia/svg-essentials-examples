@@ -1,0 +1,22 @@
+template:: ch07/ch07_svg_template.html
+output:: ch07/moveto-lineto.html
+title:: moveto and lineto
+dimensions:: width="150" height="150" viewBox="0 0 150 150"
+markup::
+<svg width="150px" height="150px" viewBox="0 0 150 150">
+<g style="stroke: black; fill: none;">
+  <!-- single line -->
+  <path d="M 10 10 L 100 10"/>
+
+  <!-- a right angle -->
+  <path d="M 10, 20  L 100, 20  L  100,50"/>
+
+  <!-- two thirty-degree angles -->
+  <path d="M 40 60 L 10, 60 L 40 42.68
+    M 60, 60 L 90 60 L 60, 42.68"/>
+</g>
+</svg>
+
+!fill
+#=====================================
+

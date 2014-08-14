@@ -1,0 +1,61 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="200" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Animation of CSS</title>
+  <style type="text/css"><![CDATA[
+    .starStyle {
+      -webkit-animation-name: webStarAnim;
+      -webkit-animation-iteration-count: 4;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-timing-function: ease;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-play-state: running;
+      -webkit-animation-fill-mode: forwards;
+      animation-name: starAnim;
+      animation-duration: 2s;
+      animation-iteration-count: 4;
+      animation-direction: alternate;
+      animation-timing-function: ease;
+      animation-play-state: running;
+    }
+
+    @keyframes starAnim {
+      0% {
+        fill-opacity: 1.0;
+        stroke-width: 0;
+      }
+
+      100% {
+        fill-opacity: 0;
+        stroke-width: 6;
+      }
+    }
+
+    @-webkit-keyframes webStarAnim {
+      0% {
+        fill-opacity: 1.0;
+        stroke-width: 0;
+      }
+
+      100% {
+        fill-opacity: 0;
+        stroke-width: 6;
+      }
+    }
+    ]]>
+  </style>
+  <defs>
+    <g id="starDef">
+      <path d="M 38.042 -12.361 9.405 -12.944 -0.000 -40.000
+        -9.405 -12.944 -38.042 -12.361 -15.217 4.944
+        -23.511 32.361 0.000 16.000 23.511 32.361 15.217 4.944 Z"/>
+    </g>
+  </defs>
+  
+  <use id="star" class="starStyle" xlink:href="#starDef"
+    transform="translate(100, 100)"
+    style="fill: #008000; stroke: #008000"/>
+</svg>

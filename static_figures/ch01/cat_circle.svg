@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="140" height="170"
+  xmlns="http://www.w3.org/2000/svg">
+<title>Cat</title>
+<desc>Stick Figure of a Cat</desc>
+
+<circle cx="70" cy="95" r="50" style="stroke: black; fill: none"/>
+
+</svg>
