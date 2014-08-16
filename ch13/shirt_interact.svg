@@ -182,21 +182,21 @@
   </g>
 
   <g id="sliderGroup0" transform="translate( 230, 10 )">
-    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="-10" y="-5" width="40" height="110"/>
     <rect x="5" y="0" width="10" height="100" style="fill: red;"/>
     <line id="slide0" class="slider"
       x1="0" y1="0" x2="20" y2="0" />
   </g>
 
   <g id="sliderGroup1" transform="translate( 280, 10 )">
-    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="-10" y="-5" width="40" height="110"/>
     <rect x="5" y="0" width="10" height="100" style="fill: green;"/>
     <line id="slide1" class="slider"
       x1="0" y1="0" x2="20" y2="0" />
   </g>
 
   <g id="sliderGroup2" transform="translate( 330, 10 )">
-    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="-10" y="-5" width="40" height="110"/>
     <rect x="5" y="0" width="10" height="100" style="fill: blue;"/>
     <line id="slide2" class="slider"
       x1="0" y1="0" x2="20" y2="0" />

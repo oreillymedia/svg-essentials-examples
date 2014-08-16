@@ -140,6 +140,28 @@
 
   // ]]>
   </script>
+
+  <style type="text/css" > <![CDATA[
+    svg { /* default values */
+      stroke: black;
+      fill: white;
+    }
+    g.selected rect {
+      fill: #ffc; /* light yellow */
+    }
+    text {
+      stroke: none;
+      fill:black;
+      text-anchor: middle;
+    }
+    g.slider rect {
+      stroke: none; /* default white fill still applies */
+    }
+    line.slider {
+      stroke: gray;
+      stroke-width: 2;
+    }
+  ]]></style>
   
   <defs>
     <path id="shirt-outline" 
@@ -150,7 +172,7 @@
   </defs>
 
   <rect id="eventCatcher" x="0" y="0" width="400" height="300"
-    style="fill: none; sroke: none"
+    style="fill: none; stroke: none"
     pointer-events="visible"/>
 
   <g id="shirt" style="fill:white">
@@ -179,24 +201,24 @@
   </g>
   
   <g id="sliderGroup0" transform="translate(230, 10)">
-    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="-10" y="-5" width="40" height="110"/>
     <rect x="5" y="0" width="10" height="100" style="fill: red;"/>
-    <line id="slide0" x1="0" y1="0" x2="20" y2="0"
-      style="stroke: gray; stroke-width: 2;"/>
+    <line id="slide0" class="slider"
+      x1="0" y1="0" x2="20" y2="0"/>
   </g>
 
   <g id="sliderGroup1" transform="translate(280, 10)">
-    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="-10" y="-5" width="40" height="110"/>
     <rect x="5" y="0" width="10" height="100" style="fill: green;"/>
-    <line id="slide1" x1="0" y1="0" x2="20" y2="0"
-      style="stroke: gray; stroke-width: 2;"/>
+    <line id="slide1" class="slider"
+      x1="0" y1="0" x2="20" y2="0"/>
   </g>
 
   <g id="sliderGroup2" transform="translate( 330, 10 )">
-    <rect x="-10" y="-5" width="40" height="110" style="fill: white;"/>
+    <rect x="-10" y="-5" width="40" height="110"/>
     <rect x="5" y="0" width="10" height="100" style="fill: blue;"/>
-    <line id="slide2" x1="0" y1="0" x2="20" y2="0"
-      style="stroke: gray; stroke-width: 2;"/>
+    <line id="slide2" class="slider"
+      x1="0" y1="0" x2="20" y2="0"/>
   </g>
 
 </svg>
