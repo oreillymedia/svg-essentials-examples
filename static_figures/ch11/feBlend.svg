@@ -6,6 +6,9 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Example feBlend - Examples of feBlend modes</title>
+  <style type="text/css"><![CDATA[
+    .mono { font-family: 'Liberation Mono', 'Courier New', monospace;}
+  ]]></style>
   <desc>A solid gray bar blended into a series of color squares,
           one for each of the five feBlend modes.</desc>
   <defs>
@@ -66,7 +69,7 @@
     </g>
   </defs>
   
-  <text x="260" y="55" style="text-anchor:middle;">original</text>
+  <text x="240" y="55">Original</text>
   <text x="70" y="30" style="text-anchor: middle;">Opaque</text>
   <text x="180" y="30" style="text-anchor: middle;">50% Opaque</text>
 
@@ -75,22 +78,22 @@
 
     <use xlink:href="#grays" transform="translate(0,30)"
       style="filter: url(#Normal);"/>
-    <text x="220" y="45">normal</text>
+    <text x="220" y="45" class="mono">normal</text>
       
     <use xlink:href="#grays" transform="translate(0,60)"
       style="filter: url(#Multiply);"/>
-    <text x="220" y="75">multiply</text>
+    <text x="220" y="75" class="mono">multiply</text>
 
     <use xlink:href="#grays" transform="translate(0,90)"
       filter="url(#Screen)"/>
-    <text x="220" y="105">screen</text>
+    <text x="220" y="105" class="mono">screen</text>
 
     <use xlink:href="#grays" transform="translate(0,120)"
       style="filter: url(#Darken);"/>
-    <text x="220" y="135">darken</text>
+    <text x="220" y="135" class="mono">darken</text>
 
     <use xlink:href="#grays" transform="translate(0,150)"
       style="filter: url(#Lighten);"/>
-    <text x="220" y="165">lighten</text>
+    <text x="220" y="165" class="mono">lighten</text>
   </g>
 </svg>

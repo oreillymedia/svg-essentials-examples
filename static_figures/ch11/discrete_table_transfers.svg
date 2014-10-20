@@ -44,25 +44,25 @@
     </g>
   </defs>
 
-  <g transform="translate(10, 10)">
+  <g transform="translate(10, 10)" style="font-family: 'Liberation Sans', 'Helvetica', sans-serif">
     <use xlink:href="#green-bar" transform="translate(0,0)"/>
     <text x="210" y="20">Original</text>
 
     <use xlink:href="#green-bar" transform="translate(0,40)"
       style="filter: url(#table-filter);"/>
     <text x="210" y="60">
-      <tspan style="font-family: Courier;">table</tspan> transfer
+      <tspan style="font-family: Courier, monospace;">table</tspan> transfer
     </text>
 
     <use xlink:href="#green-bar" transform="translate(0,80)" 
       style="filter: url(#discrete-filter);"/>
     <text x="210" y="100">
-      <tspan  font-family="Courier">discrete</tspan> transfer
+      <tspan  font-family="Courier, monospace">discrete</tspan> transfer
     </text>
 
     <use xlink:href="#green-bar" transform="translate(0,120)" 
       style="filter: url(#invert-filter);"/>
-    <text x="210" y="140">inverted color</text>
+    <text x="210" y="140">Inverted color</text>
 
     <path d="M 50 0 v150 M 100 0 v150 M 150 0 v180"
       style="stroke: white; fill: none;"/>
