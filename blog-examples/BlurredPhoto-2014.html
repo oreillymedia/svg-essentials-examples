@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>SVG Blurred Photo Webpage</title>
+   <style>
+main, article {display: block; }
+body, .container, svg.cover {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; 
+}
+.container {
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+svg.cover {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100vw; 
+  z-index: -1;
+}
+.right40 {
+  float: right;
+  margin-right: 0.5em;
+  width: 40%;
+}
+.h-text {
+  text-transform: uppercase;
+  font-size: 300%; 
+  color: #FD1;
+  fill: currentColor;
+}
+.h-text-splash {
+  font-size: 500%;
+}
+a {
+  color: navy ;
+  text-decoration: none;
+}
+a:visited {
+  color: #225;
+}
+a:hover, a:focus {
+  border-bottom: solid thin;
+}
+.overlay {
+  background: rgba(100%, 100%, 95%, 0.5);
+  padding: 0.1em 0.5em;
+  border-radius: 0.5em;
+}
+.blur{
+  filter: url(#blur);
+}
+.toggle-target:target .remove-filter {
+  filter: none;
+}
+.fade, .show {
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+          transition: opacity 1s;
+}
+.toggle-target:target .fade {
+  opacity: 0;
+  pointer-events: none;
+}
+.toggle-target:not(:target) .show {
+  opacity: 0;
+  pointer-events: none;
+}
+@media (max-width: 35em) {
+  .right40 {
+    float: none;
+    width: auto;
+    margin: auto;
+  }
+  .overlay {
+    background: rgba(100%, 100%, 95%, 0.75);
+  }
+
+}
+   </style>
+</head>
+<body>
+<article id="welcome" class="toggle-target container" 
+  style="background-color:#58B">
+<svg class="cover" >
+  <desc>Ripe strawberry against a sunny sky</desc>
+  <defs color-interpolation-filters="sRGB">
+	<filter id="blur" x="0" y="0" height="100%" width="100%">
+	  <feGaussianBlur stdDeviation="10" />
+	</filter>
+  </defs>
+  <image class="blur remove-filter"
+            xlink:href="Strawberry.JPG" 
+            width="100%" height="100%" preserveAspectRatio="xMinYMid slice" />
+  <a href="#welcome" xlink:href="#welcome" ><text class="h-text h-text-splash fade" 
+            x="90%" y="50%" text-anchor="end" dominant-baseline="central">Enter</text></a>
+</svg>  
+<main class="show right40">
+  <h1 class="h-text">WELCOME</h1>
+  <div class="overlay">
+  	<p>Our superb summer strawberries will make you feel like the sun is shining even on a cloudy day.  Yes, they <I>are</I> that tasty.  Some would say scrumptious.  Would you?  Try for yourself at <a HREF="http://shop.oreilly.com/product/0636920032335.do">O&apos;Reilly&apos;s Strawberry Farm</a>.</p>
+  <div>
+</main>
+</article>
+
+</body>
+</html>

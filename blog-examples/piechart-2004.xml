@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="piechart.xslt"?>
+<pie>
+  <slice label="Retevisión" percent="49" colour="#99f" />
+  <slice label="Media Park" percent="15" colour="#936" />
+  <slice label="Sofisclave-98" percent="15" colour="#ffc" />
+  <slice label="Carlton" percent="7.5" colour="#cff" />
+  <slice label="Ivercatalunya cable" percent="3.5" colour="#606" />
+  <slice label="Caixa Vigo i Ourense" percent="2.5" colour="#f99" />
+  <slice label="CAM" percent="1.5" colour="#06c" />
+  <slice label="Euscaltel" percent="1.5" colour="#ccf" />
+  <slice label="CAN" percent="1.5" colour="#006" />
+  <slice label="BBK" percent="1" colour="#f0f" />
+  <slice label="Kutxa" percent="1" colour="#ff0" />
+  <total>99</total>
+</pie>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Dynamic SVG Pie Chart Built with NVD3.js</title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js"></script>
+</head>
+
+<body>
+
+  <div id='chart'>
+    <svg style='width: 800px; height: 500px'> </svg>
+  </div>
+  <script type="text/javascript">
+  var data =  [
+      {"label": "Retevisión", "value": 49},
+      {"label": "Media Park", "value": 15},
+      {"label": "Sofisclave-98", "value": 15},
+      {"label": "Carlton", "value": 7.5},
+      {"label": "Ivercatalunya cable", "value": 3.5},
+      {"label": "Caixa Vigo i Ourense", "value": 2.5},
+      {"label": "CAM", "value": 1.5},
+      {"label": "Euscaltel", "value": 1.5},
+      {"label": "CAN", "value": 1.5},
+      {"label": "BBK", "value": 1},
+      {"label": "Kutxa", "value": 1},
+  ];
+
+
+  nv.addGraph(function() {
+  var chart = nv.models.pieChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .showLabels(true);
+
+    chart.color(['#99f', '#936', '#ffc', '#cff', '#606', '#f99',
+        '#06c', '#ccf', '#006', '#f0f', '#ff0']);
+        
+    d3.select("#chart svg")
+        .datum(data)
+      .transition().duration(1200)
+        .call(chart);
+
+  return chart;
+});
+
+  </script>
