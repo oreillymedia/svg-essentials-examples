@@ -1,0 +1,17 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+th {
+  border-bottom: 1px solid gray;
+  margin-bottom: 0.25em;
+}
+
+th, td {
+  padding-right: 0.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
