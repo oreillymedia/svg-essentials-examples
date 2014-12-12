@@ -26,7 +26,7 @@ To save on typing long URLs, here's an index of all the interactive examples:
   * [Explicit use of units](http://oreillymedia.github.io/svg-essentials-examples/ch03/explicit_units.html)
   * [Units on the svg element](http://oreillymedia.github.io/svg-essentials-examples/ch03/units_on_svg.html)
   * [Using a viewBox](http://oreillymedia.github.io/svg-essentials-examples/ch03/using_viewbox.html)
-  * [Using preserveAspectRatio]("http://oreillymedia.github.io/svg-essentials-examples/ch03/meet_slice_specifier.html")
+  * [Using preserveAspectRatio](http://oreillymedia.github.io/svg-essentials-examples/ch03/meet_slice_specifier.html)
 - Chapter 4. Basic Shapes
   * [Basic lines](http://oreillymedia.github.io/svg-essentials-examples/ch04/basic-lines.html)
   * [Demonstration of stroke-width](http://oreillymedia.github.io/svg-essentials-examples/ch04/stroke-width.html)
