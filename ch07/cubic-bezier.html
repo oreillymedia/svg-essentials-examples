@@ -93,7 +93,7 @@ function updatePaths()
   obj.setAttribute("cy", cp2Y);
   
   path = '&lt;path d="M 40 50 C <span class="cp1">' + cp1X + " " + cp1Y +
-    '</span> <span class="cp2">'  + cp2X + " " + cp2Y + "</span> 110 50/&gt;";
+    '</span> <span class="cp2">'  + cp2X + " " + cp2Y + '</span> 110 50"/&gt;';
   document.getElementById("bezierSource").innerHTML = path;
   
   // Finally, the guide lines
